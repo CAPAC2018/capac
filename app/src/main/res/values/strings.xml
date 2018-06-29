@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">capac2018</string>
+    <string name="welcome_to_capac2018">Welcome to capac2018!</string>
+    <string name="sign_in">Sign in</string>
+    <string name="register">Register</string>
+    <string name="title_activity_my_dashboard">MyDashboard</string>
+</resources>
