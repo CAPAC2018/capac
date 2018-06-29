@@ -8,3 +8,13 @@
 /build
 /captures
 .externalNativeBuild
+/AndroidApp/*.iml
+/AndroidApp/.gradle
+/AndroidApp/local.properties
+/AndroidApp/.idea/libraries
+/AndroidApp/.idea/modules.xml
+/AndroidApp/.idea/workspace.xml
+/AndroidApp/.DS_Store
+/AndroidApp/build
+/AndroidApp/captures
+/AndroidApp/.externalNativeBuild
