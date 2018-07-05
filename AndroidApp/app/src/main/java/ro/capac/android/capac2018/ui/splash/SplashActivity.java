@@ -27,6 +27,7 @@ import ro.capac.android.capac2018.ui.main.MainActivity;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import ro.capac.android.capac2018.ui.top.TopActivity;
 
 
 /**
@@ -59,8 +60,9 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
      * Making the screen wait so that the  branding can be shown
      */
     @Override
-    public void openLoginActivity() {
-        Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
+    public void openTopActivity() {
+        //Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
+        Intent intent = TopActivity.getStartIntent(SplashActivity.this);
         startActivity(intent);
         finish();
     }
