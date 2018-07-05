@@ -31,16 +31,26 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mindorks.framework.mvp.MvpApp;
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.di.component.ActivityComponent;
-import com.mindorks.framework.mvp.di.component.DaggerActivityComponent;
-import com.mindorks.framework.mvp.di.module.ActivityModule;
-import com.mindorks.framework.mvp.ui.login.LoginActivity;
-import com.mindorks.framework.mvp.utils.CommonUtils;
-import com.mindorks.framework.mvp.utils.NetworkUtils;
+import ro.capac.android.capac2018.MvpApp;
+import ro.capac.android.capac2018.di.module.ActivityModule;
+import ro.capac.android.capac2018.ui.login.LoginActivity;
+import ro.capac.android.capac2018.utils.CommonUtils;
+import ro.capac.android.capac2018.utils.NetworkUtils;
+import ro.capac.android.capac2018.MvpApp;
+import ro.capac.android.capac2018.R;
+import ro.capac.android.capac2018.di.component.ActivityComponent;
+import ro.capac.android.capac2018.di.component.DaggerActivityComponent;
+import ro.capac.android.capac2018.di.module.ActivityModule;
+import ro.capac.android.capac2018.ui.login.LoginActivity;
+import ro.capac.android.capac2018.utils.CommonUtils;
+import ro.capac.android.capac2018.utils.NetworkUtils;
 
 import butterknife.Unbinder;
+import ro.capac.android.capac2018.MvpApp;
+import ro.capac.android.capac2018.di.module.ActivityModule;
+import ro.capac.android.capac2018.ui.login.LoginActivity;
+import ro.capac.android.capac2018.utils.CommonUtils;
+import ro.capac.android.capac2018.utils.NetworkUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**

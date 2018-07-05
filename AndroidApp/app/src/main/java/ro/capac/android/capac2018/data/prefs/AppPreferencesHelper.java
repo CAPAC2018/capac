@@ -18,13 +18,20 @@ package ro.capac.android.capac2018.data.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.di.ApplicationContext;
-import com.mindorks.framework.mvp.di.PreferenceInfo;
-import com.mindorks.framework.mvp.utils.AppConstants;
+import ro.capac.android.capac2018.di.ApplicationContext;
+import ro.capac.android.capac2018.di.PreferenceInfo;
+import ro.capac.android.capac2018.utils.AppConstants;
+import ro.capac.android.capac2018.data.DataManager;
+import ro.capac.android.capac2018.di.ApplicationContext;
+import ro.capac.android.capac2018.di.PreferenceInfo;
+import ro.capac.android.capac2018.utils.AppConstants;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import ro.capac.android.capac2018.di.ApplicationContext;
+import ro.capac.android.capac2018.di.PreferenceInfo;
+import ro.capac.android.capac2018.utils.AppConstants;
 
 /**
  * Created by janisharali on 27/01/17.

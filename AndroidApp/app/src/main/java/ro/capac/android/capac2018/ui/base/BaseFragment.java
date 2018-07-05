@@ -23,10 +23,12 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import com.mindorks.framework.mvp.di.component.ActivityComponent;
-import com.mindorks.framework.mvp.utils.CommonUtils;
+import ro.capac.android.capac2018.utils.CommonUtils;
+import ro.capac.android.capac2018.di.component.ActivityComponent;
+import ro.capac.android.capac2018.utils.CommonUtils;
 
 import butterknife.Unbinder;
+import ro.capac.android.capac2018.utils.CommonUtils;
 
 /**
  * Created by janisharali on 27/01/17.

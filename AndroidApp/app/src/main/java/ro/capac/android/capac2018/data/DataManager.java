@@ -16,11 +16,17 @@
 package ro.capac.android.capac2018.data;
 
 
-import com.mindorks.framework.mvp.data.db.DbHelper;
-import com.mindorks.framework.mvp.data.network.ApiHelper;
-import com.mindorks.framework.mvp.data.prefs.PreferencesHelper;
+import ro.capac.android.capac2018.data.db.DbHelper;
+import ro.capac.android.capac2018.data.network.ApiHelper;
+import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
+import ro.capac.android.capac2018.data.db.DbHelper;
+import ro.capac.android.capac2018.data.network.ApiHelper;
+import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
 
 import io.reactivex.Observable;
+import ro.capac.android.capac2018.data.db.DbHelper;
+import ro.capac.android.capac2018.data.network.ApiHelper;
+import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
 
 /**
  * Created by janisharali on 27/01/17.

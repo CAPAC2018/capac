@@ -15,7 +15,7 @@
 
 package ro.capac.android.capac2018.data.network;
 
-import com.mindorks.framework.mvp.BuildConfig;
+import ro.capac.android.capac2018.BuildConfig;
 
 /**
  * Created by amitshekhar on 01/02/17.

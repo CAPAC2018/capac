@@ -15,11 +15,14 @@
 
 package ro.capac.android.capac2018.data.db;
 
-import com.mindorks.framework.mvp.data.db.model.DaoMaster;
-import com.mindorks.framework.mvp.data.db.model.DaoSession;
-import com.mindorks.framework.mvp.data.db.model.Option;
-import com.mindorks.framework.mvp.data.db.model.Question;
-import com.mindorks.framework.mvp.data.db.model.User;
+import ro.capac.android.capac2018.data.db.model.DaoMaster;
+import ro.capac.android.capac2018.data.db.model.DaoSession;
+import ro.capac.android.capac2018.data.db.model.Option;
+import ro.capac.android.capac2018.data.db.model.Question;
+import ro.capac.android.capac2018.data.db.model.User;
+import ro.capac.android.capac2018.data.db.model.Option;
+import ro.capac.android.capac2018.data.db.model.Question;
+import ro.capac.android.capac2018.data.db.model.User;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -28,6 +31,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
+import ro.capac.android.capac2018.data.db.model.Option;
+import ro.capac.android.capac2018.data.db.model.Question;
+import ro.capac.android.capac2018.data.db.model.User;
 
 
 /**

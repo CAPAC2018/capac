@@ -21,11 +21,18 @@ import ro.capac.android.capac2018.data.db.model.DaoMaster;
 import ro.capac.android.capac2018.di.ApplicationContext;
 import ro.capac.android.capac2018.di.DatabaseInfo;
 import ro.capac.android.capac2018.utils.AppLogger;
+import ro.capac.android.capac2018.di.ApplicationContext;
+import ro.capac.android.capac2018.di.DatabaseInfo;
+import ro.capac.android.capac2018.utils.AppLogger;
 
 import org.greenrobot.greendao.database.Database;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import ro.capac.android.capac2018.di.ApplicationContext;
+import ro.capac.android.capac2018.di.DatabaseInfo;
+import ro.capac.android.capac2018.utils.AppLogger;
 
 /**
  * Created by janisharali on 08/12/16.

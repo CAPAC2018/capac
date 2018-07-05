@@ -19,11 +19,12 @@ import android.app.Application;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.interceptors.HttpLoggingInterceptor.Level;
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.di.component.ApplicationComponent;
-import com.mindorks.framework.mvp.di.component.DaggerApplicationComponent;
-import com.mindorks.framework.mvp.di.module.ApplicationModule;
-import com.mindorks.framework.mvp.utils.AppLogger;
+import ro.capac.android.capac2018.BuildConfig;
+import ro.capac.android.capac2018.data.DataManager;
+import ro.capac.android.capac2018.di.component.ApplicationComponent;
+import ro.capac.android.capac2018.di.component.DaggerApplicationComponent;
+import ro.capac.android.capac2018.di.module.ApplicationModule;
+import ro.capac.android.capac2018.utils.AppLogger;
 
 import javax.inject.Inject;
 

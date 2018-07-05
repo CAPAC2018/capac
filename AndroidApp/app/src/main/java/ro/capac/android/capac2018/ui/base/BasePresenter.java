@@ -23,19 +23,27 @@ import android.util.Log;
 
 import com.androidnetworking.common.ANConstants;
 import com.androidnetworking.error.ANError;
+import ro.capac.android.capac2018.data.DataManager;
+import ro.capac.android.capac2018.data.network.model.ApiError;
+import ro.capac.android.capac2018.utils.AppConstants;
+import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import com.mindorks.framework.mvp.R;
-import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.data.network.model.ApiError;
-import com.mindorks.framework.mvp.utils.AppConstants;
-import com.mindorks.framework.mvp.utils.rx.SchedulerProvider;
+import ro.capac.android.capac2018.R;
+import ro.capac.android.capac2018.data.DataManager;
+import ro.capac.android.capac2018.data.network.model.ApiError;
+import ro.capac.android.capac2018.utils.AppConstants;
+import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 import javax.net.ssl.HttpsURLConnection;
 
 import io.reactivex.disposables.CompositeDisposable;
+import ro.capac.android.capac2018.data.DataManager;
+import ro.capac.android.capac2018.data.network.model.ApiError;
+import ro.capac.android.capac2018.utils.AppConstants;
+import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
 /**
  * Base class that implements the Presenter interface and provides a base implementation for

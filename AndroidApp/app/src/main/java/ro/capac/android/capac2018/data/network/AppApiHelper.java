@@ -15,17 +15,25 @@
 
 package ro.capac.android.capac2018.data.network;
 
-import com.mindorks.framework.mvp.data.network.model.BlogResponse;
-import com.mindorks.framework.mvp.data.network.model.LoginRequest;
-import com.mindorks.framework.mvp.data.network.model.LoginResponse;
-import com.mindorks.framework.mvp.data.network.model.LogoutResponse;
-import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
+import ro.capac.android.capac2018.data.network.model.LoginRequest;
+import ro.capac.android.capac2018.data.network.model.LoginResponse;
+import ro.capac.android.capac2018.data.network.model.LogoutResponse;
+import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
+import ro.capac.android.capac2018.data.network.model.BlogResponse;
+import ro.capac.android.capac2018.data.network.model.LoginRequest;
+import ro.capac.android.capac2018.data.network.model.LoginResponse;
+import ro.capac.android.capac2018.data.network.model.LogoutResponse;
+import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Single;
+import ro.capac.android.capac2018.data.network.model.LoginRequest;
+import ro.capac.android.capac2018.data.network.model.LoginResponse;
+import ro.capac.android.capac2018.data.network.model.LogoutResponse;
+import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
 
 /**
  * Created by janisharali on 28/01/17.

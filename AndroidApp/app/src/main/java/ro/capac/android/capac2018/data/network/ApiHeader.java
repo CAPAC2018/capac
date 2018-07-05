@@ -15,12 +15,15 @@
 
 package ro.capac.android.capac2018.data.network;
 
+import ro.capac.android.capac2018.di.ApiInfo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.mindorks.framework.mvp.di.ApiInfo;
+import ro.capac.android.capac2018.di.ApiInfo;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
+import ro.capac.android.capac2018.di.ApiInfo;
 
 /**
  * Created by janisharali on 27/01/17.

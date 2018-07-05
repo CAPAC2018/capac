@@ -15,7 +15,7 @@
 
 package ro.capac.android.capac2018.data.prefs;
 
-import com.mindorks.framework.mvp.data.DataManager;
+import ro.capac.android.capac2018.data.DataManager;
 
 /**
  * Created by janisharali on 27/01/17.

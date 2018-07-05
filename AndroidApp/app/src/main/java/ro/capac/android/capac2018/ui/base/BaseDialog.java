@@ -32,7 +32,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.RelativeLayout;
 
-import com.mindorks.framework.mvp.di.component.ActivityComponent;
+import ro.capac.android.capac2018.di.component.ActivityComponent;
 
 import butterknife.Unbinder;
 

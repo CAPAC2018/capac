@@ -15,6 +15,9 @@
 
 package ro.capac.android.capac2018.data.db.model;
 
+import ro.capac.android.capac2018.data.db.model.DaoSession;
+import ro.capac.android.capac2018.data.db.model.OptionDao;
+import ro.capac.android.capac2018.data.db.model.QuestionDao;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

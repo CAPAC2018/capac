@@ -15,13 +15,12 @@
 
 package ro.capac.android.capac2018.data.db;
 
-import com.mindorks.framework.mvp.data.db.model.Option;
-import com.mindorks.framework.mvp.data.db.model.Question;
-import com.mindorks.framework.mvp.data.db.model.User;
-
 import java.util.List;
 
 import io.reactivex.Observable;
+import ro.capac.android.capac2018.data.db.model.Option;
+import ro.capac.android.capac2018.data.db.model.Question;
+import ro.capac.android.capac2018.data.db.model.User;
 
 
 /**
