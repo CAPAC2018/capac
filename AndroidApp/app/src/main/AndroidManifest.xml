@@ -50,6 +50,16 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name="ro.capac.android.capac2018.ui.top.TopActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="ro.capac.android.capac2018.ui.registration.RegistrationActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name="ro.capac.android.capac2018.ui.feed.FeedActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".ui.main.MainActivity"

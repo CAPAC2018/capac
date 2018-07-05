@@ -23,7 +23,7 @@ import ro.capac.android.capac2018.ui.base.MvpView;
 
 public interface SplashMvpView extends MvpView {
 
-    void openLoginActivity();
+    void openTopActivity();
 
     void openMainActivity();
 

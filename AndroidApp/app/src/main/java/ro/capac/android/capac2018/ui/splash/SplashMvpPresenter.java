@@ -17,10 +17,7 @@ package ro.capac.android.capac2018.ui.splash;
 
 
 import ro.capac.android.capac2018.di.PerActivity;
-import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.ui.base.MvpPresenter;
-
-import ro.capac.android.capac2018.di.PerActivity;
 
 /**
  * Created by janisharali on 27/01/17.
