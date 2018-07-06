@@ -36,21 +36,12 @@ import ro.capac.android.capac2018.di.module.ActivityModule;
 import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.utils.CommonUtils;
 import ro.capac.android.capac2018.utils.NetworkUtils;
-import ro.capac.android.capac2018.MvpApp;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.di.component.DaggerActivityComponent;
-import ro.capac.android.capac2018.di.module.ActivityModule;
-import ro.capac.android.capac2018.ui.login.LoginActivity;
-import ro.capac.android.capac2018.utils.CommonUtils;
-import ro.capac.android.capac2018.utils.NetworkUtils;
+
 
 import butterknife.Unbinder;
-import ro.capac.android.capac2018.MvpApp;
-import ro.capac.android.capac2018.di.module.ActivityModule;
-import ro.capac.android.capac2018.ui.login.LoginActivity;
-import ro.capac.android.capac2018.utils.CommonUtils;
-import ro.capac.android.capac2018.utils.NetworkUtils;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**

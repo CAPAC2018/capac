@@ -21,6 +21,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.main.MainActivity;
@@ -97,4 +102,5 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
     protected void setUp() {
 
     }
+
 }
