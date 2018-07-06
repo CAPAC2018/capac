@@ -17,7 +17,7 @@ import butterknife.OnClick;
 public class TopActivity extends BaseActivity implements TopMvpView {
 
     @Inject
-    TopMvpPresenter<TopActivity> mPresenter;
+    TopMvpPresenter<TopMvpView> mPresenter;
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, TopActivity.class);
