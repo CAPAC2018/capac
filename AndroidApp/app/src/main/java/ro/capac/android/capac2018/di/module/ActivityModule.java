@@ -50,6 +50,9 @@ import ro.capac.android.capac2018.ui.main.rating.RatingDialogPresenter;
 import ro.capac.android.capac2018.ui.splash.SplashMvpPresenter;
 import ro.capac.android.capac2018.ui.splash.SplashMvpView;
 import ro.capac.android.capac2018.ui.splash.SplashPresenter;
+import ro.capac.android.capac2018.ui.top.TopMvpPresenter;
+import ro.capac.android.capac2018.ui.top.TopMvpView;
+import ro.capac.android.capac2018.ui.top.TopPresenter;
 import ro.capac.android.capac2018.utils.rx.AppSchedulerProvider;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
@@ -97,6 +100,12 @@ public class ActivityModule {
     @PerActivity
     SplashMvpPresenter<SplashMvpView> provideSplashPresenter(
             SplashPresenter<SplashMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    TopMvpPresenter<TopMvpView> provideTopPresenter(TopPresenter<TopMvpView> presenter) {
         return presenter;
     }
 
