@@ -47,6 +47,7 @@ import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.ui.main.MainActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
 import ro.capac.android.capac2018.ui.splash.SplashActivity;
+import ro.capac.android.capac2018.ui.top.TopActivity;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -71,5 +72,8 @@ public interface ActivityComponent {
     void inject(BlogFragment fragment);
 
     void inject(RateUsDialog dialog);
+
+    void inject(TopActivity activity);
+
 
 }
