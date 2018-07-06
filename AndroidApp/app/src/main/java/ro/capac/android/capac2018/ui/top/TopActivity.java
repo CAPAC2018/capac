@@ -53,8 +53,8 @@ public class TopActivity extends BaseActivity implements TopMvpView {
         startActivity(intent);
         finish();
     }
-    @OnClick(R.id.btn_register)
 
+    @OnClick(R.id.btn_register)
     public void openRegistrationActivity(){
         Intent intent = RegistrationActivity.getStartIntent(TopActivity.this);
         startActivity(intent);
