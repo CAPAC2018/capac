@@ -25,6 +25,7 @@ import ro.capac.android.capac2018.ui.feed.opensource.OpenSourceFragment;
 import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.ui.main.MainActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
+import ro.capac.android.capac2018.ui.registration.RegistrationActivity;
 import ro.capac.android.capac2018.ui.splash.SplashActivity;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
@@ -53,6 +54,5 @@ public interface ActivityComponent {
     void inject(RateUsDialog dialog);
 
     void inject(TopActivity activity);
-
 
 }
