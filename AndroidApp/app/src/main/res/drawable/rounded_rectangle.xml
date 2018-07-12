@@ -16,4 +16,11 @@
             <stroke android:width="2dp" android:color="#A2C7E5"></stroke>
         </shape>
     </item>
+    <item android:state_activated="true">
+        <shape>
+            <solid android:color="#10000000"></solid>
+            <corners android:radius="40dp"></corners>
+            <stroke android:width="2dp" android:color="#ff0000"></stroke>
+        </shape>
+    </item>
 </selector>

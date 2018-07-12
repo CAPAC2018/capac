@@ -43,13 +43,15 @@
                 android:drawablePadding="5dp"
                 android:padding="5dp"
                 android:layout_marginBottom="15dp"
-                android:id="@+id/user_name"
+                android:id="@+id/registration_user_name"
+                android:inputType="textPersonName"
                 />
             <AutoCompleteTextView
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
+                android:inputType="textEmailAddress"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/rounded_rectangle"
@@ -65,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone"
+                android:inputType="phone"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/rounded_rectangle"
@@ -115,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:text="I agree to your terms &amp; conditions"
                 android:layout_gravity="center"
-                android:id="@+id/checkbox_terms_and_conditions"
+                android:id="@+id/registration_checkbox_terms_and_conditions"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:textSize="15sp"
@@ -133,6 +136,7 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:focusable="true"
+                android:id="@+id/registration_button"
                 />
         </LinearLayout>
     </ScrollView>

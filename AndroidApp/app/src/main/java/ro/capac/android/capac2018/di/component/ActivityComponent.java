@@ -55,4 +55,6 @@ public interface ActivityComponent {
 
     void inject(TopActivity activity);
 
+    void inject(RegistrationActivity activity);
+
 }

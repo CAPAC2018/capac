@@ -47,6 +47,10 @@ import ro.capac.android.capac2018.ui.main.MainPresenter;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogMvpPresenter;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogMvpView;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogPresenter;
+import ro.capac.android.capac2018.ui.registration.RegistrationMvpPresenter;
+import ro.capac.android.capac2018.ui.registration.RegistrationMvpView;
+import ro.capac.android.capac2018.ui.registration.RegistrationPresenter;
+import ro.capac.android.capac2018.ui.registration.RegistrationPresenter_Factory;
 import ro.capac.android.capac2018.ui.splash.SplashMvpPresenter;
 import ro.capac.android.capac2018.ui.splash.SplashMvpView;
 import ro.capac.android.capac2018.ui.splash.SplashPresenter;
@@ -106,6 +110,12 @@ public class ActivityModule {
     @Provides
     @PerActivity
     TopMvpPresenter<TopMvpView> provideTopPresenter(TopPresenter<TopMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    RegistrationMvpPresenter<RegistrationMvpView> provideRegistrationPresenter(RegistrationPresenter<RegistrationMvpView> presenter) {
         return presenter;
     }
 
