@@ -20,94 +20,84 @@
         android:textAppearance="@style/TextAppearence.App.TextInputLayout"
         android:textSize="24sp" />
 
-    <ScrollView
-        android:layout_width="match_parent"
+
+    <AutoCompleteTextView
+        android:id="@+id/et_email"
+        style="@style/TextStyle.EditText"
+        android:layout_width="294dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/logo_registration_view">
+        android:layout_below="@+id/logo_registration_view"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_rectangle"
+        android:drawableLeft="@drawable/my_person"
+        android:drawablePadding="5dp"
+        android:hint="Name or Email"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:textSize="15sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:layout_marginStart="30dp"
-            android:orientation="vertical">
+    <AutoCompleteTextView
+        android:id="@+id/et_password"
+        style="@style/TextStyle.EditText"
+        android:layout_width="294dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/rounded_rectangle"
+        android:drawableLeft="@drawable/ic_lock"
+        android:drawablePadding="5dp"
+        android:hint="Password  "
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:textSize="15sp" />
 
-            <AutoCompleteTextView
-                android:id="@+id/et_email"
-                style="@style/TextStyle.EditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/rounded_rectangle"
-                android:drawableLeft="@drawable/my_person"
-                android:drawablePadding="5dp"
-                android:hint="Name or Email"
-                android:inputType="textPersonName"
-                android:padding="5dp"
-                android:textSize="15sp" />
+    <RadioButton
+        android:id="@+id/registration_checkbox_terms_and_conditions"
+        style="@style/TextStyle.EditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="177dp"
+        android:button="@drawable/round_checkbox"
+        android:padding="5dp"
+        android:text="Keep me signed in"
+        android:textColor="#3b4954"
+        android:textSize="15sp" />
 
-            <AutoCompleteTextView
-                android:id="@+id/et_password"
-                style="@style/TextStyle.EditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/rounded_rectangle"
-                android:drawableLeft="@drawable/ic_lock"
-                android:drawablePadding="5dp"
-                android:hint="Password  "
-                android:inputType="textPassword"
-                android:padding="5dp"
-                android:textSize="15sp" />
+    <Button
+        android:id="@+id/btn_server_login"
+        style="@style/TextAppearance.Text.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="235dp"
+        android:background="@drawable/register_button_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="LOGIN"
+        android:textColor="#3b4954"
+        android:textSize="20sp" />
 
-            <RadioButton
-                android:id="@+id/registration_checkbox_terms_and_conditions"
-                style="@style/TextStyle.EditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
-                android:button="@drawable/round_checkbox"
-                android:padding="5dp"
-                android:text="Keep me signed in"
-                android:textColor="#3b4954"
-                android:textSize="15sp" />
+    <Button
+        android:id="@+id/ib_google_login"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/logo_registration_view"
+        android:layout_marginBottom="223dp"
+        android:background="@drawable/ic_google_plus" />
 
-            <Button
-                android:id="@+id/btn_server_login"
-                style="@style/TextAppearance.Text.Bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/register_button_bg"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="LOGIN"
-                android:textColor="#3b4954"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/ib_google_login"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_google_plus" />
-
-            <Button
-                android:id="@+id/ib_fb_login"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_facebook" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
+    <Button
+        android:id="@+id/ib_fb_login"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/logo_registration_view"
+        android:layout_alignTop="@+id/ib_google_login"
+        android:background="@drawable/ic_facebook" />
 
 </RelativeLayout>
