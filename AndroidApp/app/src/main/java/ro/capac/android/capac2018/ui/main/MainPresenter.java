@@ -62,7 +62,7 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
 
                         getDataManager().setUserAsLoggedOut();
                         getMvpView().hideLoading();
-                        getMvpView().openLoginActivity();
+                        getMvpView().openTopActivity();
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -157,4 +157,5 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
         getMvpView().closeNavigationDrawer();
         getMvpView().openMyFeedActivity();
     }
+
 }

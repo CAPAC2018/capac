@@ -29,7 +29,7 @@ import ro.capac.android.capac2018.data.db.model.Question;
 
 public interface MainMvpView extends MvpView {
 
-    void openLoginActivity();
+    void openTopActivity();
 
     void showAboutFragment();
 

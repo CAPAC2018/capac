@@ -54,8 +54,8 @@ import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.custom.RoundedImageView;
 import ro.capac.android.capac2018.ui.feed.FeedActivity;
-import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
+import ro.capac.android.capac2018.ui.top.TopActivity;
 import ro.capac.android.capac2018.utils.ScreenUtils;
 
 /**
@@ -234,6 +234,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         if (drawable instanceof Animatable) {
             ((Animatable) drawable).start();
         }
+        return super.onOptionsItemSelected(item);
+        /*
         switch (item.getItemId()) {
             case R.id.action_cut:
                 return true;
@@ -245,7 +247,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
+
+        }*/
     }
 
     @Override
@@ -340,8 +343,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     }
 
     @Override
-    public void openLoginActivity() {
-        startActivity(LoginActivity.getStartIntent(this));
+    public void openTopActivity() {
+        startActivity(TopActivity.getStartIntent(this));
         finish();
     }
 
