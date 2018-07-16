@@ -26,7 +26,7 @@ import ro.capac.android.capac2018.utils.CommonUtils;
 public class RegistrationActivity extends BaseActivity implements RegistrationMvpView {
     @Inject
     RegistrationMvpPresenter<RegistrationMvpView> mPresenter;
-    //Declare Variables4
+    //declare Variables
     AutoCompleteTextView userName;
     AutoCompleteTextView userEmail;
     AutoCompleteTextView phoneNumber;
@@ -43,7 +43,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationMv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        //Initialize variables
+        //initialize variables
         userName = findViewById(R.id.registration_user_name);
         userEmail = findViewById(R.id.registration_user_email);
         phoneNumber = findViewById(R.id.registration_user_phone_number);
@@ -52,16 +52,13 @@ public class RegistrationActivity extends BaseActivity implements RegistrationMv
         registrationButton = findViewById(R.id.registration_button);
 
         getActivityComponent().inject(this);
-
         setUnBinder(ButterKnife.bind(this));
         mPresenter.onAttach(RegistrationActivity.this);
+    }
 
-        registrationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               mPresenter.onServerRegistrationClick(userEmail.getText().toString(), userPassword.getText().toString());
-            }
-        });
+    @OnClick(R.id.registration_button)
+    void onServerRegistrationClick(){
+        mPresenter.onServerRegistrationClick(userName.getText().toString(), userEmail.getText().toString(), phoneNumber.getText().toString(), userPassword.getText().toString());
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.androidnetworking.error.ANError;
 import io.reactivex.functions.Consumer;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.DataManager;
+import ro.capac.android.capac2018.data.db.model.User;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.ui.base.BasePresenter;
@@ -28,8 +29,9 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
     }
 
     @Override
-    public void onServerRegistrationClick(String email, String password) {
-        //validate email and password
+    public void onServerRegistrationClick(String userName, String email, String phoneNumber, String password) {
+
+        //validations
         if (email == null || email.isEmpty()) {
             getMvpView().onError(R.string.empty_email);
             getMvpView().emailInvalid();
@@ -43,8 +45,19 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
             getMvpView().onError(R.string.empty_password);
             return;
         }
+        if (userName == null || userName.isEmpty()) {
+            getMvpView().onError("Please provide a non empty user name");
+            return;
+        }
+        if (phoneNumber == null || phoneNumber.isEmpty()) {
+            getMvpView().onError("Please provide a non empty phone number");
+            return;
+        }
         getMvpView().showLoading();
 
+        User newUser = new User(userName,email,phoneNumber,password);
+
+        //TODO: Save newUser in database replace code below with proper one ASAP
         getCompositeDisposable().add(getDataManager()
                 .doServerLoginApiCall(new LoginRequest.ServerLoginRequest(email, password))
                 .subscribeOn(getSchedulerProvider().io())

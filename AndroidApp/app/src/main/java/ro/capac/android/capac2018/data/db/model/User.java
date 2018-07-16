@@ -39,6 +39,13 @@ public class User {
     @Property(nameInDb = "updated_at")
     private String updatedAt;
 
+    private String userName;
+
+    private String emailAdress;
+
+    private String phoneNumber;
+
+    private String password;
 
     @Generated(hash = 1543916479)
     public User(Long id, String name, String createdAt, String updatedAt) {
@@ -52,6 +59,12 @@ public class User {
     public User() {
     }
 
+    public User(String userName, String emailAdress, String phoneNumber, String password) {
+        this.userName = userName;
+        this.emailAdress = emailAdress;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
 
     public Long getId() {
         return this.id;
@@ -83,5 +96,37 @@ public class User {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getEmailAdress() {
+        return emailAdress;
+    }
+
+    public void setEmailAdress(String emailAdress) {
+        this.emailAdress = emailAdress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

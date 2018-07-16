@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.registration.RegistrationActivity"
-    android:background="@drawable/gradiend_background">
+    android:background="#FFF"
+    android:clipChildren="false"
+    android:clipToPadding="false">
     <TextView
         style="@style/TextStyle.Title"
         android:id="@+id/logo_registration_view"
@@ -23,7 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_below="@id/logo_registration_view">
+        android:layout_below="@id/logo_registration_view"
+        android:clipChildren="false"
+        android:clipToPadding="false">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,6 +35,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp">
             <AutoCompleteTextView
+                android:elevation="10dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,6 +52,7 @@
                 android:inputType="textPersonName"
                 />
             <AutoCompleteTextView
+                android:elevation="10dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,6 +69,7 @@
                 android:id="@+id/registration_user_email"
                 />
             <AutoCompleteTextView
+                android:elevation="10dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,6 +86,7 @@
                 android:id="@+id/registration_user_phone_number"
                 />
             <AutoCompleteTextView
+                android:elevation="10dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +103,7 @@
                 android:id="@+id/registration_user_password"
                 />
             <AutoCompleteTextView
+                android:elevation="10dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -137,6 +146,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:id="@+id/registration_button"
+                android:elevation="10dp"
                 />
         </LinearLayout>
     </ScrollView>
