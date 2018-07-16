@@ -47,15 +47,19 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ro.capac.android.capac2018.BuildConfig;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Question;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
+import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.custom.RoundedImageView;
 import ro.capac.android.capac2018.ui.feed.FeedActivity;
+import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
 import ro.capac.android.capac2018.ui.top.TopActivity;
+
 import ro.capac.android.capac2018.utils.ScreenUtils;
 
 /**
@@ -348,6 +352,14 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         finish();
     }
 
+    @OnClick(R.id.btn_event_join)
+    public void openJoinEventActivity() {
+        startActivity(JoinEventActivity.getStartIntent(this));
+    }
+    @OnClick(R.id.btn_event_create)
+    public void openCreateEventActivity() {
+        startActivity(CreateEventActivity.getStartIntent(this));
+    }
     @Override
     public void showRateUsDialog() {
         RateUsDialog.newInstance().show(getSupportFragmentManager());
@@ -364,4 +376,5 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             mDrawer.closeDrawer(Gravity.START);
         }
     }
+
 }
