@@ -11,56 +11,50 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
-  -->
-
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ro.capac.android.capac2018">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="ro.capac.android.capac2018.MvpApp"
+        android:name=".MvpApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Capac2018"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <service android:name=".service.SyncService" />
 
         <activity
-            android:name="ro.capac.android.capac2018.ui.splash.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeFullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="ro.capac.android.capac2018.ui.login.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="ro.capac.android.capac2018.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="ro.capac.android.capac2018.ui.top.TopActivity"
+            android:name=".ui.top.TopActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="ro.capac.android.capac2018.ui.registration.RegistrationActivity"
+            android:name=".ui.registration.RegistrationActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="ro.capac.android.capac2018.ui.feed.FeedActivity"
+            android:name=".ui.feed.FeedActivity"
             android:launchMode="singleTop"
             android:parentActivityName=".ui.main.MainActivity"
             android:screenOrientation="portrait">
@@ -70,7 +64,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.main.MainActivity" />
         </activity>
-
+        <activity android:name=".ui.join_event.JoinEventActivity" />
+        <activity android:name=".ui.create_event.CreateEventActivity"></activity>
     </application>
 
 </manifest>
