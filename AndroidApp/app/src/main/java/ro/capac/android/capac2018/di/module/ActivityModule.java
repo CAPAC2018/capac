@@ -139,6 +139,7 @@ public class ActivityModule {
         return presenter;
     }
 
+
     @Provides
     RatingDialogMvpPresenter<RatingDialogMvpView> provideRateUsPresenter(
             RatingDialogPresenter<RatingDialogMvpView> presenter) {

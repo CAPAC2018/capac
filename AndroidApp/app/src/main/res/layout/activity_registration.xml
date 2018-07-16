@@ -9,18 +9,17 @@
     android:clipChildren="false"
     android:clipToPadding="false">
     <TextView
-        style="@style/TextStyle.Title"
         android:id="@+id/logo_registration_view"
+        style="@style/TextStyle.Title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:layout_marginTop="60dp"
-        android:text="Smatch"
-        android:textAllCaps="true"
-        android:textSize="20sp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        />
+        android:layout_gravity="center|top"
+        android:layout_marginTop="37dp"
+        android:text="Smatch - Registration"
+        android:textAppearance="@style/TextAppearence.App.TextInputLayout"
+        android:textSize="24sp" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
