@@ -65,7 +65,8 @@
                 android:value=".ui.main.MainActivity" />
         </activity>
         <activity android:name=".ui.join_event.JoinEventActivity" />
-        <activity android:name=".ui.create_event.CreateEventActivity"></activity>
+        <activity android:name=".ui.create_event.CreateEventActivity" />
+        <activity android:name=".ui.profile.MyProfileActivity"></activity>
     </application>
 
 </manifest>

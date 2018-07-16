@@ -47,12 +47,17 @@ public class User {
 
     private String password;
 
-    @Generated(hash = 1543916479)
-    public User(Long id, String name, String createdAt, String updatedAt) {
+    @Generated(hash = 1381938396)
+    public User(Long id, String name, String createdAt, String updatedAt, String userName,
+            String emailAdress, String phoneNumber, String password) {
         this.id = id;
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.userName = userName;
+        this.emailAdress = emailAdress;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 
     @Generated(hash = 586692638)

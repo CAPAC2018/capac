@@ -34,7 +34,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp">
             <AutoCompleteTextView
-                android:elevation="10dp"
+                android:elevation="5dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 android:inputType="textPersonName"
                 />
             <AutoCompleteTextView
-                android:elevation="10dp"
+                android:elevation="5dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:id="@+id/registration_user_email"
                 />
             <AutoCompleteTextView
-                android:elevation="10dp"
+                android:elevation="5dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                 android:id="@+id/registration_user_phone_number"
                 />
             <AutoCompleteTextView
-                android:elevation="10dp"
+                android:elevation="5dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                 android:id="@+id/registration_user_password"
                 />
             <AutoCompleteTextView
-                android:elevation="10dp"
+                android:elevation="5dp"
                 style="@style/TextStyle.EditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:id="@+id/registration_button"
-                android:elevation="10dp"
+                android:elevation="20dp"
                 />
         </LinearLayout>
     </ScrollView>

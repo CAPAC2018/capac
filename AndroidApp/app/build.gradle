@@ -74,6 +74,7 @@ dependencies {
     implementation "org.greenrobot:greendao:$rootProject.greenDaoVersion"
 
     // debug database
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
 
     // dependency injection

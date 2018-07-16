@@ -238,11 +238,14 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         if (drawable instanceof Animatable) {
             ((Animatable) drawable).start();
         }
-        return super.onOptionsItemSelected(item);
-        /*
-        switch (item.getItemId()) {
-            case R.id.action_cut:
+
+      /*  switch (item.getItemId()) {
+            case R.id.action_user_profile:{
+                Intent intent = MyProfileActivity.getStartIntent(this);
+                startActivity(intent);
+                finish();
                 return true;
+            }
             case R.id.action_copy:
                 return true;
             case R.id.action_share:
@@ -253,6 +256,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 return super.onOptionsItemSelected(item);
 
         }*/
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
