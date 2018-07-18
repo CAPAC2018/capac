@@ -21,4 +21,5 @@
         android:icon="@drawable/ic_person_outline_selected"
         android:title="My Profile"
         app:showAsAction="always" />
+
 </menu>

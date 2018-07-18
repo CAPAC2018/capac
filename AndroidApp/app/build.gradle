@@ -64,18 +64,12 @@ dependencies {
     // network
     implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
 
+    implementation files('libs/folding-cell-1.2.2.aar')
     // image
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
     // parser
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
-
-    // database
-    implementation "org.greenrobot:greendao:$rootProject.greenDaoVersion"
-
-    // debug database
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
 
     // dependency injection
     implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
