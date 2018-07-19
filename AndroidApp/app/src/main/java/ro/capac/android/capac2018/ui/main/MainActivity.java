@@ -62,11 +62,10 @@ import ro.capac.android.capac2018.ui.top.TopActivity;
 
 import ro.capac.android.capac2018.utils.ScreenUtils;
 
-/**
- * Created by janisharali on 27/01/17.
- */
 
-public class MainActivity extends BaseActivity implements MainMvpView {
+
+public class MainActivity /*extends BaseActivity implements MainMvpView*/ {/*
+
 
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
@@ -254,7 +253,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-
         }*/
         return super.onOptionsItemSelected(item);
     }
@@ -380,5 +378,5 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             mDrawer.closeDrawer(Gravity.START);
         }
     }
-
+*/
 }
