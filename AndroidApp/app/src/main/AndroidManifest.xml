@@ -65,7 +65,10 @@
                 android:value=".ui.main.MainActivity" />
         </activity>
         <activity android:name=".ui.join_event.JoinEventActivity" />
-        <activity android:name=".ui.create_event.CreateEventActivity"></activity>
+        <activity android:name=".ui.create_event.CreateEventActivity" />
+        <activity
+            android:name=".ui.main2.Main2Activity"
+            android:label="@string/title_activity_main2"></activity>
     </application>
 
 </manifest>

@@ -27,6 +27,7 @@ import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
 import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.ui.main.MainActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
+import ro.capac.android.capac2018.ui.main2.Main2Activity;
 import ro.capac.android.capac2018.ui.registration.RegistrationActivity;
 import ro.capac.android.capac2018.ui.splash.SplashActivity;
 import ro.capac.android.capac2018.ui.top.TopActivity;
@@ -40,6 +41,8 @@ import ro.capac.android.capac2018.ui.top.TopActivity;
 public interface ActivityComponent {
 
     void inject(MainActivity activity);
+
+    void inject(Main2Activity activity);
 
     void inject(LoginActivity activity);
 

@@ -58,6 +58,9 @@ dependencies {
     implementation "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion"
     implementation "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
 
+    //used for bottom navigation
+
+    implementation "com.android.support:design:27.0.2"
     // font
     implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
 
@@ -74,6 +77,8 @@ dependencies {
     implementation "org.greenrobot:greendao:$rootProject.greenDaoVersion"
 
     // debug database
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support:support-vector-drawable:26.1.0'
     debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
 
     // dependency injection
