@@ -16,31 +16,20 @@
 package ro.capac.android.capac2018.data;
 
 
-import ro.capac.android.capac2018.data.db.DbHelper;
-import ro.capac.android.capac2018.data.network.ApiHelper;
-import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
-import ro.capac.android.capac2018.data.db.DbHelper;
 import ro.capac.android.capac2018.data.network.ApiHelper;
 import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
 
 import io.reactivex.Observable;
-import ro.capac.android.capac2018.data.db.DbHelper;
-import ro.capac.android.capac2018.data.network.ApiHelper;
-import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
 
 /**
  * Created by janisharali on 27/01/17.
  */
 
-public interface DataManager extends DbHelper, PreferencesHelper, ApiHelper {
+public interface DataManager extends PreferencesHelper, ApiHelper {
 
     void updateApiHeader(Long userId, String accessToken);
 
     void setUserAsLoggedOut();
-
-    Observable<Boolean> seedDatabaseQuestions();
-
-    Observable<Boolean> seedDatabaseOptions();
 
     void updateUserInfo(
             String accessToken,

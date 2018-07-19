@@ -18,9 +18,6 @@ package ro.capac.android.capac2018.data;
 
 import android.content.Context;
 
-import ro.capac.android.capac2018.data.db.DbHelper;
-import ro.capac.android.capac2018.data.db.model.Option;
-import ro.capac.android.capac2018.data.db.model.Question;
 import ro.capac.android.capac2018.data.db.model.User;
 import ro.capac.android.capac2018.data.network.ApiHeader;
 import ro.capac.android.capac2018.data.network.ApiHelper;
@@ -37,21 +34,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.$Gson$Types;
 import com.google.gson.reflect.TypeToken;
-import ro.capac.android.capac2018.data.db.DbHelper;
-import ro.capac.android.capac2018.data.db.model.Option;
-import ro.capac.android.capac2018.data.db.model.Question;
-import ro.capac.android.capac2018.data.db.model.User;
-import ro.capac.android.capac2018.data.network.ApiHeader;
-import ro.capac.android.capac2018.data.network.ApiHelper;
-import ro.capac.android.capac2018.data.network.model.BlogResponse;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
-import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
-import ro.capac.android.capac2018.di.ApplicationContext;
-import ro.capac.android.capac2018.utils.AppConstants;
-import ro.capac.android.capac2018.utils.CommonUtils;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -63,21 +45,6 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Single;
 import io.reactivex.functions.Function;
-import ro.capac.android.capac2018.data.db.DbHelper;
-import ro.capac.android.capac2018.data.db.model.Option;
-import ro.capac.android.capac2018.data.db.model.Question;
-import ro.capac.android.capac2018.data.db.model.User;
-import ro.capac.android.capac2018.data.network.ApiHeader;
-import ro.capac.android.capac2018.data.network.ApiHelper;
-import ro.capac.android.capac2018.data.network.model.BlogResponse;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
-import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
-import ro.capac.android.capac2018.di.ApplicationContext;
-import ro.capac.android.capac2018.utils.AppConstants;
-import ro.capac.android.capac2018.utils.CommonUtils;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -89,17 +56,14 @@ public class AppDataManager implements DataManager {
     private static final String TAG = "AppDataManager";
 
     private final Context mContext;
-    private final DbHelper mDbHelper;
     private final PreferencesHelper mPreferencesHelper;
     private final ApiHelper mApiHelper;
 
     @Inject
     public AppDataManager(@ApplicationContext Context context,
-                          DbHelper dbHelper,
                           PreferencesHelper preferencesHelper,
                           ApiHelper apiHelper) {
         mContext = context;
-        mDbHelper = dbHelper;
         mPreferencesHelper = preferencesHelper;
         mApiHelper = apiHelper;
     }
@@ -118,16 +82,6 @@ public class AppDataManager implements DataManager {
     public void setAccessToken(String accessToken) {
         mPreferencesHelper.setAccessToken(accessToken);
         mApiHelper.getApiHeader().getProtectedApiHeader().setAccessToken(accessToken);
-    }
-
-    @Override
-    public Observable<Long> insertUser(User user) {
-        return mDbHelper.insertUser(user);
-    }
-
-    @Override
-    public Observable<List<User>> getAllUsers() {
-        return mDbHelper.getAllUsers();
     }
 
     @Override
@@ -237,95 +191,6 @@ public class AppDataManager implements DataManager {
                 null,
                 null,
                 null);
-    }
-
-    @Override
-    public Observable<Boolean> isQuestionEmpty() {
-        return mDbHelper.isQuestionEmpty();
-    }
-
-    @Override
-    public Observable<Boolean> isOptionEmpty() {
-        return mDbHelper.isOptionEmpty();
-    }
-
-    @Override
-    public Observable<Boolean> saveQuestion(Question question) {
-        return mDbHelper.saveQuestion(question);
-    }
-
-    @Override
-    public Observable<Boolean> saveOption(Option option) {
-        return mDbHelper.saveOption(option);
-    }
-
-    @Override
-    public Observable<Boolean> saveQuestionList(List<Question> questionList) {
-        return mDbHelper.saveQuestionList(questionList);
-    }
-
-    @Override
-    public Observable<Boolean> saveOptionList(List<Option> optionList) {
-        return mDbHelper.saveOptionList(optionList);
-    }
-
-    @Override
-    public Observable<List<Question>> getAllQuestions() {
-        return mDbHelper.getAllQuestions();
-    }
-
-    @Override
-    public Observable<Boolean> seedDatabaseQuestions() {
-
-        GsonBuilder builder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation();
-        final Gson gson = builder.create();
-
-        return mDbHelper.isQuestionEmpty()
-                .concatMap(new Function<Boolean, ObservableSource<? extends Boolean>>() {
-                    @Override
-                    public ObservableSource<? extends Boolean> apply(Boolean isEmpty)
-                            throws Exception {
-                        if (isEmpty) {
-                            Type type = $Gson$Types
-                                    .newParameterizedTypeWithOwner(null, List.class,
-                                            Question.class);
-                            List<Question> questionList = gson.fromJson(
-                                    CommonUtils.loadJSONFromAsset(mContext,
-                                            AppConstants.SEED_DATABASE_QUESTIONS),
-                                    type);
-
-                            return saveQuestionList(questionList);
-                        }
-                        return Observable.just(false);
-                    }
-                });
-    }
-
-    @Override
-    public Observable<Boolean> seedDatabaseOptions() {
-
-        GsonBuilder builder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation();
-        final Gson gson = builder.create();
-
-        return mDbHelper.isOptionEmpty()
-                .concatMap(new Function<Boolean, ObservableSource<? extends Boolean>>() {
-                    @Override
-                    public ObservableSource<? extends Boolean> apply(Boolean isEmpty)
-                            throws Exception {
-                        if (isEmpty) {
-                            Type type = new TypeToken<List<Option>>() {
-                            }
-                                    .getType();
-                            List<Option> optionList = gson.fromJson(
-                                    CommonUtils.loadJSONFromAsset(mContext,
-                                            AppConstants.SEED_DATABASE_OPTIONS),
-                                    type);
-
-                            return saveOptionList(optionList);
-                        }
-                        return Observable.just(false);
-                    }
-                });
     }
 
     @Override

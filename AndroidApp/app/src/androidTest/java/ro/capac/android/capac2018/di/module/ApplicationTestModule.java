@@ -22,8 +22,6 @@ import ro.capac.android.capac2018.BuildConfig;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.AppDataManager;
 import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.db.AppDbHelper;
-import ro.capac.android.capac2018.data.db.DbHelper;
 import ro.capac.android.capac2018.data.network.ApiHeader;
 import ro.capac.android.capac2018.data.network.ApiHelper;
 import ro.capac.android.capac2018.data.network.AppApiHelper;

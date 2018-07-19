@@ -20,8 +20,6 @@ import android.content.Context;
 
 import ro.capac.android.capac2018.data.AppDataManager;
 import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.db.AppDbHelper;
-import ro.capac.android.capac2018.data.db.DbHelper;
 import ro.capac.android.capac2018.data.network.ApiHeader;
 import ro.capac.android.capac2018.data.network.ApiHelper;
 import ro.capac.android.capac2018.data.network.AppApiHelper;
@@ -34,39 +32,11 @@ import ro.capac.android.capac2018.di.PreferenceInfo;
 import ro.capac.android.capac2018.utils.AppConstants;
 import ro.capac.android.capac2018.BuildConfig;
 import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.data.AppDataManager;
-import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.db.AppDbHelper;
-import ro.capac.android.capac2018.data.db.DbHelper;
-import ro.capac.android.capac2018.data.network.ApiHeader;
-import ro.capac.android.capac2018.data.network.ApiHelper;
-import ro.capac.android.capac2018.data.network.AppApiHelper;
-import ro.capac.android.capac2018.data.prefs.AppPreferencesHelper;
-import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
-import ro.capac.android.capac2018.di.ApiInfo;
-import ro.capac.android.capac2018.di.ApplicationContext;
-import ro.capac.android.capac2018.di.DatabaseInfo;
-import ro.capac.android.capac2018.di.PreferenceInfo;
-import ro.capac.android.capac2018.utils.AppConstants;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import ro.capac.android.capac2018.data.AppDataManager;
-import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.db.AppDbHelper;
-import ro.capac.android.capac2018.data.db.DbHelper;
-import ro.capac.android.capac2018.data.network.ApiHeader;
-import ro.capac.android.capac2018.data.network.ApiHelper;
-import ro.capac.android.capac2018.data.network.AppApiHelper;
-import ro.capac.android.capac2018.data.prefs.AppPreferencesHelper;
-import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
-import ro.capac.android.capac2018.di.ApiInfo;
-import ro.capac.android.capac2018.di.ApplicationContext;
-import ro.capac.android.capac2018.di.DatabaseInfo;
-import ro.capac.android.capac2018.di.PreferenceInfo;
-import ro.capac.android.capac2018.utils.AppConstants;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
@@ -119,12 +89,6 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    DbHelper provideDbHelper(AppDbHelper appDbHelper) {
-        return appDbHelper;
-    }
-
-    @Provides
-    @Singleton
     PreferencesHelper providePreferencesHelper(AppPreferencesHelper appPreferencesHelper) {
         return appPreferencesHelper;
     }
@@ -149,7 +113,7 @@ public class ApplicationModule {
     @Singleton
     CalligraphyConfig provideCalligraphyDefaultConfig() {
         return new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/source-sans-pro/SourceSansPro-Regular.ttf")
+                .setDefaultFontPath("fonts/source-sans-pro/OpenSans-Regular.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build();
     }

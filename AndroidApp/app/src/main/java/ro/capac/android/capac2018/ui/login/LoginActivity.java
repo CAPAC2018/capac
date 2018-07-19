@@ -14,7 +14,6 @@
  */
 
 package ro.capac.android.capac2018.ui.login;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,13 +27,13 @@ import java.util.List;
 
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
-import ro.capac.android.capac2018.ui.main2.Main2Activity;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ro.capac.android.capac2018.ui.main.MainActivity;
 
 public class LoginActivity extends BaseActivity implements LoginMvpView {
 
@@ -82,7 +81,7 @@ public class LoginActivity extends BaseActivity implements LoginMvpView {
 
     @Override
     public void openMainActivity() {
-        Intent intent = Main2Activity.getStartIntent(LoginActivity.this);
+        Intent intent = MainActivity.getStartIntent(LoginActivity.this);
         startActivity(intent);
         finish();
     }

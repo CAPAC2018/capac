@@ -26,18 +26,6 @@ import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.ui.about.AboutMvpPresenter;
 import ro.capac.android.capac2018.ui.about.AboutMvpView;
 import ro.capac.android.capac2018.ui.about.AboutPresenter;
-import ro.capac.android.capac2018.ui.feed.FeedMvpPresenter;
-import ro.capac.android.capac2018.ui.feed.FeedMvpView;
-import ro.capac.android.capac2018.ui.feed.FeedPagerAdapter;
-import ro.capac.android.capac2018.ui.feed.FeedPresenter;
-import ro.capac.android.capac2018.ui.feed.blogs.BlogAdapter;
-import ro.capac.android.capac2018.ui.feed.blogs.BlogMvpPresenter;
-import ro.capac.android.capac2018.ui.feed.blogs.BlogMvpView;
-import ro.capac.android.capac2018.ui.feed.blogs.BlogPresenter;
-import ro.capac.android.capac2018.ui.feed.opensource.OpenSourceAdapter;
-import ro.capac.android.capac2018.ui.feed.opensource.OpenSourceMvpPresenter;
-import ro.capac.android.capac2018.ui.feed.opensource.OpenSourceMvpView;
-import ro.capac.android.capac2018.ui.feed.opensource.OpenSourcePresenter;
 import ro.capac.android.capac2018.ui.login.LoginMvpPresenter;
 import ro.capac.android.capac2018.ui.login.LoginMvpView;
 import ro.capac.android.capac2018.ui.login.LoginPresenter;
@@ -47,10 +35,12 @@ import ro.capac.android.capac2018.ui.main.MainPresenter;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogMvpPresenter;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogMvpView;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogPresenter;
+import ro.capac.android.capac2018.ui.profile.MyProfileMvpPresenter;
+import ro.capac.android.capac2018.ui.profile.MyProfileMvpView;
+import ro.capac.android.capac2018.ui.profile.MyProfilePresenter;
 import ro.capac.android.capac2018.ui.registration.RegistrationMvpPresenter;
 import ro.capac.android.capac2018.ui.registration.RegistrationMvpView;
 import ro.capac.android.capac2018.ui.registration.RegistrationPresenter;
-import ro.capac.android.capac2018.ui.registration.RegistrationPresenter_Factory;
 import ro.capac.android.capac2018.ui.splash.SplashMvpPresenter;
 import ro.capac.android.capac2018.ui.splash.SplashMvpView;
 import ro.capac.android.capac2018.ui.splash.SplashPresenter;
@@ -139,44 +129,18 @@ public class ActivityModule {
         return presenter;
     }
 
+    @Provides
+    @PerActivity
+    MyProfileMvpPresenter<MyProfileMvpView> provideMyProfilePresenter(
+            MyProfilePresenter<MyProfileMvpView> presenter) {
+        return presenter;
+    }
+
 
     @Provides
     RatingDialogMvpPresenter<RatingDialogMvpView> provideRateUsPresenter(
             RatingDialogPresenter<RatingDialogMvpView> presenter) {
         return presenter;
-    }
-
-    @Provides
-    FeedMvpPresenter<FeedMvpView> provideFeedPresenter(
-            FeedPresenter<FeedMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    OpenSourceMvpPresenter<OpenSourceMvpView> provideOpenSourcePresenter(
-            OpenSourcePresenter<OpenSourceMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    BlogMvpPresenter<BlogMvpView> provideBlogMvpPresenter(
-            BlogPresenter<BlogMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    FeedPagerAdapter provideFeedPagerAdapter(AppCompatActivity activity) {
-        return new FeedPagerAdapter(activity.getSupportFragmentManager());
-    }
-
-    @Provides
-    OpenSourceAdapter provideOpenSourceAdapter() {
-        return new OpenSourceAdapter(new ArrayList<OpenSourceResponse.Repo>());
-    }
-
-    @Provides
-    BlogAdapter provideBlogAdapter() {
-        return new BlogAdapter(new ArrayList<BlogResponse.Blog>());
     }
 
     @Provides

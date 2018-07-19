@@ -20,14 +20,10 @@ import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.di.module.ActivityModule;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
-import ro.capac.android.capac2018.ui.feed.FeedActivity;
-import ro.capac.android.capac2018.ui.feed.blogs.BlogFragment;
-import ro.capac.android.capac2018.ui.feed.opensource.OpenSourceFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
 import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.ui.main.MainActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
-import ro.capac.android.capac2018.ui.main2.Main2Activity;
 import ro.capac.android.capac2018.ui.registration.RegistrationActivity;
 import ro.capac.android.capac2018.ui.splash.SplashActivity;
 import ro.capac.android.capac2018.ui.top.TopActivity;
@@ -42,19 +38,11 @@ public interface ActivityComponent {
 
     void inject(MainActivity activity);
 
-    void inject(Main2Activity activity);
-
     void inject(LoginActivity activity);
 
     void inject(SplashActivity activity);
 
-    void inject(FeedActivity activity);
-
     void inject(AboutFragment fragment);
-
-    void inject(OpenSourceFragment fragment);
-
-    void inject(BlogFragment fragment);
 
     void inject(RateUsDialog dialog);
 

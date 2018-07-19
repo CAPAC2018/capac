@@ -21,7 +21,6 @@ import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.ui.login.LoginMvpPresenter;
 import ro.capac.android.capac2018.ui.login.LoginMvpView;
 import ro.capac.android.capac2018.ui.main.MainActivity;
-import ro.capac.android.capac2018.ui.main2.Main2Activity;
 import ro.capac.android.capac2018.utils.CommonUtils;
 
 public class RegistrationActivity extends BaseActivity implements RegistrationMvpView {
@@ -64,7 +63,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationMv
 
     @Override
     public void openMainActivity() {
-        Intent intent = Main2Activity.getStartIntent(RegistrationActivity.this);
+        Intent intent = MainActivity.getStartIntent(RegistrationActivity.this);
         startActivity(intent);
         finish();
     }

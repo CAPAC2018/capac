@@ -20,78 +20,40 @@ import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
-
-import com.mindorks.placeholderview.SwipeDecor;
-import com.mindorks.placeholderview.SwipePlaceHolderView;
-import com.mindorks.placeholderview.listeners.ItemRemovedListener;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ro.capac.android.capac2018.BuildConfig;
 import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.data.db.model.Question;
+import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
-import ro.capac.android.capac2018.ui.custom.RoundedImageView;
-import ro.capac.android.capac2018.ui.feed.FeedActivity;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
-import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
-import ro.capac.android.capac2018.utils.ScreenUtils;
 
 
+public class MainActivity extends BaseActivity implements MainMvpView {
 
-public class MainActivity /*extends BaseActivity implements MainMvpView*/ {/*
 
+    private TextView mTextMessage;
 
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-
-    @BindView(R.id.drawer_view)
-    DrawerLayout mDrawer;
-
-    @BindView(R.id.navigation_view)
-    NavigationView mNavigationView;
-
-    @BindView(R.id.tv_app_version)
-    TextView mAppVersionTextView;
-
-    @BindView(R.id.cards_container)
-    SwipePlaceHolderView mCardsContainerView;
-
-    private TextView mNameTextView;
-
-    private TextView mEmailTextView;
-
-    private RoundedImageView mProfileImageView;
-
-    private ActionBarDrawerToggle mDrawerToggle;
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -109,7 +71,28 @@ public class MainActivity /*extends BaseActivity implements MainMvpView*/ {/*
 
         mPresenter.onAttach(this);
 
-        setUp();
+        mTextMessage = findViewById(R.id.message);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_profile:
+                        mTextMessage.setText(R.string.title_profile);
+                        return true;
+                    case R.id.navigation_dashboard:
+                        mTextMessage.setText(R.string.title_dashboard);
+                        return true;
+                    case R.id.navigation_notifications:
+                        mTextMessage.setText(R.string.title_notifications);
+                        return true;
+                    case R.id.navigation_categories_events:
+                        mTextMessage.setText(R.string.title_categories_amp_events);
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -124,62 +107,19 @@ public class MainActivity /*extends BaseActivity implements MainMvpView*/ {/*
     }
 
     @Override
-    public void refreshQuestionnaire(List<Question> questionList) {
-        for (Question question : questionList) {
-            if (question != null
-                    && question.getOptionList() != null
-                    && question.getOptionList().size() == 3) {
-                mCardsContainerView.addView(new QuestionCard(question));
-            }
-        }
-    }
-
-    @Override
-    public void reloadQuestionnaire(List<Question> questionList) {
-        refreshQuestionnaire(questionList);
-        ScaleAnimation animation =
-                new ScaleAnimation(
-                        1.15f, 1, 1.15f, 1,
-                        Animation.RELATIVE_TO_SELF, 0.5f,
-                        Animation.RELATIVE_TO_SELF, 0.5f);
-
-        mCardsContainerView.setAnimation(animation);
-        animation.setDuration(100);
-        animation.start();
-    }
-
-    @Override
-    public void updateAppVersion() {
-        String version = getString(R.string.version) + " " + BuildConfig.VERSION_NAME;
-        mAppVersionTextView.setText(version);
-    }
-
-    @Override
-    public void updateUserName(String currentUserName) {
-        mNameTextView.setText(currentUserName);
-    }
-
-    @Override
-    public void updateUserEmail(String currentUserEmail) {
-        mEmailTextView.setText(currentUserEmail);
-    }
-
-    @Override
-    public void updateUserProfilePic(String currentUserProfilePicUrl) {
-        //load profile pic url into ANImageView
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
-        if (mDrawer != null)
-            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
     @Override
     protected void onDestroy() {
         mPresenter.onDetach();
         super.onDestroy();
+    }
+
+    @Override
+    protected void setUp() {
+
     }
 
     @Override
@@ -197,31 +137,7 @@ public class MainActivity /*extends BaseActivity implements MainMvpView*/ {/*
                     .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
                     .remove(fragment)
                     .commitNow();
-            unlockDrawer();
         }
-    }
-
-    @Override
-    public void showAboutFragment() {
-        lockDrawer();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .disallowAddToBackStack()
-                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                .add(R.id.cl_root_view, AboutFragment.newInstance(), AboutFragment.TAG)
-                .commit();
-    }
-
-    @Override
-    public void lockDrawer() {
-        if (mDrawer != null)
-            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-    }
-
-    @Override
-    public void unlockDrawer() {
-        if (mDrawer != null)
-            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
     @Override
@@ -257,103 +173,16 @@ public class MainActivity /*extends BaseActivity implements MainMvpView*/ {/*
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void setUp() {
-        setSupportActionBar(mToolbar);
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,
-                mDrawer,
-                mToolbar,
-                R.string.open_drawer,
-                R.string.close_drawer) {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                hideKeyboard();
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-        };
-        mDrawer.addDrawerListener(mDrawerToggle);
-        mDrawerToggle.syncState();
-        setupNavMenu();
-        mPresenter.onNavMenuCreated();
-        setupCardContainerView();
-        mPresenter.onViewInitialized();
-    }
-
-    private void setupCardContainerView() {
-
-        int screenWidth = ScreenUtils.getScreenWidth(this);
-        int screenHeight = ScreenUtils.getScreenHeight(this);
-
-        mCardsContainerView.getBuilder()
-                .setDisplayViewCount(3)
-                .setHeightSwipeDistFactor(10)
-                .setWidthSwipeDistFactor(5)
-                .setSwipeDecor(new SwipeDecor()
-                        .setViewWidth((int) (0.90 * screenWidth))
-                        .setViewHeight((int) (0.75 * screenHeight))
-                        .setPaddingTop(20)
-                        .setSwipeRotationAngle(10)
-                        .setRelativeScale(0.01f));
-
-        mCardsContainerView.addItemRemoveListener(new ItemRemovedListener() {
-            @Override
-            public void onItemRemoved(int count) {
-                if (count == 0) {
-                    // reload the contents again after 1 sec delay
-                    new Handler(getMainLooper()).postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mPresenter.onCardExhausted();
-                        }
-                    }, 800);
-                }
-            }
-        });
-    }
-
-    void setupNavMenu() {
-        View headerLayout = mNavigationView.getHeaderView(0);
-        mProfileImageView = (RoundedImageView) headerLayout.findViewById(R.id.iv_profile_pic);
-        mNameTextView = (TextView) headerLayout.findViewById(R.id.tv_name);
-        mEmailTextView = (TextView) headerLayout.findViewById(R.id.tv_email);
-
-        mNavigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        mDrawer.closeDrawer(GravityCompat.START);
-                        switch (item.getItemId()) {
-                            case R.id.nav_item_about:
-                                mPresenter.onDrawerOptionAboutClick();
-                                return true;
-                            case R.id.nav_item_rate_us:
-                                mPresenter.onDrawerRateUsClick();
-                                return true;
-                            case R.id.nav_item_feed:
-                                mPresenter.onDrawerMyFeedClick();
-                                return true;
-                            case R.id.nav_item_logout:
-                                mPresenter.onDrawerOptionLogoutClick();
-                                return true;
-                            default:
-                                return false;
-                        }
-                    }
-                });
-    }
 
     @Override
     public void openTopActivity() {
         startActivity(TopActivity.getStartIntent(this));
         finish();
     }
-
+    @OnClick(R.id.temporary_logout_button)
+    public void logOut(){
+        mPresenter.onLogOutClick();
+    }
     @OnClick(R.id.btn_event_join)
     public void openJoinEventActivity() {
         startActivity(JoinEventActivity.getStartIntent(this));
@@ -362,21 +191,9 @@ public class MainActivity /*extends BaseActivity implements MainMvpView*/ {/*
     public void openCreateEventActivity() {
         startActivity(CreateEventActivity.getStartIntent(this));
     }
-    @Override
-    public void showRateUsDialog() {
-        RateUsDialog.newInstance().show(getSupportFragmentManager());
-    }
 
     @Override
-    public void openMyFeedActivity() {
-        startActivity(FeedActivity.getStartIntent(this));
-    }
+    public void onPointerCaptureChanged(boolean hasCapture) {
 
-    @Override
-    public void closeNavigationDrawer() {
-        if (mDrawer != null) {
-            mDrawer.closeDrawer(Gravity.START);
-        }
     }
-*/
 }

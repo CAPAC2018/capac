@@ -27,7 +27,6 @@ import ro.capac.android.capac2018.ui.main.MainActivity;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import ro.capac.android.capac2018.ui.main2.Main2Activity;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
 
@@ -70,7 +69,7 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
 
     @Override
     public void openMainActivity() {
-        Intent intent = Main2Activity.getStartIntent(SplashActivity.this);
+        Intent intent = MainActivity.getStartIntent(SplashActivity.this);
         startActivity(intent);
         finish();
     }
