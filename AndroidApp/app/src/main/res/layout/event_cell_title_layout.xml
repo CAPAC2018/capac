@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@drawable/event_title_cell_bg"
+    android:elevation="10dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp">
+        <LinearLayout
+            android:id="@+id/title_side_bar"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/event_title_check_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@drawable/ic_check_24dp"/>
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/event_title_dismiss_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/event_title_check_btn"
+                android:background="@drawable/ic_close_black_24dp" />
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/expand_title_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_below="@id/event_title_dismiss_btn"
+                android:background="@drawable/ic_expand_more_black_24dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/time_place_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/title_side_bar">
+            <TextView
+                android:id="@+id/time_in_title_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text="10:00 AM"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/date_in_title_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@id/time_in_title_cell"
+                android:drawableLeft="@drawable/ic_event_black_24dp"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text="3rd July"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/location_in_title_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/date_in_title_cell"
+                android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text="Parcul Central"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/sport_skill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time_place_date"
+            android:layout_toRightOf="@id/title_side_bar">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/sport_keyword"
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Sport"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/sport_type_in_title_cell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sport_keyword"
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:text="Basketball"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/level_keyword"
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skill Level"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/level_type_in_title_cell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/level_keyword"
+                    android:padding="5dp"
+                    android:text="Amator"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sport_skill"
+            android:layout_toRightOf="@id/title_side_bar">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/organizer_keyword"
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Organizer"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/organizer_in_title_cell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/organizer_keyword"
+                    android:layout_marginLeft="10dp"
+                    android:padding="5dp"
+                    android:text="Mihai Popescu"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/going_keyword"
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Going"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/number_of_users_going_in_title_cell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/going_keyword"
+                    android:padding="5dp"
+                    android:text="10 people"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
