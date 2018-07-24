@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="180dp"
-    android:background="@drawable/event_title_cell_bg"
+    android:background="@drawable/corner_border_gray"
     android:elevation="10dp"
     android:layout_marginBottom="5dp"
     android:layout_marginTop="5dp">
@@ -37,46 +37,46 @@
                 android:background="@drawable/ic_expand_more_black_24dp" />
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/time_place_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/title_side_bar">
+            android:layout_toRightOf="@id/title_side_bar"
+            android:orientation="horizontal">
             <TextView
+                android:layout_weight="1"
                 android:id="@+id/time_in_title_cell"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                android:drawableStart="@drawable/ic_access_time_black_24dp"
                 android:drawablePadding="5dp"
                 android:padding="5dp"
                 android:text="10:00 AM"
+                android:layout_gravity="center"
                 android:textStyle="bold" />
             <TextView
+                android:layout_weight="1"
                 android:id="@+id/date_in_title_cell"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_toRightOf="@id/time_in_title_cell"
-                android:drawableLeft="@drawable/ic_event_black_24dp"
+                android:drawableStart="@drawable/ic_event_black_24dp"
                 android:drawablePadding="5dp"
                 android:padding="5dp"
+                android:layout_gravity="center"
                 android:text="3rd July"
                 android:textStyle="bold" />
             <TextView
+                android:layout_weight="1"
                 android:id="@+id/location_in_title_cell"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/date_in_title_cell"
-                android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_location_on_black_24dp"
                 android:drawablePadding="5dp"
                 android:padding="5dp"
                 android:text="Parcul Central"
                 android:textStyle="bold" />
-        </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/sport_skill"

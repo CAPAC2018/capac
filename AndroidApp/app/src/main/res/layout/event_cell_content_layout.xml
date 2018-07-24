@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="360dp"
+    android:background="@drawable/corner_border_gray"
+    android:elevation="10dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp">
+    <LinearLayout
+        android:id="@+id/title_side_bar"
+        android:layout_width="50dp"
+        android:layout_height="180dp"
+        android:orientation="vertical">
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/event_title_check_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_check_24dp"/>
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/event_title_dismiss_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_below="@id/event_title_check_btn"
+            android:background="@drawable/ic_close_black_24dp" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/expand_title_cell"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_below="@id/event_title_dismiss_btn"
+            android:background="@drawable/ic_expand_more_black_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/time_place_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/title_side_bar"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/time_in_title_cell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_access_time_black_24dp"
+            android:drawablePadding="5dp"
+            android:padding="5dp"
+            android:text="10:00 AM"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/date_in_title_cell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_event_black_24dp"
+            android:drawablePadding="5dp"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:text="3rd July"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/location_in_title_cell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_location_on_black_24dp"
+            android:drawablePadding="5dp"
+            android:padding="5dp"
+            android:text="Parcul Central"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sport_skill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time_place_date"
+        android:layout_toRightOf="@id/title_side_bar">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/sport_keyword"
+                style="@style/Base.TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Sport"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/sport_type_in_title_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sport_keyword"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:text="Basketball"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/level_keyword"
+                style="@style/Base.TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skill Level"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/level_type_in_title_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/level_keyword"
+                android:padding="5dp"
+                android:text="Amator"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sport_skill"
+        android:layout_toRightOf="@id/title_side_bar">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/organizer_keyword"
+                style="@style/Base.TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Organizer"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/organizer_in_title_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/organizer_keyword"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:text="Mihai Popescu"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/going_keyword"
+                style="@style/Base.TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Going"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/number_of_users_going_in_title_cell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/going_keyword"
+                android:padding="5dp"
+                android:text="10 people"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_below="@id/title_side_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/description_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/description_key_word"
+                style="@style/Base.TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/event_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description_key_word"
+                android:padding="5dp"
+                android:text="The organizer hasn't provided any description for this event, just go and have some fun!"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/description_view"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:paddingEnd="5dp"
+                android:gravity="end"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/players_count_key_word"
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:text="No. of players:"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/required_player_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/players_count_key_word"
+                    android:padding="5dp"
+                    android:text="2-10"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:gravity="start"
+                android:layout_weight="1"
+                android:paddingStart="5dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/min_rep_key_word"
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:text="Required stars:"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/event_min_rep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/min_rep_key_word"
+                    android:padding="5dp"
+                    android:text="3.5"
+                    android:drawableEnd="@drawable/ic_star_black_24dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
