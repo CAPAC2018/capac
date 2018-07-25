@@ -4,46 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="360dp"
+    android:minHeight="450dp"
     android:background="@drawable/corner_border_gray"
-    android:elevation="10dp"
     android:layout_marginBottom="5dp"
     android:layout_marginTop="5dp"
     android:visibility="gone">
+    <RelativeLayout
+        android:id="@+id/container_just_to_be_sure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <LinearLayout
-        android:id="@+id/title_side_bar"
-        android:layout_width="50dp"
-        android:layout_height="180dp"
-        android:orientation="vertical">
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/event_title_check_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:background="@drawable/ic_check_24dp"/>
-
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/event_title_dismiss_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_below="@id/event_title_check_btn"
-            android:background="@drawable/ic_close_black_24dp" />
-
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/expand_title_cell"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_below="@id/event_title_dismiss_btn"
-            android:background="@drawable/ic_expand_more_black_24dp" />
-    </LinearLayout>
-
-    <LinearLayout
+        android:layout_marginBottom="10dp"
         android:id="@+id/time_place_date"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/title_side_bar"
         android:orientation="horizontal">
         <TextView
             android:layout_weight="1"
@@ -81,22 +59,27 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:baselineAligned="false"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/sport_skill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/time_place_date"
-        android:layout_toRightOf="@id/title_side_bar">
+        android:layout_below="@id/time_place_date">
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
             <TextView
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
                 android:id="@+id/sport_keyword"
                 style="@style/Base.TextAppearance.AppCompat.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:text="Sport"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -105,7 +88,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/sport_keyword"
-                android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:text="Basketball"
                 android:textSize="20sp"
@@ -121,6 +103,9 @@
                 style="@style/Base.TextAppearance.AppCompat.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
                 android:text="Skill Level"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -137,10 +122,14 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:baselineAligned="false"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/organizer_going_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/sport_skill"
-        android:layout_toRightOf="@id/title_side_bar">
+        android:layout_below="@id/sport_skill">
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -151,7 +140,9 @@
                 style="@style/Base.TextAppearance.AppCompat.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
                 android:text="Organizer"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -160,7 +151,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/organizer_keyword"
-                android:layout_marginLeft="10dp"
                 android:padding="5dp"
                 android:text="Mihai Popescu"
                 android:textSize="20sp"
@@ -179,6 +169,9 @@
                 android:layout_height="wrap_content"
                 android:text="Going"
                 android:textSize="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/number_of_users_going_in_title_cell"
@@ -191,16 +184,25 @@
                 android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>
+    </RelativeLayout>
     <RelativeLayout
-        android:layout_below="@id/title_side_bar"
+        android:id="@+id/details"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/container_just_to_be_sure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <RelativeLayout
+            android:gravity="center"
+            android:layout_marginRight="10dp"
             android:id="@+id/description_view"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp">
             <TextView
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
                 android:id="@+id/description_key_word"
                 style="@style/Base.TextAppearance.AppCompat.Caption"
                 android:layout_width="wrap_content"
@@ -220,6 +222,9 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:id="@+id/requirements_container"
+            android:baselineAligned="false"
             android:layout_marginTop="20dp"
             android:layout_below="@id/description_view"
             android:layout_width="match_parent"
@@ -230,8 +235,7 @@
             <RelativeLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:paddingEnd="5dp"
-                android:gravity="end"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/players_count_key_word"
@@ -241,6 +245,7 @@
                     android:layout_height="wrap_content"
                     android:text="No. of players:"
                     android:textSize="15sp"
+                    android:padding="5dp"
                     android:textStyle="bold" />
                 <TextView
                     android:id="@+id/required_player_number"
@@ -249,18 +254,18 @@
                     android:layout_toRightOf="@id/players_count_key_word"
                     android:padding="5dp"
                     android:text="2-10"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:gravity="start"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:paddingStart="5dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/min_rep_key_word"
+                    android:padding="5dp"
                     style="@style/Base.TextAppearance.AppCompat.Caption"
                     android:layout_width="wrap_content"
                     android:layout_centerVertical="true"
@@ -275,10 +280,21 @@
                     android:layout_toRightOf="@id/min_rep_key_word"
                     android:padding="5dp"
                     android:text="3.5"
+                    android:gravity="center"
                     android:drawableEnd="@drawable/ic_star_black_24dp"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>
+        <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Going"
+        android:textAppearance="@style/TextAppearance.Text.Bold"
+        android:textAllCaps="true"
+        android:background="@drawable/register_button_bg"
+        android:layout_below="@id/requirements_container"
+        android:layout_centerHorizontal="true"/>
     </RelativeLayout>
+
 </RelativeLayout>

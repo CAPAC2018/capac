@@ -4,15 +4,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
-    android:background="@drawable/corner_border_gray"
-    android:elevation="10dp"
-    android:layout_marginBottom="5dp"
-    android:layout_marginTop="5dp">
+    android:layout_height="wrap_content"
+    android:maxHeight="180dp"
+    android:background="@drawable/corner_border_gray">
         <LinearLayout
+            android:baselineAligned="false"
             android:id="@+id/title_side_bar"
+            android:layout_centerVertical="true"
             android:layout_width="50dp"
-            android:layout_height="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:orientation="vertical">
             <Button
                 android:layout_weight="1"
@@ -39,6 +41,9 @@
         </LinearLayout>
 
         <LinearLayout
+            android:baselineAligned="false"
+            android:layout_marginRight="10dp"
+            android:layout_centerHorizontal="true"
             android:id="@+id/time_place_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,6 +85,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:baselineAligned="false"
             android:id="@+id/sport_skill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -136,6 +142,8 @@
         </LinearLayout>
 
         <LinearLayout
+            android:baselineAligned="false"
+            android:paddingBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/sport_skill"

@@ -4,10 +4,12 @@
     xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    folding-cell:additionalFlipsCount="2"
-    folding-cell:animationDuration="1300"
+    folding-cell:additionalFlipsCount="1"
+    folding-cell:animationDuration="1000"
     folding-cell:backSideColor="#f4f0ff"
-    folding-cell:cameraHeight="30">
+    folding-cell:cameraHeight="30"
+    android:focusable="false"
+    android:descendantFocusability="blocksDescendants">
 
     <!-- CONTENT (UNFOLDED) LAYOUT (MUST BE AT LEAST 2x times BIGGER than content layout bellow)-->
     <include layout="@layout/event_cell_content_layout" />

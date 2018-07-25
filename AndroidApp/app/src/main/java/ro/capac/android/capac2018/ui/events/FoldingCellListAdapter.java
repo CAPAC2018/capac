@@ -71,7 +71,10 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
         viewHolder.sportType.setText(event.getSportType());
         viewHolder.organizer.setText(event.getOrganizer());
         viewHolder.noOfAtendees.setText(event.getNoOfAtendees());
-        viewHolder.description.setText(event.getDescription());
+        if(event.getDescription().equals("null"))
+            viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");
+        else
+            viewHolder.description.setText(event.getDescription());
         viewHolder.noReqPlayers.setText(event.getNoReqPlayers());
         viewHolder.reqStars.setText(event.getReqStars());
         viewHolder.skillLevel.setText(event.getSkillLevel());
