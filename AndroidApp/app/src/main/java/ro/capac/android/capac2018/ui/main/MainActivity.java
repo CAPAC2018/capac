@@ -39,6 +39,7 @@ import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
+import ro.capac.android.capac2018.ui.events.EventsFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
@@ -81,7 +82,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                         mTextMessage.setText(R.string.title_profile);
                         return true;
                     case R.id.navigation_dashboard:
-                        mTextMessage.setText(R.string.title_dashboard);
+                        showEventsFragment();
                         return true;
                     case R.id.navigation_notifications:
                         mTextMessage.setText(R.string.title_notifications);
@@ -95,6 +96,15 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         });
     }
 
+    @Override
+    public void showEventsFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                .add(R.id.frame, EventsFragment.newInstance(), EventsFragment.TAG)
+                .commit();
+    }
     @Override
     public void onBackPressed() {
         FragmentManager fragmentManager = getSupportFragmentManager();

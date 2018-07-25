@@ -1,5 +1,6 @@
 package ro.capac.android.capac2018.ui.events;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.ramotion.foldingcell.FoldingCell;
 
@@ -23,11 +25,10 @@ import ro.capac.android.capac2018.ui.base.BaseFragment;
 
 public class EventsFragment extends BaseFragment implements EventsMvpView {
     public static final String TAG = "EventsFragment";
-    private ListView listView;
-    private FoldingCellListAdapter adapter;
-    private ArrayList<Event> events;
+
     @Inject
     EventsMvpPresenter<EventsMvpView> mPresenter;
+
     public static EventsFragment newInstance() {
         Bundle args = new Bundle();
         EventsFragment fragment = new EventsFragment();
@@ -43,21 +44,22 @@ public class EventsFragment extends BaseFragment implements EventsMvpView {
 
         ActivityComponent component = getActivityComponent();
         if (component != null) {
-            component.inject(this);
+            component.inject(EventsFragment.this);
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
         }
-        listView = view.findViewById(R.id.event_list);
-        events = Event.getTestingList();
+        ListView listView = view.findViewById(R.id.event_list);
+        final ArrayList<Event> events = Event.getTestingList();
 
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
-        adapter = new FoldingCellListAdapter(this.getActivity(), events);
+        final FoldingCellListAdapter adapter = new FoldingCellListAdapter(this.getContext(), events);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
                 // toggle clicked cell state
+                Toast.makeText(EventsFragment.this.getContext(), "You clicked", Toast.LENGTH_SHORT).show();
                 ((FoldingCell) view).toggle(false);
                 // register in adapter that state for selected cell is toggled
                 adapter.registerToggle(pos);
@@ -68,10 +70,6 @@ public class EventsFragment extends BaseFragment implements EventsMvpView {
     @Override
     protected void setUp(View view) {
 
-    }
-    @OnClick(R.id.nav_back_btn)
-    void onNavBackClick() {
-        getBaseActivity().onFragmentDetached(TAG);
     }
     @Override
     public void onDestroyView() {

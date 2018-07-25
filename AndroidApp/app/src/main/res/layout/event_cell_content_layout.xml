@@ -8,7 +8,8 @@
     android:background="@drawable/corner_border_gray"
     android:elevation="10dp"
     android:layout_marginBottom="5dp"
-    android:layout_marginTop="5dp">
+    android:layout_marginTop="5dp"
+    android:visibility="gone">
     <LinearLayout
         android:id="@+id/title_side_bar"
         android:layout_width="50dp"
@@ -268,7 +269,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/event_min_rep"
+                    android:id="@+id/event_req_stars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/min_rep_key_word"

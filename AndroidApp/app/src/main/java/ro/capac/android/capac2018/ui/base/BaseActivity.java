@@ -150,6 +150,8 @@ public abstract class BaseActivity extends AppCompatActivity
 
     }
 
+    public void showEventsFragment(){}
+
     @Override
     public void onFragmentDetached(String tag) {
 

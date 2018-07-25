@@ -25,34 +25,34 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
 
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     private View.OnClickListener defaultRequestBtnClickListener;
-    private Context mContext;
 
     public FoldingCellListAdapter(Context context, List<Event> objects) {
         super(context, 0, objects);
-        this.mContext = context;
     }
 
 
-    @NonNull
     @Override
-    public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // get item for selected view
         Event event = getItem(position);
         // if cell is exists - reuse it, if not - create the new one from resource
         FoldingCell cell = (FoldingCell) convertView;
-        final ViewHolder viewHolder;
+        ViewHolder viewHolder;
         if (cell == null) {
             viewHolder = new ViewHolder();
             LayoutInflater vi = LayoutInflater.from(getContext());
             cell = (FoldingCell) vi.inflate(R.layout.event_cell, parent, false);
             // binding view parts to view holder
-            viewHolder.tezaDetails = (RelativeLayout) cell.findViewById(R.id.teza_details);
-            viewHolder.disciplineName = (TextView) cell.findViewById(R.id.discipline_name_in_cell_list);
-            viewHolder.addGradeButton = (TextView) cell.findViewById(R.id.add_grade_button_in_custom_adapter);
-            viewHolder.average = (TextView) cell.findViewById(R.id.average_text_in_list_view);
-            viewHolder.discipline = (TextView) cell.findViewById(R.id.discipline_text_in_list_view);
-            viewHolder.disciplineGrades = (TextView) cell.findViewById(R.id.grades_in_cell_content);
-            viewHolder.teza = (TextView) cell.findViewById(R.id.teza_grade);
+            viewHolder.time = cell.findViewById(R.id.time_in_title_cell);
+            viewHolder.date = cell.findViewById(R.id.date_in_title_cell);
+            viewHolder.location= cell.findViewById(R.id.location_in_title_cell);
+            viewHolder.sportType = cell.findViewById(R.id.sport_type_in_title_cell);
+            viewHolder.organizer= cell.findViewById(R.id.organizer_in_title_cell);
+            viewHolder.noOfAtendees= cell.findViewById(R.id.number_of_users_going_in_title_cell);
+            viewHolder.description= cell.findViewById(R.id.event_description);
+            viewHolder.noReqPlayers = cell.findViewById(R.id.required_player_number);
+            viewHolder.reqStars = cell.findViewById(R.id.event_req_stars);
+            viewHolder.skillLevel = cell.findViewById(R.id.skill_level_in_title_cell);
             cell.setTag(viewHolder);
         } else {
             // for existing cell set valid valid state(without animation)
@@ -65,13 +65,16 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
         }
 
         // bind data from selected element to view through view holder
-
-        assert event != null;
-        viewHolder.disciplineName.setText(event.getName());
-
-        viewHolder.addGradeButton.setOnClickListener(defaultRequestBtnClickListener);
-
-
+        viewHolder.time.setText(event.getTime());
+        viewHolder.date.setText(event.getDate());
+        viewHolder.location.setText(event.getLocation());
+        viewHolder.sportType.setText(event.getSportType());
+        viewHolder.organizer.setText(event.getOrganizer());
+        viewHolder.noOfAtendees.setText(event.getNoOfAtendees());
+        viewHolder.description.setText(event.getDescription());
+        viewHolder.noReqPlayers.setText(event.getNoReqPlayers());
+        viewHolder.reqStars.setText(event.getReqStars());
+        viewHolder.skillLevel.setText(event.getSkillLevel());
         return cell;
     }
 
@@ -90,15 +93,23 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
     private void registerUnfold(int position) {
         unfoldedIndexes.add(position);
     }
-
+    public View.OnClickListener getDefaultRequestBtnClickListener() {
+        return defaultRequestBtnClickListener;
+    }
+    public void setDefaultRequestBtnClickListener(View.OnClickListener defaultRequestBtnClickListener) {
+        this.defaultRequestBtnClickListener = defaultRequestBtnClickListener;
+    }
     // View lookup cache
     private static class ViewHolder {
-        TextView disciplineName;
-        TextView discipline;
-        TextView disciplineGrades;
-        TextView average;
-        TextView teza;
-        RelativeLayout tezaDetails;
-        TextView addGradeButton;
+        TextView time;
+        TextView date;
+        TextView location;
+        TextView sportType;
+        TextView skillLevel;
+        TextView organizer;
+        TextView noOfAtendees;
+        TextView description;
+        TextView noReqPlayers;
+        TextView reqStars;
     }
 }
