@@ -19,13 +19,17 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
-import ro.capac.android.capac2018.data.network.model.BlogResponse;
-import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
+import dagger.Module;
+import dagger.Provides;
+import io.reactivex.disposables.CompositeDisposable;
 import ro.capac.android.capac2018.di.ActivityContext;
 import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.ui.about.AboutMvpPresenter;
 import ro.capac.android.capac2018.ui.about.AboutMvpView;
 import ro.capac.android.capac2018.ui.about.AboutPresenter;
+import ro.capac.android.capac2018.ui.events.EventsMvpPresenter;
+import ro.capac.android.capac2018.ui.events.EventsMvpView;
+import ro.capac.android.capac2018.ui.events.EventsPresenter;
 import ro.capac.android.capac2018.ui.login.LoginMvpPresenter;
 import ro.capac.android.capac2018.ui.login.LoginMvpView;
 import ro.capac.android.capac2018.ui.login.LoginPresenter;
@@ -49,12 +53,6 @@ import ro.capac.android.capac2018.ui.top.TopMvpView;
 import ro.capac.android.capac2018.ui.top.TopPresenter;
 import ro.capac.android.capac2018.utils.rx.AppSchedulerProvider;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
-
-import java.util.ArrayList;
-
-import dagger.Module;
-import dagger.Provides;
-import io.reactivex.disposables.CompositeDisposable;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -112,6 +110,12 @@ public class ActivityModule {
     @Provides
     AboutMvpPresenter<AboutMvpView> provideAboutPresenter(
             AboutPresenter<AboutMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    EventsMvpPresenter<EventsMvpView> provideEventsPresenter(
+            EventsPresenter<EventsMvpView> presenter) {
         return presenter;
     }
 
