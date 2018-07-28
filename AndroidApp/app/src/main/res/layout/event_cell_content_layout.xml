@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="450dp"
     android:background="@drawable/corner_border_gray"
     android:layout_marginBottom="5dp"
+    android:padding="20dp"
     android:layout_marginTop="5dp"
     android:visibility="gone">
-    <RelativeLayout
-        android:id="@+id/container_just_to_be_sure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:id="@+id/time_place_date"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        android:id="@+id/time_place_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginBottom="10dp">
         <TextView
             android:layout_weight="1"
             android:id="@+id/time_in_title_cell"
@@ -31,9 +23,9 @@
             android:drawableStart="@drawable/ic_access_time_black_24dp"
             android:drawablePadding="5dp"
             android:padding="5dp"
-            android:text="10:00 AM"
+            android:text="@string/mock_time"
             android:layout_gravity="center"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
         <TextView
             android:layout_weight="1"
             android:id="@+id/date_in_title_cell"
@@ -43,258 +35,188 @@
             android:drawablePadding="5dp"
             android:padding="5dp"
             android:layout_gravity="center"
-            android:text="3rd July"
+            android:text="@string/mock_date"
             android:textStyle="bold" />
         <TextView
             android:layout_weight="1"
             android:id="@+id/location_in_title_cell"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:drawableStart="@drawable/ic_location_on_black_24dp"
             android:drawablePadding="5dp"
             android:padding="5dp"
-            android:text="Parcul Central"
+            android:text="@string/mock_location"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:baselineAligned="false"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/sport_skill"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/time_place_date">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <TextView
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp"
-                android:id="@+id/sport_keyword"
-                style="@style/Base.TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sport"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/sport_type_in_title_cell"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/sport_keyword"
-                android:padding="5dp"
-                android:text="Basketball"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/level_keyword"
-                style="@style/Base.TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp"
-                android:text="Skill Level"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/level_type_in_title_cell"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/level_keyword"
-                android:padding="5dp"
-                android:text="Amator"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginBottom="10dp"
-        android:baselineAligned="false"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/organizer_going_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sport_skill">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/organizer_keyword"
-                style="@style/Base.TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp"
-                android:text="Organizer"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/organizer_in_title_cell"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/organizer_keyword"
-                android:padding="5dp"
-                android:text="Mihai Popescu"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/going_keyword"
-                style="@style/Base.TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Going"
-                android:textSize="15sp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/number_of_users_going_in_title_cell"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/going_keyword"
-                android:padding="5dp"
-                android:text="10 people"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </LinearLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/details"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@id/container_just_to_be_sure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:gravity="center"
-            android:layout_marginRight="10dp"
-            android:id="@+id/description_view"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp">
-            <TextView
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp"
-                android:id="@+id/description_key_word"
-                style="@style/Base.TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/event_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/description_key_word"
-                android:padding="5dp"
-                android:text="The organizer hasn't provided any description for this event, just go and have some fun!"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_marginBottom="10dp"
-            android:id="@+id/requirements_container"
-            android:baselineAligned="false"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/description_view"
-            android:layout_width="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RelativeLayout
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/players_count_key_word"
-                    style="@style/Base.TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_height="wrap_content"
-                    android:text="No. of players:"
-                    android:textSize="15sp"
-                    android:padding="5dp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/required_player_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/players_count_key_word"
-                    android:padding="5dp"
-                    android:text="2-10"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/min_rep_key_word"
-                    android:padding="5dp"
-                    style="@style/Base.TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_height="wrap_content"
-                    android:text="Required stars:"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/event_req_stars"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/min_rep_key_word"
-                    android:padding="5dp"
-                    android:text="3.5"
-                    android:gravity="center"
-                    android:drawableEnd="@drawable/ic_star_black_24dp"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </LinearLayout>
-        <Button
+    <TextView
+        android:layout_below="@id/time_place_date"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:id="@+id/sport_keyword"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Going"
+        android:text="@string/sport_keyword"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:id="@+id/sport_type_in_title_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sport_keyword"
+        android:padding="5dp"
+        android:text="@string/mock_sport_time"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_below="@id/time_place_date"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/level_keyword"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:text="@string/skill_level_keyword"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_alignParentEnd="true"
+        android:id="@+id/level_type_in_title_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/level_keyword"
+        android:padding="5dp"
+        android:text="@string/mock_skill_level"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_below="@id/sport_type_in_title_cell"
+        android:id="@+id/organizer_keyword"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:text="@string/organizer_keyword"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/organizer_in_title_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/organizer_keyword"
+        android:padding="5dp"
+        android:text="@string/mock_organizer"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_below="@id/sport_type_in_title_cell"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/going_keyword"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/number_of_user_keyword"
+        android:textSize="15sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_alignParentEnd="true"
+        android:id="@+id/number_of_users_going_in_title_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/going_keyword"
+        android:padding="5dp"
+        android:text="@string/mock_number_of_users"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/organizer_in_title_cell"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:id="@+id/description_key_word"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description_keyword"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:id="@+id/event_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description_key_word"
+        android:padding="5dp"
+        android:text="@string/default_description"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_below="@id/event_description"
+        android:id="@+id/players_count_key_word"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/req_players_keyword"
+        android:textSize="15sp"
+        android:padding="5dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/required_player_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/event_description"
+        android:layout_toEndOf="@id/players_count_key_word"
+        android:padding="5dp"
+        android:text="@string/mock_req_users"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_toStartOf="@id/event_req_stars"
+        android:layout_below="@id/event_description"
+        android:id="@+id/min_rep_key_word"
+        android:padding="5dp"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        android:text="@string/req_stars_keyword"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_alignParentEnd="true"
+        android:id="@+id/event_req_stars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/event_description"
+        android:padding="5dp"
+        android:text="@string/mock_req_stars"
+        android:gravity="center"
+        android:drawablePadding="5dp"
+        android:drawableEnd="@drawable/ic_star_black_24dp"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/going_button_text"
         android:textAppearance="@style/TextAppearance.Text.Bold"
         android:textAllCaps="true"
         android:background="@drawable/register_button_bg"
-        android:layout_below="@id/requirements_container"
+        android:layout_below="@id/required_player_number"
         android:layout_centerHorizontal="true"/>
-    </RelativeLayout>
-
 </RelativeLayout>

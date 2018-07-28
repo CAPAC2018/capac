@@ -92,5 +92,23 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mock_time">10:00 AM</string>
+    <string name="mock_date">3rd July</string>
+    <string name="mock_location">Parcul Central</string>
+    <string name="sport_keyword">Sport</string>
+    <string name="mock_sport_time">Basketball</string>
+    <string name="skill_level_keyword">Skill Level</string>
+    <string name="mock_skill_level">Amator</string>
+    <string name="organizer_keyword">Organizer</string>
+    <string name="mock_organizer">Mihai Popescu</string>
+    <string name="number_of_user_keyword">Going</string>
+    <string name="mock_number_of_users">10 people</string>
+    <string name="description_keyword">Description</string>
+    <string name="default_description">The organizer hasn\'t provided any description for this event, just go and have some fun!</string>
+    <string name="req_players_keyword">No. of players:</string>
+    <string name="mock_req_users">2-10</string>
+    <string name="req_stars_keyword">Required stars:</string>
+    <string name="mock_req_stars">3.5</string>
+    <string name="going_button_text">Going</string>
 
 </resources>
