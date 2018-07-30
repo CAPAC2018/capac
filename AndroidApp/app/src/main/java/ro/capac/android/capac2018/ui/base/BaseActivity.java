@@ -151,7 +151,7 @@ public abstract class BaseActivity extends AppCompatActivity
     }
 
     public void showEventsFragment(){}
-
+    public void showCategoriesFragment(){}
     @Override
     public void onFragmentDetached(String tag) {
 
@@ -175,6 +175,8 @@ public abstract class BaseActivity extends AppCompatActivity
     public void setUnBinder(Unbinder unBinder) {
         mUnBinder = unBinder;
     }
+
+
 
     @Override
     protected void onDestroy() {

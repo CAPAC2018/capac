@@ -19,6 +19,7 @@ import dagger.Component;
 import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.di.module.ActivityModule;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
+import ro.capac.android.capac2018.ui.categories_and_events.CategoriesFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
@@ -56,4 +57,6 @@ public interface ActivityComponent {
     void inject(CreateEventActivity activity);
 
     void inject(EventsFragment fragment);
+
+    void inject(CategoriesFragment fragment);
 }

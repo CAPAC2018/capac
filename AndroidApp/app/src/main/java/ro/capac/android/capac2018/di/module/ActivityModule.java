@@ -27,6 +27,9 @@ import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.ui.about.AboutMvpPresenter;
 import ro.capac.android.capac2018.ui.about.AboutMvpView;
 import ro.capac.android.capac2018.ui.about.AboutPresenter;
+import ro.capac.android.capac2018.ui.categories_and_events.CategoriesMvpPresenter;
+import ro.capac.android.capac2018.ui.categories_and_events.CategoriesMvpView;
+import ro.capac.android.capac2018.ui.categories_and_events.CategoriesPresenter;
 import ro.capac.android.capac2018.ui.events.EventsMvpPresenter;
 import ro.capac.android.capac2018.ui.events.EventsMvpView;
 import ro.capac.android.capac2018.ui.events.EventsPresenter;
@@ -139,7 +142,11 @@ public class ActivityModule {
             MyProfilePresenter<MyProfileMvpView> presenter) {
         return presenter;
     }
-
+    @Provides
+    CategoriesMvpPresenter<CategoriesMvpView> provideCategoriesPresenter(
+            CategoriesPresenter<CategoriesMvpView> presenter) {
+        return presenter;
+    }
 
     @Provides
     RatingDialogMvpPresenter<RatingDialogMvpView> provideRateUsPresenter(

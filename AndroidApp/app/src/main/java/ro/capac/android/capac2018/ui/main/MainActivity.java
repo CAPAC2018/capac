@@ -38,6 +38,7 @@ import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
+import ro.capac.android.capac2018.ui.categories_and_events.CategoriesFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
@@ -88,7 +89,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                         mTextMessage.setText(R.string.title_notifications);
                         return true;
                     case R.id.navigation_categories_events:
-                        mTextMessage.setText(R.string.title_categories_amp_events);
+                        showCategoriesFragment();
                         return true;
                 }
                 return false;
@@ -103,6 +104,15 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .disallowAddToBackStack()
                 .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
                 .add(R.id.frame, EventsFragment.newInstance(), EventsFragment.TAG)
+                .commit();
+    }
+    @Override
+    public void showCategoriesFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                .add(R.id.frame, CategoriesFragment.newInstance(), CategoriesFragment.TAG)
                 .commit();
     }
     @Override
