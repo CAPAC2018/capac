@@ -1,14 +1,12 @@
 package ro.capac.android.capac2018.ui.events;
 
-import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.HashSet;
@@ -53,6 +51,11 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
             viewHolder.noReqPlayers = cell.findViewById(R.id.required_player_number);
             viewHolder.reqStars = cell.findViewById(R.id.event_req_stars);
             viewHolder.skillLevel = cell.findViewById(R.id.skill_level_in_title_cell);
+            viewHolder.time1 = cell.findViewById(R.id.time_in_content_cell);
+            viewHolder.date1 = cell.findViewById(R.id.date_in_content_cell);
+            viewHolder.location1= cell.findViewById(R.id.location_in_content_cell);
+            viewHolder.sportType1 = cell.findViewById(R.id.sport_type_in_content_cell);
+            viewHolder.skillLevel1 = cell.findViewById(R.id.level_type_in_content_cell);
             cell.setTag(viewHolder);
         } else {
             // for existing cell set valid valid state(without animation)
@@ -69,6 +72,10 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
         viewHolder.date.setText(event.getDate());
         viewHolder.location.setText(event.getLocation());
         viewHolder.sportType.setText(event.getSportType());
+        viewHolder.time1.setText(event.getTime());
+        viewHolder.date1.setText(event.getDate());
+        viewHolder.location1.setText(event.getLocation());
+        viewHolder.sportType1.setText(event.getSportType());
         viewHolder.organizer.setText(event.getOrganizer());
         viewHolder.noOfAtendees.setText(event.getNoOfAtendees());
         if(event.getDescription().equals("null"))
@@ -78,6 +85,7 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
         viewHolder.noReqPlayers.setText(event.getNoReqPlayers());
         viewHolder.reqStars.setText(event.getReqStars());
         viewHolder.skillLevel.setText(event.getSkillLevel());
+        viewHolder.skillLevel1.setText(event.getSkillLevel());
         return cell;
     }
 
@@ -114,5 +122,10 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
         TextView description;
         TextView noReqPlayers;
         TextView reqStars;
+        TextView time1;
+        TextView date1;
+        TextView location1;
+        TextView sportType1;
+        TextView skillLevel1;
     }
 }

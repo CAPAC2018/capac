@@ -7,36 +7,8 @@
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:background="@drawable/corner_border_gray">
-    <LinearLayout
-        android:baselineAligned="false"
-        android:id="@+id/title_side_bar"
-        android:layout_centerVertical="true"
-        android:layout_width="50dp"
-        android:layout_height="90dp"
-        android:orientation="vertical">
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/event_title_check_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:background="@drawable/ic_check_24dp"/>
 
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/event_title_dismiss_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:background="@drawable/ic_close_black_24dp" />
-
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/expand_title_cell"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:background="@drawable/ic_expand_more_black_24dp" />
-    </LinearLayout>
         <TextView
-            android:layout_toEndOf="@id/title_side_bar"
             android:paddingEnd="10dp"
             android:id="@+id/time_in_title_cell"
             android:layout_width="wrap_content"
@@ -69,7 +41,6 @@
             android:textStyle="bold" />
 
     <TextView
-        android:layout_toEndOf="@id/title_side_bar"
         android:layout_below="@id/location_in_title_cell"
         android:id="@+id/sport_keyword"
         style="@style/Base.TextAppearance.AppCompat.Caption"
@@ -78,7 +49,6 @@
         android:text="@string/sport_keyword"
         android:textStyle="bold" />
     <TextView
-        android:layout_toEndOf="@id/title_side_bar"
         android:textAppearance="@style/TextAppearance.Text.Bold"
         android:id="@+id/sport_type_in_title_cell"
         android:layout_width="wrap_content"
@@ -103,42 +73,5 @@
         android:textAppearance="@style/TextAppearance.Text.Bold"
         android:layout_below="@id/level_keyword"
         android:text="@string/mock_skill_level"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_below="@id/sport_type_in_title_cell"
-        android:layout_toEndOf="@id/title_side_bar"
-        android:id="@+id/organizer_keyword"
-        style="@style/Base.TextAppearance.AppCompat.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/organizer_keyword"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_toEndOf="@id/title_side_bar"
-        android:id="@+id/organizer_in_title_cell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Text.Bold"
-        android:layout_below="@id/organizer_keyword"
-        android:text="@string/mock_organizer"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_below="@id/sport_type_in_title_cell"
-        android:layout_alignEnd="@id/location_in_title_cell"
-        android:id="@+id/going_keyword"
-        style="@style/Base.TextAppearance.AppCompat.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/number_of_user_keyword"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_alignEnd="@id/location_in_title_cell"
-        android:id="@+id/number_of_users_going_in_title_cell"
-        android:layout_width="wrap_content"
-        android:textAppearance="@style/TextAppearance.Text.Bold"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/going_keyword"
-        android:text="@string/mock_number_of_users"
         android:textStyle="bold" />
     </RelativeLayout>

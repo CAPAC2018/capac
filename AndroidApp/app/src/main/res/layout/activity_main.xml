@@ -22,6 +22,7 @@
     android:clipChildren="false">
 
     <LinearLayout
+        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,9 +71,19 @@
 
         </android.support.design.widget.AppBarLayout>
     </LinearLayout>
-    <include layout="@layout/activity_main2"
-        android:layout_below="@id/activity_main"
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
-    </include>
+        android:layout_below="@id/activity_main"
+        android:layout_above="@id/navigation"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/navigation" />
 </RelativeLayout>

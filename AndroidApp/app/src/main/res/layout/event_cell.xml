@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     folding-cell:additionalFlipsCount="0"
     folding-cell:animationDuration="2000"
-    folding-cell:backSideColor="#f4f0ff"
-    folding-cell:cameraHeight="30"
+    folding-cell:cameraHeight="10"
     android:focusable="false"
     android:descendantFocusability="blocksDescendants">
 

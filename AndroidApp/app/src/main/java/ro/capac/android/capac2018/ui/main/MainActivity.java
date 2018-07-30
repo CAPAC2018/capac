@@ -35,7 +35,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.categories_and_events.CategoriesFragment;
@@ -103,7 +102,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .beginTransaction()
                 .disallowAddToBackStack()
                 .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                .add(R.id.frame, EventsFragment.newInstance(), EventsFragment.TAG)
+                .replace(R.id.frame, EventsFragment.newInstance(), EventsFragment.TAG)
                 .commit();
     }
     @Override
@@ -112,7 +111,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .beginTransaction()
                 .disallowAddToBackStack()
                 .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                .add(R.id.frame, CategoriesFragment.newInstance(), CategoriesFragment.TAG)
+                .replace(R.id.frame, CategoriesFragment.newInstance(), CategoriesFragment.TAG)
                 .commit();
     }
     @Override
