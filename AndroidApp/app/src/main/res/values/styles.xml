@@ -54,6 +54,14 @@
         <item name="fontPath">fonts/source-sans-pro/OpenSans-Light.ttf</item>
     </style>
 
+    <style name="TextAppearance.Text.Condensed.Bold" parent="android:TextAppearance">
+        <item name="fontPath">fonts/source-sans-pro/OpenSansCondensed-Bold.ttf</item>
+    </style>
+
+    <style name="TextAppearance.Text.Condensed.Light" parent="android:TextAppearance">
+        <item name="fontPath">fonts/source-sans-pro/OpenSansCondensed-Light.ttf</item>
+    </style>
+
     <style name="TextAppearance.Text.Italic" parent="android:TextAppearance">
         <item name="fontPath">fonts/source-sans-pro/OpenSans-Italic.ttf</item>
     </style>
