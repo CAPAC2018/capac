@@ -152,6 +152,7 @@ public abstract class BaseActivity extends AppCompatActivity
 
     public void showEventsFragment(){}
     public void showCategoriesFragment(){}
+    public void showMyProfileFragment(){}
     @Override
     public void onFragmentDetached(String tag) {
 

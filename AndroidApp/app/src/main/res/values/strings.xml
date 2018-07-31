@@ -85,9 +85,9 @@
     <string name="retry">Retry</string>
     <string name="login_title">Login to Capac2018</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_feed">Feed</string>
     <string name="title_profile">My Profile</string>
-    <string name="title_dashboard">My Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_news">News</string>
     <string name="title_categories_amp_events"><![CDATA[Categories & Events]]></string>
 
     <!-- TODO: Remove or change this placeholder text -->

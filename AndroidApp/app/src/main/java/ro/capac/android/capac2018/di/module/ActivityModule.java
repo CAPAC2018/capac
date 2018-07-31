@@ -123,6 +123,13 @@ public class ActivityModule {
     }
 
     @Provides
+    MyProfileMvpPresenter<MyProfileMvpView> provideMyProfilePresenter(
+            MyProfilePresenter<MyProfileMvpView> presenter) {
+        return presenter;
+    }
+
+
+    @Provides
     @PerActivity
     LoginMvpPresenter<LoginMvpView> provideLoginPresenter(
             LoginPresenter<LoginMvpView> presenter) {
@@ -136,12 +143,6 @@ public class ActivityModule {
         return presenter;
     }
 
-    @Provides
-    @PerActivity
-    MyProfileMvpPresenter<MyProfileMvpView> provideMyProfilePresenter(
-            MyProfilePresenter<MyProfileMvpView> presenter) {
-        return presenter;
-    }
     @Provides
     CategoriesMvpPresenter<CategoriesMvpView> provideCategoriesPresenter(
             CategoriesPresenter<CategoriesMvpView> presenter) {

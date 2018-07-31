@@ -24,7 +24,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -41,26 +40,23 @@ import ro.capac.android.capac2018.ui.categories_and_events.CategoriesFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
+import ro.capac.android.capac2018.ui.profile.MyProfileFragment;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
 
 
 public class MainActivity extends BaseActivity implements MainMvpView {
-
-
-    private TextView mTextMessage;
-
     @Inject
     MainMvpPresenter<MainMvpView> mPresenter;
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
+    @BindView(R.id.toolbar_title)
+    TextView mToolbar;
+
+    private String currentFragmentTAG;
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
-        return intent;
+        return new Intent(context, MainActivity.class);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,29 +67,52 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
-
-        mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.navigation_feed:
+                        if(!currentFragmentTAG.equals(EventsFragment.TAG)) {
+                            mToolbar.setText("Feed");
+                            showEventsFragment();
+                            currentFragmentTAG = EventsFragment.TAG;
+                        }
+                        return true;
                     case R.id.navigation_profile:
-                        mTextMessage.setText(R.string.title_profile);
+                        if(!currentFragmentTAG.equals(MyProfileFragment.TAG)) {
+                            mToolbar.setText("My Profile");
+                            showMyProfileFragment();
+                            currentFragmentTAG = MyProfileFragment.TAG;
+                        }
                         return true;
-                    case R.id.navigation_dashboard:
-                        showEventsFragment();
-                        return true;
-                    case R.id.navigation_notifications:
-                        mTextMessage.setText(R.string.title_notifications);
+                    case R.id.navigation_news:
+
+                        mToolbar.setText("News");
                         return true;
                     case R.id.navigation_categories_events:
-                        showCategoriesFragment();
+                        if(!currentFragmentTAG.equals(CategoriesFragment.TAG)) {
+                            mToolbar.setText("Categories");
+                            showCategoriesFragment();
+                            currentFragmentTAG = CategoriesFragment.TAG;
+                        }
                         return true;
                 }
                 return false;
             }
         });
+        showInitialFragment();
+    }
+
+    private void showInitialFragment(){
+        mToolbar.setText("Feed");
+        getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(R.anim.fade_in,R.anim.fade_out)
+                .add(R.id.frame, EventsFragment.newInstance(), EventsFragment.TAG)
+                .commit();
+        currentFragmentTAG = EventsFragment.TAG;
     }
 
     @Override
@@ -112,6 +131,15 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .disallowAddToBackStack()
                 .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
                 .replace(R.id.frame, CategoriesFragment.newInstance(), CategoriesFragment.TAG)
+                .commit();
+    }
+    @Override
+    public void showMyProfileFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                .replace(R.id.frame, MyProfileFragment.newInstance(), MyProfileFragment.TAG)
                 .commit();
     }
     @Override

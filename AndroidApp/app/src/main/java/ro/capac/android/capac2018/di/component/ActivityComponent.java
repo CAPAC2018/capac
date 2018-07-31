@@ -26,6 +26,7 @@ import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
 import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.ui.main.MainActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
+import ro.capac.android.capac2018.ui.profile.MyProfileFragment;
 import ro.capac.android.capac2018.ui.registration.RegistrationActivity;
 import ro.capac.android.capac2018.ui.splash.SplashActivity;
 import ro.capac.android.capac2018.ui.top.TopActivity;
@@ -57,6 +58,8 @@ public interface ActivityComponent {
     void inject(CreateEventActivity activity);
 
     void inject(EventsFragment fragment);
+
+    void inject(MyProfileFragment fragment);
 
     void inject(CategoriesFragment fragment);
 }

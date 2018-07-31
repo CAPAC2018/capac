@@ -35,16 +35,15 @@
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                style="@style/Toolbar"
-                app:subtitleTextColor="@color/white"
-                app:title="@string/app_name"
-                app:titleTextAppearance="@style/Toolbar.TitleText"
-                app:titleTextColor="@color/white" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@color/light_gray" />
+                style="@style/Toolbar">
+            <TextView
+                style="@style/Toolbar.TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capac"
+                android:layout_gravity="start"
+                android:id="@+id/toolbar_title" />
+            </android.support.v7.widget.Toolbar>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

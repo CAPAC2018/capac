@@ -21,16 +21,13 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import ro.capac.android.capac2018.MvpApp;
+import javax.inject.Inject;
+
 import ro.capac.android.capac2018.MvpApp;
 import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.di.component.DaggerServiceComponent;
 import ro.capac.android.capac2018.di.component.ServiceComponent;
 import ro.capac.android.capac2018.utils.AppLogger;
-
-import javax.inject.Inject;
-
-import ro.capac.android.capac2018.MvpApp;
 
 /**
  * Created by janisharali on 01/02/17.
