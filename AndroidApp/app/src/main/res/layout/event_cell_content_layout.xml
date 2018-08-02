@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/corner_border_gray"
     android:padding="10dp"
-    android:elevation="10dp"
+    android:elevation="5dp"
     android:visibility="gone">
     <LinearLayout
         android:baselineAligned="false"

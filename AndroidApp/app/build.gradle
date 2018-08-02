@@ -58,6 +58,7 @@ dependencies {
     implementation "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion"
     implementation "com.android.support:animated-vector-drawable:$rootProject.supportLibraryVersion"
 
+
     //used for bottom navigation
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
@@ -107,6 +108,8 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
     androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    android.defaultConfig.vectorDrawables.useSupportLibrary = true
 }
 
 configurations.all {

@@ -26,6 +26,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import javax.inject.Inject;
@@ -53,6 +55,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     TextView mToolbar;
 
     private String currentFragmentTAG;
+    LinearLayout expandedToolbar;
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, MainActivity.class);
@@ -67,6 +70,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
+        expandedToolbar = findViewById(R.id.expanded_toolbar);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -87,7 +91,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                         }
                         return true;
                     case R.id.navigation_news:
-
+                        currentFragmentTAG = "News";
                         mToolbar.setText("News");
                         return true;
                     case R.id.navigation_categories_events:
@@ -113,6 +117,18 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .add(R.id.frame, EventsFragment.newInstance(), EventsFragment.TAG)
                 .commit();
         currentFragmentTAG = EventsFragment.TAG;
+    }
+
+    @OnClick(R.id.expand_toolbar)
+    public void expandToolbar(){
+        if(expandedToolbar.getVisibility()== View.VISIBLE) {
+            expandedToolbar.setVisibility(View.GONE);
+            findViewById(R.id.expand_toolbar).setActivated(false);
+        }
+        else {
+            expandedToolbar.setVisibility(View.VISIBLE);
+            findViewById(R.id.expand_toolbar).setActivated(true);
+        }
     }
 
     @Override
