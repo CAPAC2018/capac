@@ -110,5 +110,18 @@
     <string name="req_stars_keyword">Required stars:</string>
     <string name="mock_req_stars">3.5</string>
     <string name="going_button_text">Going</string>
+    <string name="mock_membership">Member since: 26th Sep 2018</string>
+    <string name="friends_label">Friends</string>
+    <string name="friends_label_description">People with who you enjoyed playing</string>
+    <string name="history_label">History</string>
+    <string name="history_label_description">Just in case you forgot what you did last weekend</string>
+    <string name="leaderboards_label">Leaderboards</string>
+    <string name="leaderboards_label_description">See how you stand against other players</string>
+    <string name="settings_label">Settings</string>
+    <string name="settings_label_description">Edit your preferences</string>
+    <string name="terms_label"><![CDATA[Terms & privacy policy]]></string>
+    <string name="terms_label_description">You don\'t realy care about this...</string>
+    <string name="feedback_label"><![CDATA[Help & feedback]]></string>
+    <string name="feedback_label_description">We\'re always open to suggestions</string>
 
 </resources>

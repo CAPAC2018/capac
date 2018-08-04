@@ -199,7 +199,7 @@
         android:text="@string/going_button_text"
         android:textAppearance="@style/TextAppearance.Text.Bold"
         android:textAllCaps="true"
-        android:background="@drawable/register_button_bg"
+        android:background="@drawable/bg_register_button"
         android:layout_below="@id/required_player_number"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>
