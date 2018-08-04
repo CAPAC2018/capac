@@ -1,14 +1,16 @@
 package ro.capac.android.capac2018.ui.events;
 
-import android.graphics.drawable.Drawable;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.ramotion.foldingcell.FoldingCell;
 
@@ -17,7 +19,6 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
@@ -38,7 +39,7 @@ public class EventsFragment extends BaseFragment implements EventsMvpView {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_events, container, false);
 
@@ -48,7 +49,7 @@ public class EventsFragment extends BaseFragment implements EventsMvpView {
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
         }
-        ListView listView = view.findViewById(R.id.event_list);
+        final ListView listView = view.findViewById(R.id.event_list);
         final ArrayList<Event> events = Event.getTestingList();
 
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
@@ -56,15 +57,34 @@ public class EventsFragment extends BaseFragment implements EventsMvpView {
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
                 // toggle clicked cell state
-                Toast.makeText(EventsFragment.this.getContext(), "You clicked", Toast.LENGTH_SHORT).show();
                 ((FoldingCell) view).toggle(false);
+
+                //Block scrolling to prevent a drawing bug
+                listView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        return true;
+                    }
+                });
                 // register in adapter that state for selected cell is toggled
                 adapter.registerToggle(pos);
+
+                //Unlock scrolling after animation has ended
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run(){
+                        listView.setOnTouchListener(null);
+                    }
+                };
+                Handler h = new Handler();
+                h.postDelayed(r, 1900);
             }
         });
+
         return view;
     }
     @Override

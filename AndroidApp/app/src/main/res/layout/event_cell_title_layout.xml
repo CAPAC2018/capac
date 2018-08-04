@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:gravity="center"
     android:id="@+id/event_cell_title_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:elevation="5dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:elevation="2dp"
     android:background="@drawable/corner_border_gray">
-
+    <RelativeLayout
+        android:layout_centerVertical="true"
+        android:id="@+id/details"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content">
         <TextView
-            android:paddingEnd="10dp"
+            android:padding="5dp"
             android:id="@+id/time_in_title_cell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_access_time_black_24dp"
             android:text="@string/mock_time"
-            android:layout_gravity="center"
             style="@style/Base.TextAppearance.AppCompat.Caption"
             android:textStyle="bold" />
         <TextView
-            android:paddingEnd="10dp"
-            android:layout_toEndOf="@id/time_in_title_cell"
+            android:padding="5dp"
+            android:layout_below="@id/time_in_title_cell"
             style="@style/Base.TextAppearance.AppCompat.Caption"
             android:id="@+id/date_in_title_cell"
             android:layout_width="wrap_content"
@@ -31,7 +35,8 @@
             android:text="@string/mock_date"
             android:textStyle="bold" />
         <TextView
-            android:layout_toEndOf="@id/date_in_title_cell"
+            android:padding="5dp"
+            android:layout_below="@id/date_in_title_cell"
             style="@style/Base.TextAppearance.AppCompat.Caption"
             android:id="@+id/location_in_title_cell"
             android:layout_width="wrap_content"
@@ -40,39 +45,66 @@
             android:drawableStart="@drawable/ic_location_on_black_24dp"
             android:text="@string/mock_location"
             android:textStyle="bold" />
-
-    <TextView
-        android:layout_below="@id/location_in_title_cell"
-        android:id="@+id/sport_keyword"
-        style="@style/Base.TextAppearance.AppCompat.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sport_keyword"
-        android:textStyle="bold" />
-    <TextView
-        android:textAppearance="@style/TextAppearance.Text.Bold"
-        android:id="@+id/sport_type_in_title_cell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sport_keyword"
-        android:text="@string/mock_sport_time"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_alignEnd="@id/location_in_title_cell"
-        android:layout_below="@id/location_in_title_cell"
-        android:id="@+id/level_keyword"
-        style="@style/Base.TextAppearance.AppCompat.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/skill_level_keyword"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_alignEnd="@id/location_in_title_cell"
-        android:id="@+id/skill_level_in_title_cell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Text.Bold"
-        android:layout_below="@id/level_keyword"
-        android:text="@string/mock_skill_level"
-        android:textStyle="bold" />
     </RelativeLayout>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_centerVertical="true"
+        android:layout_width="1dp"
+        android:layout_height="70dp"
+        android:background="@color/dark_gray"
+        android:layout_toEndOf="@id/details"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"/>
+
+    <RelativeLayout
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/separator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingTop="5dp"
+            android:id="@+id/sport_keyword"
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sport_keyword"
+            android:textStyle="bold" />
+        <TextView
+            android:textAppearance="@style/TextAppearance.Text.Bold"
+            android:id="@+id/sport_type_in_title_cell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sport_keyword"
+            android:text="@string/mock_sport_time"
+            android:textStyle="bold" />
+        <TextView
+            android:paddingTop="5dp"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/level_keyword"
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/skill_level_keyword"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:id="@+id/skill_level_in_title_cell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Text.Bold"
+            android:layout_below="@id/level_keyword"
+            android:text="@string/mock_skill_level"
+            android:textStyle="bold" />
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:text="@string/going_button_text"
+            android:textAppearance="@style/TextAppearance.Text.Bold"
+            android:textAllCaps="true"
+            android:background="@drawable/bg_register_button"
+            android:layout_below="@id/sport_type_in_title_cell"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</RelativeLayout>

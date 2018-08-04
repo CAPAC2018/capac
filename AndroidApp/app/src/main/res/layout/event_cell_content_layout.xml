@@ -4,52 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/corner_border_gray"
-    android:padding="10dp"
-    android:elevation="5dp"
+    android:padding="20dp"
+    android:elevation="2dp"
     android:visibility="gone">
-    <LinearLayout
-        android:baselineAligned="false"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/time_place_date"
+    <TextView
+        android:layout_alignParentStart="true"
+        android:id="@+id/time_in_content_cell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_weight="1"
-            android:id="@+id/time_in_content_cell"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_access_time_black_24dp"
-            android:text="@string/mock_time"
-            android:layout_gravity="center"
-            style="@style/Base.TextAppearance.AppCompat.Caption"
-            android:textStyle="bold" />
-        <TextView
-            android:gravity="center"
-            style="@style/Base.TextAppearance.AppCompat.Caption"
-            android:layout_weight="1"
-            android:id="@+id/date_in_content_cell"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_event_black_24dp"
-            android:layout_gravity="center"
-            android:text="@string/mock_date"
-            android:textStyle="bold" />
-        <TextView
-            android:gravity="center"
-            style="@style/Base.TextAppearance.AppCompat.Caption"
-            android:layout_weight="1"
-            android:id="@+id/location_in_content_cell"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_location_on_black_24dp"
-            android:text="@string/mock_location"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:drawableStart="@drawable/ic_access_time_black_24dp"
+        android:text="@string/mock_time"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:textStyle="bold" />
     <TextView
-        android:layout_below="@id/time_place_date"
+        android:layout_centerHorizontal="true"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:id="@+id/date_in_content_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_event_black_24dp"
+        android:text="@string/mock_date"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_alignParentEnd="true"
+        style="@style/Base.TextAppearance.AppCompat.Caption"
+        android:id="@+id/location_in_content_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_location_on_black_24dp"
+        android:text="@string/mock_location"
+        android:textStyle="bold" />
+    <View
+        android:layout_margin="10dp"
+        android:background="@color/dark_gray"
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/time_in_content_cell" />
+    <TextView
+        android:layout_below="@id/separator"
         android:layout_alignParentStart="true"
         android:id="@+id/sport_keyword1"
         style="@style/Base.TextAppearance.AppCompat.Caption"
@@ -69,7 +62,7 @@
         android:textAppearance="@style/TextAppearance.Text.Bold"
         android:textStyle="bold" />
     <TextView
-        android:layout_below="@id/time_place_date"
+        android:layout_below="@id/separator"
         android:layout_alignParentEnd="true"
         android:id="@+id/level_keyword1"
         style="@style/Base.TextAppearance.AppCompat.Caption"
@@ -150,6 +143,7 @@
         android:textStyle="bold" />
 
     <TextView
+        android:padding="2dp"
         android:layout_below="@id/event_description"
         android:id="@+id/players_count_key_word"
         style="@style/Base.TextAppearance.AppCompat.Caption"
@@ -159,16 +153,19 @@
         android:textSize="15sp"
         android:textStyle="bold" />
     <TextView
+        android:padding="2dp"
         android:id="@+id/required_player_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/event_description"
         android:layout_toEndOf="@id/players_count_key_word"
+        android:gravity="center"
         android:text="@string/mock_req_users"
         android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
+        android:padding="2dp"
         android:layout_toStartOf="@id/event_req_stars"
         android:layout_below="@id/event_description"
         android:id="@+id/min_rep_key_word"
@@ -176,10 +173,12 @@
         android:layout_width="wrap_content"
         android:layout_centerVertical="true"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:text="@string/req_stars_keyword"
         android:textSize="15sp"
         android:textStyle="bold" />
     <TextView
+        android:padding="2dp"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@id/event_req_stars"
         android:id="@+id/event_req_stars"
@@ -187,9 +186,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/event_description"
         android:text="@string/mock_req_stars"
+        android:layout_centerVertical="true"
         android:gravity="center"
-        android:drawablePadding="5dp"
-        android:drawableEnd="@drawable/ic_star_black_24dp"
         android:textSize="15sp"
         android:textStyle="bold" />
     <Button
