@@ -30,6 +30,9 @@ import ro.capac.android.capac2018.ui.about.AboutPresenter;
 import ro.capac.android.capac2018.ui.categories_and_events.CategoriesMvpPresenter;
 import ro.capac.android.capac2018.ui.categories_and_events.CategoriesMvpView;
 import ro.capac.android.capac2018.ui.categories_and_events.CategoriesPresenter;
+import ro.capac.android.capac2018.ui.chat.ChatMvpPresenter;
+import ro.capac.android.capac2018.ui.chat.ChatMvpView;
+import ro.capac.android.capac2018.ui.chat.ChatPresenter;
 import ro.capac.android.capac2018.ui.events.EventsMvpPresenter;
 import ro.capac.android.capac2018.ui.events.EventsMvpView;
 import ro.capac.android.capac2018.ui.events.EventsPresenter;
@@ -146,6 +149,11 @@ public class ActivityModule {
     @Provides
     CategoriesMvpPresenter<CategoriesMvpView> provideCategoriesPresenter(
             CategoriesPresenter<CategoriesMvpView> presenter) {
+        return presenter;
+    }
+    @Provides
+    ChatMvpPresenter<ChatMvpView> provideChatPresenter(
+            ChatPresenter<ChatMvpView> presenter) {
         return presenter;
     }
 

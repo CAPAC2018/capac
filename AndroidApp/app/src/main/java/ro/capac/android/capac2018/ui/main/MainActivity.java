@@ -39,6 +39,7 @@ import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.categories_and_events.CategoriesFragment;
+import ro.capac.android.capac2018.ui.chat.ChatFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
@@ -91,8 +92,11 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                         }
                         return true;
                     case R.id.navigation_news:
-                        currentFragmentTAG = "News";
-                        mToolbar.setText("News");
+                        if(!currentFragmentTAG.equals(ChatFragment.TAG)) {
+                            mToolbar.setText("Chat");
+                            showChatFragment();
+                            currentFragmentTAG = ChatFragment.TAG;
+                        }
                         return true;
                     case R.id.navigation_categories_events:
                         if(!currentFragmentTAG.equals(CategoriesFragment.TAG)) {
@@ -150,6 +154,15 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .commit();
     }
     @Override
+    public void showChatFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                .replace(R.id.frame, ChatFragment.newInstance(), ChatFragment.TAG)
+                .commit();
+    }
+    @Override
     public void showMyProfileFragment() {
         getSupportFragmentManager()
                 .beginTransaction()
@@ -198,7 +211,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                     .beginTransaction()
                     .disallowAddToBackStack()
                     .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                    .remove(fragment)
+                    .detach(fragment)
                     .commitNow();
         }
     }
