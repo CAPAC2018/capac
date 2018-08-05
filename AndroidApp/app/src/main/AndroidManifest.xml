@@ -68,7 +68,8 @@
         <activity android:name=".ui.create_event.CreateEventActivity" />
         <activity
             android:name=".ui.main2.Main2Activity"
-            android:label="@string/title_activity_main2"></activity>
+            android:label="@string/title_activity_main2" />
+        <activity android:name=".ui.lobby.LobbyActivity"></activity>
     </application>
 
 </manifest>
