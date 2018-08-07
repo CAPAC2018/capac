@@ -18,9 +18,8 @@ package ro.capac.server.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Created by janisharali on 08/01/17.
+ * Send the response of a login request to the client.
  */
-
 public class LoginResponse {
 
     @JsonProperty("status_code")

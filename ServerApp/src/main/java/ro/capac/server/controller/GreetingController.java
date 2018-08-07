@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ro.capac.server.model.Greeting;
 import ro.capac.server.model.LoginResponse;
+import ro.capac.server.model.LogoutResponse;
 
 @RestController
 public class GreetingController {
@@ -35,6 +36,15 @@ public class GreetingController {
         resp.setStatusCode("success");
         resp.setAccessToken("dummy.access.token." + System.currentTimeMillis());
         resp.setMessage("Login Success!");
+        return resp;
+    }
+
+    @RequestMapping("/serverLogout")
+    public LogoutResponse serverLogout() {
+        log.info("serverLogout");
+        LogoutResponse resp = new LogoutResponse();
+        resp.setStatusCode("success");
+        resp.setMessage("Logout success");
         return resp;
     }
 }
