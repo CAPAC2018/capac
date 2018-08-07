@@ -30,7 +30,7 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://localhost:8080\"")
+            buildConfigField("String", "BASE_URL", "\"http://capac2018.herokuapp.com\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
         release {
