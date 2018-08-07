@@ -18,7 +18,7 @@ import ro.capac.android.capac2018.ui.profile.MyProfileMvpPresenter;
 import ro.capac.android.capac2018.ui.profile.MyProfileMvpView;
 
 
-public class SettingsFragment extends BaseFragment {
+public class SettingsFragment extends BaseFragment implements SettingsMvpView {
 
     @Inject
     SettingsMvpPresenter<SettingsMvpView> mPresenter;
