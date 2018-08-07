@@ -10,6 +10,7 @@ import javax.annotation.Nullable;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.ui.base.BaseFragment;
@@ -19,11 +20,11 @@ import ro.capac.android.capac2018.ui.profile.MyProfileMvpView;
 
 
 public class SettingsFragment extends BaseFragment implements SettingsMvpView {
-
+    public static final String TAG = "SettingsFragment";
     @Inject
     SettingsMvpPresenter<SettingsMvpView> mPresenter;
 
-    public static SettingsFragment NewInstance() {
+    public static SettingsFragment newInstance() {
 
         Bundle args = new Bundle();
         SettingsFragment fragment = new SettingsFragment();
@@ -47,6 +48,7 @@ public class SettingsFragment extends BaseFragment implements SettingsMvpView {
         return view;
 
     }
+
 
     @Override
         public void onDestroyView() {

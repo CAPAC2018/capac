@@ -35,6 +35,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Optional;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
@@ -43,6 +44,7 @@ import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
 import ro.capac.android.capac2018.ui.profile.MyProfileFragment;
+import ro.capac.android.capac2018.ui.settings.SettingsFragment;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
 
@@ -156,6 +158,16 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .disallowAddToBackStack()
                 .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
                 .replace(R.id.frame, MyProfileFragment.newInstance(), MyProfileFragment.TAG)
+                .commit();
+    }
+    @Optional //Asta e ca un "scut" ca sa nu dea crash aplicatia instant cum o deschizi... Debuggerul zice ca nu gaseste "R.id.settings_in_card_view", adica elementul din xml pe care trebuie sa dai click ca sa deschida fragmentul... Probabil anotatia nu cauta decat in activitatea curenta, daca e asa chiar n-am habar cum sa o fac...
+    @Override
+    @OnClick(R.id.settings_in_card_view)
+    public void showSettingsFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .replace(R.id.frame, SettingsFragment.newInstance(), SettingsFragment.TAG)
                 .commit();
     }
     @Override
