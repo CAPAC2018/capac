@@ -46,6 +46,3 @@ ServerApp/local.properties
 
 AndroidApp/gradle.properties
 ServerApp/gradle.properties
-
-ServerApp/.idea/
-

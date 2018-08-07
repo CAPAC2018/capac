@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ro.capac.server.model.Greeting;
+import ro.capac.server.model.LoginResponse;
 
 @RestController
 public class GreetingController {
@@ -25,9 +26,15 @@ public class GreetingController {
     }
     
     @RequestMapping("/serverLogin")
-    public Greeting serverLogin(@RequestParam(value="name", defaultValue="World") String name) {
+    public LoginResponse serverLogin(@RequestParam(value="name", defaultValue="World") String name) {
         log.info("serverLogin: name={}", name);
-        return new Greeting(counter.incrementAndGet(),
-                            String.format(template, name));
+        LoginResponse resp = new LoginResponse();
+        resp.setUserId(13L);
+        resp.setUserName("Name of " + name);
+        resp.setUserEmail(name + "@some.user");
+        resp.setStatusCode("success");
+        resp.setAccessToken("dummy.access.token." + System.currentTimeMillis());
+        resp.setMessage("Login Success!");
+        return resp;
     }
 }
