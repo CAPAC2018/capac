@@ -64,6 +64,7 @@ ext {
     placeholderviewVersion = '0.6.1'
     debugDBVersion = '1.0.3'
     timberVersion = '4.5.1'
+    volleyVersion = '1.1.1'
 
     //Test dependencies
     junitVersion = '4.12'
