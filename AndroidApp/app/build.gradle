@@ -48,7 +48,7 @@ greendao {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     // android support libraries
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
@@ -60,15 +60,15 @@ dependencies {
 
     //used for bottom navigation
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support:design:27.1.1'
 
-    implementation "com.android.support:design:27.1.1"
     // font
     implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
 
     // network
     implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
-
     implementation files('libs/folding-cell-1.2.2.aar')
+
     // image
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
@@ -107,7 +107,6 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
     androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
-
     android.defaultConfig.vectorDrawables.useSupportLibrary = true
 }
 

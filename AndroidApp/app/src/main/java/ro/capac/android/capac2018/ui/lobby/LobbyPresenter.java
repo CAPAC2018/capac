@@ -7,7 +7,7 @@ import ro.capac.android.capac2018.ui.base.MvpView;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
 public class LobbyPresenter <V extends LobbyMvpView & MvpView> extends BasePresenter<V>
-    implements LobbyMvpPresenter {
+    implements LobbyMvpPresenter<V> {
 
     public LobbyPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
