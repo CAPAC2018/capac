@@ -26,25 +26,5 @@ public class GreetingController {
                             String.format(template, name));
     }
     
-    @RequestMapping("/serverLogin")
-    public LoginResponse serverLogin(@RequestParam(value="name", defaultValue="World") String name) {
-        log.info("serverLogin: name={}", name);
-        LoginResponse resp = new LoginResponse();
-        resp.setUserId(13L);
-        resp.setUserName("Name of " + name);
-        resp.setUserEmail(name + "@some.user");
-        resp.setStatusCode("success");
-        resp.setAccessToken("dummy.access.token." + System.currentTimeMillis());
-        resp.setMessage("Login Success!");
-        return resp;
-    }
 
-    @RequestMapping("/serverLogout")
-    public LogoutResponse serverLogout() {
-        log.info("serverLogout");
-        LogoutResponse resp = new LogoutResponse();
-        resp.setStatusCode("success");
-        resp.setMessage("Logout success");
-        return resp;
-    }
 }
