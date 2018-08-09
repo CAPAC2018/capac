@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="items">
+        <item>Basketball</item>
+        <item>Football</item>
+        <item>Tennis</item>
+        <item>Jogging</item>
+        <item>Swimming</item>
+        <item>Mini-Football</item>
+        <item>Hide'n Seek</item>
+    </string-array>
+</resources>
