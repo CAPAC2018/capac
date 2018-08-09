@@ -31,7 +31,13 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web"){
         exclude module: 'spring-boot-starter-logging'
     }
-    compile ('org.springframework.boot:spring-boot-starter-log4j2')
+    //compile ('org.springframework.boot:spring-boot-starter-log4j2')
+
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile('org.postgresql:postgresql:42.2.4')
+
+    //for local development
+    compile("com.h2database:h2")
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.jayway.jsonpath:json-path')
