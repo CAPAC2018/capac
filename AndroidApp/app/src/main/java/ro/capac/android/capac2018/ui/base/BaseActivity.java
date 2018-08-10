@@ -149,10 +149,12 @@ public abstract class BaseActivity extends AppCompatActivity
     public void onFragmentAttached() {
 
     }
-
+    //Fragments
     public void showEventsFragment(){}
     public void showCategoriesFragment(){}
     public void showMyProfileFragment(){}
+    public void showChatFragment(){}
+
     @Override
     public void onFragmentDetached(String tag) {
 
