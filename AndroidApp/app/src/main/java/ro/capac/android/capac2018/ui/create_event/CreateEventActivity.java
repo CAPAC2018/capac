@@ -6,18 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import java.util.Calendar;
+import javax.inject.Inject;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
+import ro.capac.android.capac2018.ui.MapsActivity;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.dialog.DatePickerFragment;
 import ro.capac.android.capac2018.ui.dialog.TimePickerFragment;
+import ro.capac.android.capac2018.utils.CommonUtils;
 
 
 public class CreateEventActivity extends BaseActivity implements CreateEventMvpView {
     Button timePicker;
     Button datePicker;
+    @Inject CreateEventMvpPresenter<CreateEventMvpView> mPresenter;
+
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, CreateEventActivity.class);
         return intent;
@@ -27,10 +32,13 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
         getActivityComponent().inject(this);
+        setUnBinder(ButterKnife.bind(this));
+        mPresenter.onAttach(this);
+
         timePicker = findViewById(R.id.time_picker);
         datePicker = findViewById(R.id.date_picker);
-        timePicker.setText("TIME: "+ Calendar.HOUR_OF_DAY + ":" +Calendar.MINUTE);
-        datePicker.setText("DATE: " + Calendar.DAY_OF_MONTH + "." +Calendar.MONTH);
+        timePicker.setText("TIME: "+ CommonUtils.getCurrentTime());
+        datePicker.setText("DATE: " + CommonUtils.getCurrentDate());
     }
     @OnClick(R.id.time_picker)
     public void showTimePicker(){
@@ -48,7 +56,6 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
     @OnClick(R.id.location_picker)
     public void startMap(){
         startActivity(MapsActivity.getStartIntent(this));
-        finish();
     }
     @Override
     protected void setUp() {
