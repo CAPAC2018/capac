@@ -3,9 +3,15 @@ package ro.capac.server.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
+
+import javax.swing.text.html.Option;
+import javax.transaction.Transactional;
 
 import ro.capac.server.entity.User;
 import ro.capac.server.model.LoginResponse;
@@ -22,19 +28,25 @@ public class LoginController {
     private UserRepository userRepo;
 
     @RequestMapping("/serverLogin")
-    public LoginResponse mySuperDupperServerLogin(
-            @RequestParam(value="name", defaultValue="World")
-            String name
+    public LoginResponse serverLogin(
+            @RequestParam(value="email") String email,
+            @RequestParam(value="password") String password
     ) {
-
-        log.info("serverLogin: name={}", name);
+        log.info("serverLogin: email={}", email);
         LoginResponse resp = new LoginResponse();
-        resp.setUserId(13L);
-        resp.setUserName("Name of " + name);
-        resp.setUserEmail(name + "@some.user");
-        resp.setStatusCode("success");
-        resp.setAccessToken("dummy.access.token." + System.currentTimeMillis());
-        resp.setMessage("Login Success!");
+        Optional<User> userOpt = userRepo.findByUserEmailAndPassword(email, password);
+        if (userOpt.isPresent()) {
+            User user = userOpt.get();
+            resp.setUserId(user.getId());
+            resp.setUserName(user.getUserName());
+            resp.setUserEmail(user.getUserEmail());
+            resp.setStatusCode("success");
+            resp.setAccessToken("dummy.access.token." + System.currentTimeMillis());
+            resp.setMessage("Login Success!");
+        } else {
+            resp.setStatusCode("error");
+            resp.setMessage("User with email '" + email + "' and specified password could not be found");
+        }
         return resp;
     }
 
