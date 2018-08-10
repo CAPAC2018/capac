@@ -44,6 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.MapsActivity"/>
         <activity
             android:name=".ui.login.LoginActivity"
             android:launchMode="singleTop"
@@ -60,22 +61,8 @@
             android:name=".ui.registration.RegistrationActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.feed.FeedActivity"
-            android:launchMode="singleTop"
-            android:parentActivityName=".ui.main.MainActivity"
-            android:screenOrientation="portrait">
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.main.MainActivity" />
-        </activity>
         <activity android:name=".ui.join_event.JoinEventActivity" />
         <activity android:name=".ui.create_event.CreateEventActivity" />
-        <activity
-            android:name=".ui.main2.Main2Activity"
-            android:label="@string/title_activity_main2" />
         <activity android:name=".ui.lobby.LobbyActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -89,9 +76,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".ui.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

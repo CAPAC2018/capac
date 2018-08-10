@@ -99,6 +99,9 @@ dependencies {
     //network communication
     implementation "com.android.volley:volley:$rootProject.volleyVersion"
 
+    //maps
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+
     // logger
     implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
 

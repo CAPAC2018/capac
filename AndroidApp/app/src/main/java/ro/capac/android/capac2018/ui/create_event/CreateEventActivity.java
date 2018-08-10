@@ -44,6 +44,12 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
         newFragment.setShowsDialog(true);
         newFragment.show(getFragmentManager(), DatePickerFragment.TAG);
     }
+
+    @OnClick(R.id.location_picker)
+    public void startMap(){
+        startActivity(MapsActivity.getStartIntent(this));
+        finish();
+    }
     @Override
     protected void setUp() {
 
