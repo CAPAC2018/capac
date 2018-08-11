@@ -151,7 +151,7 @@ public class ActivityModule {
             CategoriesPresenter<CategoriesMvpView> presenter) {
         return presenter;
     }
-    
+
     @Provides
     SettingsMvpPresenter<SettingsMvpView> provideSettingsPresenter(
             SettingsPresenter<SettingsMvpView> presenter) {
