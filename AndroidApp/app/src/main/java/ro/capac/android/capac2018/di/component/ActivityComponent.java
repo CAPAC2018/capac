@@ -29,6 +29,7 @@ import ro.capac.android.capac2018.ui.main.MainActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
 import ro.capac.android.capac2018.ui.profile.MyProfileFragment;
 import ro.capac.android.capac2018.ui.registration.RegistrationActivity;
+import ro.capac.android.capac2018.ui.settings.SettingsFragment;
 import ro.capac.android.capac2018.ui.splash.SplashActivity;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
@@ -64,5 +65,8 @@ public interface ActivityComponent {
 
     void inject(CategoriesFragment fragment);
 
+    void inject(SettingsFragment fragment);
+
     void inject(ChatFragment fragment);
+
 }

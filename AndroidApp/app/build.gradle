@@ -62,6 +62,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
     implementation "com.android.support:design:27.1.1"
+
     // font
     implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
 
@@ -69,6 +70,7 @@ dependencies {
     implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
 
     implementation files('libs/folding-cell-1.2.2.aar')
+
     // image
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 

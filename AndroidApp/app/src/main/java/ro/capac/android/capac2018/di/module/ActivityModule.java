@@ -51,6 +51,9 @@ import ro.capac.android.capac2018.ui.profile.MyProfilePresenter;
 import ro.capac.android.capac2018.ui.registration.RegistrationMvpPresenter;
 import ro.capac.android.capac2018.ui.registration.RegistrationMvpView;
 import ro.capac.android.capac2018.ui.registration.RegistrationPresenter;
+import ro.capac.android.capac2018.ui.settings.SettingsMvpPresenter;
+import ro.capac.android.capac2018.ui.settings.SettingsMvpView;
+import ro.capac.android.capac2018.ui.settings.SettingsPresenter;
 import ro.capac.android.capac2018.ui.splash.SplashMvpPresenter;
 import ro.capac.android.capac2018.ui.splash.SplashMvpView;
 import ro.capac.android.capac2018.ui.splash.SplashPresenter;
@@ -157,6 +160,11 @@ public class ActivityModule {
         return presenter;
     }
 
+    @Provides
+    SettingsMvpPresenter<SettingsMvpView> provideSettingsPresenter(
+            SettingsPresenter<SettingsMvpView> presenter) {
+        return presenter;
+    }
     @Provides
     RatingDialogMvpPresenter<RatingDialogMvpView> provideRateUsPresenter(
             RatingDialogPresenter<RatingDialogMvpView> presenter) {
