@@ -9,9 +9,11 @@ import android.view.ViewGroup;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.ui.base.BaseFragment;
+import ro.capac.android.capac2018.ui.settings.SettingsFragment;
 
 public class MyProfileFragment extends BaseFragment implements MyProfileMvpView{
     public static final String TAG = "MyProfileFragment";
@@ -39,6 +41,15 @@ public class MyProfileFragment extends BaseFragment implements MyProfileMvpView{
             mPresenter.onAttach(this);
         }
         return view;
+    }
+
+    @OnClick(R.id.settings_in_card_view)
+    public void showSettingsFragment() {
+        getFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .replace(R.id.frame, SettingsFragment.newInstance(), SettingsFragment.TAG)
+                .commit();
     }
 
     @Override

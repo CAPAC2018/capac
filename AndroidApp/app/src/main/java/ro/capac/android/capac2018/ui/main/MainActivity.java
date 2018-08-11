@@ -160,16 +160,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .replace(R.id.frame, MyProfileFragment.newInstance(), MyProfileFragment.TAG)
                 .commit();
     }
-    @Optional //Asta e ca un "scut" ca sa nu dea crash aplicatia instant cum o deschizi... Debuggerul zice ca nu gaseste "R.id.settings_in_card_view", adica elementul din xml pe care trebuie sa dai click ca sa deschida fragmentul... Probabil anotatia nu cauta decat in activitatea curenta, daca e asa chiar n-am habar cum sa o fac...
-    @Override
-    @OnClick(R.id.settings_in_card_view)
-    public void showSettingsFragment() {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .disallowAddToBackStack()
-                .replace(R.id.frame, SettingsFragment.newInstance(), SettingsFragment.TAG)
-                .commit();
-    }
     @Override
     public void onBackPressed() {
         FragmentManager fragmentManager = getSupportFragmentManager();
