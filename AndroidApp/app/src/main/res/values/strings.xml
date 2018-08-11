@@ -123,5 +123,7 @@
     <string name="terms_label_description">You don\'t realy care about this...</string>
     <string name="feedback_label"><![CDATA[Help & feedback]]></string>
     <string name="feedback_label_description">We\'re always open to suggestions</string>
+    <string name="message_hint_text">Type a message</string>
+    <string name="send_desc">Send</string>
 
 </resources>

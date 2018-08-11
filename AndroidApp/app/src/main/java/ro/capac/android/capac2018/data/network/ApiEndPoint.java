@@ -30,10 +30,10 @@ public final class ApiEndPoint {
             + "/588d15d3100000ae072d2944";
 
     public static final String ENDPOINT_SERVER_LOGIN = BuildConfig.BASE_URL
-            + "/588d15f5100000a8072d2945";
+            + "/serverLogin";
 
     public static final String ENDPOINT_LOGOUT = BuildConfig.BASE_URL
-            + "/588d161c100000a9072d2946";
+            + "/serverLogout";
 
     public static final String ENDPOINT_BLOG = BuildConfig.BASE_URL
             + "/5926ce9d11000096006ccb30";

@@ -15,6 +15,8 @@
 
 package ro.capac.android.capac2018.ui.login;
 
+import android.util.Log;
+
 import com.androidnetworking.error.ANError;
 import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
@@ -57,6 +59,7 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
 
     @Override
     public void onServerLoginClick(String email, String password) {
+        Log.d("LoginPresenter", "onServerLoginClick email='" + email + "'");
         //validate email and password
         if (email == null || email.isEmpty()) {
             getMvpView().onError(R.string.empty_email);

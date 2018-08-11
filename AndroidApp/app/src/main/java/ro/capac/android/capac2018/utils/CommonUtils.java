@@ -23,15 +23,17 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.provider.Settings;
 
-import ro.capac.android.capac2018.R;
-
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import ro.capac.android.capac2018.R;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -90,5 +92,20 @@ public final class CommonUtils {
 
     public static String getTimeStamp() {
         return new SimpleDateFormat(AppConstants.TIMESTAMP_FORMAT, Locale.US).format(new Date());
+    }
+
+    private static DateFormat dateFormat = new SimpleDateFormat("d MMM yyyy");
+    private static DateFormat timeFormat = new SimpleDateFormat("K:mma");
+
+    public static String getCurrentTime() {
+
+        Date today = Calendar.getInstance().getTime();
+        return timeFormat.format(today);
+    }
+
+    public static String getCurrentDate() {
+
+        Date today = Calendar.getInstance().getTime();
+        return dateFormat.format(today);
     }
 }

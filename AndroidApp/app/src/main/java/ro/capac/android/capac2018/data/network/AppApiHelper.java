@@ -15,6 +15,8 @@
 
 package ro.capac.android.capac2018.data.network;
 
+import android.util.Log;
+
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.data.network.model.LogoutResponse;
@@ -77,6 +79,7 @@ public class AppApiHelper implements ApiHelper {
     @Override
     public Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest
                                                               request) {
+        Log.d(getClass().getSimpleName(), "doServerLoginApiCall: " + request);
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_SERVER_LOGIN)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)

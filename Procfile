@@ -1,0 +1,1 @@
+web: java -jar -Dspring.profiles.active=heroku ServerApp/build/libs/ServerApp.war --server.port=$PORT
