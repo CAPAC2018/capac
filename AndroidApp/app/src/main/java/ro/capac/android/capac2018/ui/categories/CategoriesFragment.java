@@ -1,18 +1,19 @@
-package ro.capac.android.capac2018.ui.categories_and_events;
+package ro.capac.android.capac2018.ui.categories;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.GridView;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import ro.capac.android.capac2018.R;
+import ro.capac.android.capac2018.data.db.model.Category;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.ui.base.BaseFragment;
 
@@ -41,7 +42,10 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
         }
-
+        GridView gridView = view.findViewById(R.id.categories_container);
+        ArrayList<Category> categories = Category.getAllCategories();
+        CategoryAdapter adapter = new CategoryAdapter(this.getContext(),categories);
+        gridView.setAdapter(adapter);
         return view;
     }
 

@@ -1,4 +1,4 @@
-package ro.capac.android.capac2018.ui.categories_and_events;
+package ro.capac.android.capac2018.ui.categories;
 
 import javax.inject.Inject;
 

@@ -38,7 +38,7 @@ import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
-import ro.capac.android.capac2018.ui.categories_and_events.CategoriesFragment;
+import ro.capac.android.capac2018.ui.categories.CategoriesFragment;
 import ro.capac.android.capac2018.ui.chat.ChatFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
