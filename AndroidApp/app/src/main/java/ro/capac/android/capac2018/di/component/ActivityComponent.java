@@ -19,7 +19,7 @@ import dagger.Component;
 import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.di.module.ActivityModule;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
-import ro.capac.android.capac2018.ui.categories_and_events.CategoriesFragment;
+import ro.capac.android.capac2018.ui.categories.CategoriesFragment;
 import ro.capac.android.capac2018.ui.chat.ChatFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;

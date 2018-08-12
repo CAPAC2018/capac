@@ -125,5 +125,6 @@
     <string name="feedback_label_description">We\'re always open to suggestions</string>
     <string name="message_hint_text">Type a message</string>
     <string name="send_desc">Send</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

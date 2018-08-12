@@ -1,153 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradiend">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent">
+   <GridView
+       android:padding="5dp"
+       android:id="@+id/categories_container"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:numColumns="2"
+       android:scrollbars="none"
+       android:horizontalSpacing="5dp"
+       android:layout_centerInParent="true"
+       android:verticalSpacing="5dp"
+       />
 
-        <RelativeLayout
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/imageButton1"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_margin="5dp"
-                android:background="@color/google"
-                android:text="Basketball" />
-
-            <Button
-                android:id="@+id/imageButton2"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_margin="5dp"
-                android:background="@color/light_blue"
-                android:text="Swimming" />
-
-            <Button
-                android:id="@+id/imageButton3"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/imageButton1"
-                android:layout_margin="5dp"
-                android:background="@color/fb"
-                android:text="Handball" />
-
-            <Button
-                android:id="@+id/imageButton4"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/imageButton1"
-                android:layout_margin="5dp"
-                android:background="@color/light_green"
-                android:text="Tennis" />
-
-            <Button
-                android:id="@+id/imageButton5"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/imageButton3"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_confirm_pass_selected"
-                android:text="Football" />
-
-            <Button
-                android:id="@+id/imageButton6"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignStart="@+id/imageButton2"
-                android:layout_below="@+id/imageButton3"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_person_24dp"
-                android:text="Ping-Pong / Table Tennis" />
-
-            <Button
-                android:id="@+id/imageButton7"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/imageButton5"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_rss_symbol"
-                android:text="Athletism / Running" />
-
-            <Button
-                android:id="@+id/imageButton8"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignStart="@+id/imageButton2"
-                android:layout_below="@+id/imageButton5"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_location_on_black_24dp"
-                android:text="Golf" />
-
-            <Button
-                android:id="@+id/imageButton9"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/imageButton7"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_star"
-                android:text="Batminton" />
-
-            <Button
-                android:id="@+id/imageButton10"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignStart="@+id/imageButton2"
-                android:layout_below="@+id/imageButton7"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_cancel_black_24dp"
-                android:text="Gymnastics" />
-
-            <Button
-                android:id="@+id/imageButton11"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_below="@+id/imageButton9"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_star_black_24dp"
-                android:text="Cycling" />
-
-            <Button
-                android:id="@+id/imageButton12"
-                style="@style/Button.ImageButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_alignStart="@+id/imageButton2"
-                android:layout_below="@+id/imageButton9"
-                android:layout_margin="5dp"
-                android:background="@drawable/ic_check_24dp"
-                android:text="Volleyball" />
-
-
-        </RelativeLayout>
-    </ScrollView>
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
