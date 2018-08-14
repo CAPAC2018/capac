@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
@@ -21,12 +23,15 @@ import ro.capac.android.capac2018.utils.CommonUtils;
 public class CreateEventActivity extends BaseActivity implements CreateEventMvpView {
     Button timePicker;
     Button datePicker;
-    @Inject CreateEventMvpPresenter<CreateEventMvpView> mPresenter;
+    Button create;
+    @Inject
+    CreateEventMvpPresenter<CreateEventMvpView> mPresenter;
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, CreateEventActivity.class);
         return intent;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,37 +40,45 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
         setUnBinder(ButterKnife.bind(this));
         mPresenter.onAttach(this);
 
+        create = findViewById(R.id.create_btn);
         timePicker = findViewById(R.id.time_picker);
         datePicker = findViewById(R.id.date_picker);
-        timePicker.setText("TIME: "+ CommonUtils.getCurrentTime());
+        create.animate()
+                .translationY(create.getHeight())
+                .setDuration(750)
+                .setListener(null);
+        timePicker.setText("TIME: " + CommonUtils.getCurrentTime());
         datePicker.setText("DATE: " + CommonUtils.getCurrentDate());
     }
+
     @OnClick(R.id.time_picker)
-    public void showTimePicker(){
+    public void showTimePicker() {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.setShowsDialog(true);
-        newFragment.show(getFragmentManager(),TimePickerFragment.TAG);
+        newFragment.show(getFragmentManager(), TimePickerFragment.TAG);
     }
+
     @OnClick(R.id.date_picker)
-    public void showDatePicker(){
+    public void showDatePicker() {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.setShowsDialog(true);
         newFragment.show(getFragmentManager(), DatePickerFragment.TAG);
     }
 
     @OnClick(R.id.location_picker)
-    public void startMap(){
+    public void startMap() {
         startActivity(MapsActivity.getStartIntent(this));
     }
+
     @Override
     protected void setUp() {
 
     }
-    public void changeTime(int hour, int minute){
-        timePicker.setText("TIME: "+ hour + ":" + minute);
-    }
 
-    public void changeDate(int day, int month){
-        datePicker.setText("DATE: " + day + "." +month);
+    public void changeTime(Date date) {
+        timePicker.setText("TIME: " + CommonUtils.formatTime(date));
+    }
+    public void changeDate(Date date){
+        datePicker.setText("DATE: " + CommonUtils.formatDate(date));
     }
 }

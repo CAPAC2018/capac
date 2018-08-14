@@ -95,7 +95,7 @@ public final class CommonUtils {
     }
 
     private static DateFormat dateFormat = new SimpleDateFormat("d MMM yyyy");
-    private static DateFormat timeFormat = new SimpleDateFormat("K:mma");
+    private static DateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
     public static String getCurrentTime() {
 
@@ -107,5 +107,13 @@ public final class CommonUtils {
 
         Date today = Calendar.getInstance().getTime();
         return dateFormat.format(today);
+    }
+
+    public static String formatTime(Date date){
+        return timeFormat.format(date);
+    }
+
+    public static String formatDate(Date date){
+        return  dateFormat.format(date);
     }
 }

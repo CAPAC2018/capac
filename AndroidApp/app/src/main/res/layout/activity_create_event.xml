@@ -159,11 +159,14 @@
         android:hint="Minimum reputation"/>
     </RelativeLayout>
     <Button
-        android:background="@color/blue_grey_light"
+        android:translationY="50dp"
+        android:background="@drawable/bg_create_event_btn"
         android:text="Create"
-        style="@style/TextAppearance.AppCompat.Button"
+        style="@style/TextAppearance.Text.Bold"
         android:id="@+id/create_btn"
+        android:textSize="30sp"
         android:layout_width="match_parent"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.DatePicker;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 
@@ -26,7 +27,10 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         CreateEventActivity myActivity = (CreateEventActivity) getActivity();
-        myActivity.changeDate(day,month);
+        Calendar c = Calendar.getInstance();
+        c.set(year,month,day);
+        Date date = c.getTime();
+        myActivity.changeDate(date);
     }
 
 }
