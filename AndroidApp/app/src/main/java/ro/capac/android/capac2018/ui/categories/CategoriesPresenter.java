@@ -14,4 +14,9 @@ public class CategoriesPresenter<V extends CategoriesMvpView> extends BasePresen
     public CategoriesPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
+    @Override
+    public void onCategorySelected(){
+        getMvpView().showLoading();
+        getMvpView().openCategorizedEventsActivity();
+    }
 }

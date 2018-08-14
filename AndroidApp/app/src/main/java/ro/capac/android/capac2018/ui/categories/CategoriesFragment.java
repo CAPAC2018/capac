@@ -12,10 +12,12 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Category;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.ui.base.BaseFragment;
+import ro.capac.android.capac2018.ui.categorized_events.CategorizedEventsActivity;
 
 public class CategoriesFragment extends BaseFragment implements CategoriesMvpView {
     public static final String TAG = "CategoriesFragment";
@@ -48,7 +50,11 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         gridView.setAdapter(adapter);
         return view;
     }
-
+    @OnClick(R.id.categories_container)
+    @Override
+    public void openCategorizedEventsActivity(){
+        startActivity(CategorizedEventsActivity.getStartIntent(this.getContext()));
+    }
 
     @Override
     protected void setUp(View view) {
