@@ -1,0 +1,8 @@
+package ro.capac.android.capac2018.ui.categorized_events;
+
+import ro.capac.android.capac2018.di.PerActivity;
+import ro.capac.android.capac2018.ui.base.MvpPresenter;
+
+@PerActivity
+public interface CategorizedEventsMvpPresenter<V extends CategorizedEventsMvpView> extends MvpPresenter<V> {
+}

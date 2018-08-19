@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Category;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.ui.base.BaseFragment;
+import ro.capac.android.capac2018.ui.categorized_events.CategorizedEventsActivity;
 
 public class CategoriesFragment extends BaseFragment implements CategoriesMvpView {
     public static final String TAG = "CategoriesFragment";
@@ -28,6 +30,10 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         CategoriesFragment fragment = new CategoriesFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+    @Override
+    public void openCategorizedEventsActivity() {
+        startActivity(CategorizedEventsActivity.getStartIntent(this.getContext()));
     }
 
     @Nullable
@@ -46,10 +52,16 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         ArrayList<Category> categories = Category.getAllCategories();
         CategoryAdapter adapter = new CategoryAdapter(this.getContext(),categories);
         gridView.setAdapter(adapter);
+
+        gridView.setOnItemClickListener(new GridView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                openCategorizedEventsActivity();
+            }
+        });
         return view;
     }
-
-
     @Override
     protected void setUp(View view) {
 
@@ -59,4 +71,6 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         mPresenter.onDetach();
         super.onDestroyView();
     }
+
+
 }

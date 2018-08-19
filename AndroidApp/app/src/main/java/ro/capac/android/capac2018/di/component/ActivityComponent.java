@@ -20,6 +20,7 @@ import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.di.module.ActivityModule;
 import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.categories.CategoriesFragment;
+import ro.capac.android.capac2018.ui.categorized_events.CategorizedEventsActivity;
 import ro.capac.android.capac2018.ui.chat.ChatFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
@@ -59,6 +60,8 @@ public interface ActivityComponent {
 
     void inject(CreateEventActivity activity);
 
+    void inject(CategorizedEventsActivity activity);
+
     void inject(EventsFragment fragment);
 
     void inject(MyProfileFragment fragment);
@@ -68,5 +71,6 @@ public interface ActivityComponent {
     void inject(SettingsFragment fragment);
 
     void inject(ChatFragment fragment);
+
 
 }

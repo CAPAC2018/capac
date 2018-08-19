@@ -14,4 +14,5 @@ public class CategoriesPresenter<V extends CategoriesMvpView> extends BasePresen
     public CategoriesPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
+
 }
