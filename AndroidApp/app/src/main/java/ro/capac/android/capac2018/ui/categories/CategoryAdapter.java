@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,14 +23,14 @@ public class CategoryAdapter extends ArrayAdapter<Category> {
         final Category category = getItem(position);
         // if cell is exists - reuse it, if not - create the new one from resource
         View view = convertView;
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
         if(convertView == null) {
             viewHolder = new ViewHolder();
             LayoutInflater vi = LayoutInflater.from(getContext());
             view = vi.inflate(R.layout.item_category, parent, false);
             // binding view parts to view holder
             viewHolder.imageView = view.findViewById(R.id.category_image);
-            viewHolder.textView = view.findViewById(R.id.categoty_title);
+            viewHolder.textView = view.findViewById(R.id.category_title);
             view.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) view.getTag();
@@ -39,17 +38,12 @@ public class CategoryAdapter extends ArrayAdapter<Category> {
         // bind data from selected element to view through view holder
         viewHolder.imageView.setImageResource(category.image);
         viewHolder.textView.setText(category.getName());
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), category.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
+
         return view;
 
     }
 
-    private static  class ViewHolder {
+    private static class ViewHolder {
         ImageView imageView;
         TextView textView;
     }

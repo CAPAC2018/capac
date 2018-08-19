@@ -6,15 +6,15 @@
     android:layout_width="170dp"
     android:layout_height="200dp"
     android:background="@drawable/bg_category_title">
-    <ImageButton
+    <ImageView
         android:id="@+id/category_image"
-        style="@style/Button.ImageButton"
+
         android:layout_width="170dp"
         android:layout_height="170dp"
         app:srcCompat="@drawable/ic_basketball_1"/>
 
     <TextView
-        android:id="@+id/categoty_title"
+        android:id="@+id/category_title"
         style="@style/TextAppearance.Text.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -31,7 +31,6 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void openCategorizedEventsActivity() {
         startActivity(CategorizedEventsActivity.getStartIntent(this.getContext()));
@@ -54,17 +53,15 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         CategoryAdapter adapter = new CategoryAdapter(this.getContext(),categories);
         gridView.setAdapter(adapter);
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnItemClickListener(new GridView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    openCategorizedEventsActivity();
-                }
-            });
+                openCategorizedEventsActivity();
+            }
+        });
         return view;
     }
-
-
-
     @Override
     protected void setUp(View view) {
 
