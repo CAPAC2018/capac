@@ -1,6 +1,7 @@
 package ro.capac.android.capac2018.ui.categories;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,8 @@ public class CategoryAdapter extends ArrayAdapter<Category> {
             viewHolder = (ViewHolder) view.getTag();
         }
         // bind data from selected element to view through view holder
-        viewHolder.imageView.setImageResource(category.image);
+        viewHolder.imageView.setImageDrawable(ContextCompat.getDrawable(this.getContext(),category.image));
+
         viewHolder.textView.setText(category.getName());
 
         return view;
