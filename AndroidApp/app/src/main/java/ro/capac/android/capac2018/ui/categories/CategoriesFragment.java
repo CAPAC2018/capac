@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -48,12 +49,12 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
         }
-        GridView gridView = view.findViewById(R.id.categories_container);
+        ListView listView = view.findViewById(R.id.categories_container);
         ArrayList<Category> categories = Category.getAllCategories();
         CategoryAdapter adapter = new CategoryAdapter(this.getContext(),categories);
-        gridView.setAdapter(adapter);
+        listView.setAdapter(adapter);
 
-        gridView.setOnItemClickListener(new GridView.OnItemClickListener() {
+        listView.setOnItemClickListener(new GridView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
