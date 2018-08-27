@@ -4,18 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradiend">
+    android:background="@color/white">
 
-   <GridView
-       android:padding="5dp"
+   <ListView
+       android:padding="0dp"
        android:id="@+id/categories_container"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:numColumns="2"
        android:scrollbars="none"
-       android:horizontalSpacing="5dp"
-       android:layout_centerInParent="true"
-       android:verticalSpacing="5dp"
+       android:horizontalSpacing="0dp"
        />
 
 </RelativeLayout>

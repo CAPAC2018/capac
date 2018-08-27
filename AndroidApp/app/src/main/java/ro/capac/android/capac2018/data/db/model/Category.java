@@ -1,6 +1,13 @@
 package ro.capac.android.capac2018.data.db.model;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.res.ResourcesCompat;
+
 import java.util.ArrayList;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import ro.capac.android.capac2018.R;
 
@@ -21,16 +28,36 @@ public class Category {
         this.name = name;
     }
 
-    public int getImage() {
-        return image;
-    }
-
     public void setImage(int image) {
         this.image = image;
     }
 
     public static ArrayList<Category> getAllCategories(){
         ArrayList<Category> categories = new ArrayList<>();
+
+        categories.add(new Category("Basketball", R.drawable.basketball));
+        categories.add(new Category("Bowling", R.drawable.bowling));
+        categories.add(new Category("Canoeing", R.drawable.canoeing));
+        categories.add(new Category("Chess & board games", R.drawable.chess));
+        categories.add(new Category("Cycling", R.drawable.cycling));
+        categories.add(new Category("Football", R.drawable.football));
+        categories.add(new Category("Golf", R.drawable.golf));
+        categories.add(new Category("Gym", R.drawable.gym));
+        categories.add(new Category("Handball", R.drawable.handball));
+        categories.add(new Category("Hiking", R.drawable.hiking));
+        categories.add(new Category("Ice skating", R.drawable.iceskating));
+        categories.add(new Category("Pool", R.drawable.pool));
+        categories.add(new Category("Running", R.drawable.running));
+        categories.add(new Category("Skiing", R.drawable.skiing));
+        categories.add(new Category("Snowboarding", R.drawable.snowboarding));
+        categories.add(new Category("Swimming", R.drawable.swimming));
+        categories.add(new Category("Table tennis", R.drawable.tabletennis));
+        categories.add(new Category("Tennis", R.drawable.tennis));
+        categories.add(new Category("Volleyball", R.drawable.volleyball));
+
+
+
+        /*
         categories.add(new Category("Basketball", R.drawable.ic_basketball_1));
         categories.add(new Category("Swimming", R.drawable.ic_swimsuit));
         categories.add(new Category("Tennis",R.drawable.ic_tennis));
@@ -54,7 +81,7 @@ public class Category {
         categories.add(new Category("Yoga",R.drawable.ic_mat));
         categories.add(new Category("Card Games",R.drawable.ic_poker));
         categories.add(new Category("Pool",R.drawable.ic_pool));
-        categories.add(new Category("Voleyball",R.drawable.ic_volleyball));
+        categories.add(new Category("Voleyball",R.drawable.ic_volleyball));*/
         return categories;
     }
 }
