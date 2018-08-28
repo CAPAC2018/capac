@@ -5,5 +5,5 @@ import ro.capac.android.capac2018.ui.base.MvpPresenter;
 
 @PerActivity
 public interface CreateEventMvpPresenter<V extends CreateEventMvpView> extends MvpPresenter<V> {
-
+    public void onCreateEventClick();
 }

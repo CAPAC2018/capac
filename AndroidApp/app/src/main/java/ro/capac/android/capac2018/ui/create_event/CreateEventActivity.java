@@ -75,6 +75,12 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
 
     }
 
+    @OnClick(R.id.create_event_btn)
+    public void createEvent(){
+
+        mPresenter.onCreateEventClick();
+    }
+
     public void changeTime(Date date) {
         timePicker.setText("TIME: " + CommonUtils.formatTime(date));
     }

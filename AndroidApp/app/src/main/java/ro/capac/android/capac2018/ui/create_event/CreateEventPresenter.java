@@ -18,4 +18,8 @@ public class CreateEventPresenter <V extends CreateEventMvpView> extends BasePre
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 
+    public void onCreateEventClick(){
+
+    }
+
 }
