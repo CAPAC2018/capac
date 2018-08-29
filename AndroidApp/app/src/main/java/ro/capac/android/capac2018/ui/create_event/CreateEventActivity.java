@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.Date;
 
@@ -21,8 +24,13 @@ import ro.capac.android.capac2018.utils.CommonUtils;
 
 
 public class CreateEventActivity extends BaseActivity implements CreateEventMvpView {
-    Button timePicker;
-    Button datePicker;
+    TextView timePicker;
+    TextView datePicker;
+    TextView locationPicker;
+    Spinner sportSelector;
+    EditText reqRep;
+    EditText reqPlayers;
+    EditText description;
     Button create;
     @Inject
     CreateEventMvpPresenter<CreateEventMvpView> mPresenter;
@@ -43,6 +51,12 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
         create = findViewById(R.id.create_btn);
         timePicker = findViewById(R.id.time_picker);
         datePicker = findViewById(R.id.date_picker);
+        locationPicker = findViewById(R.id.location_picker);
+        sportSelector.findViewById(R.id.sport_selector);
+        reqPlayers = findViewById(R.id.req_players);
+        description = findViewById(R.id.description);
+        reqRep = findViewById(R.id.req_rep);
+
         create.animate()
                 .translationY(create.getHeight())
                 .setDuration(750)
@@ -75,10 +89,9 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
 
     }
 
-    @OnClick(R.id.create_event_btn)
+    @OnClick(R.id.create_btn)
     public void createEvent(){
-
-        mPresenter.onCreateEventClick();
+        mPresenter.onCreateEventClick(timePicker.getText().toString(),datePicker.getText().toString(),locationPicker.getText().toString(),sportSelector.getSelectedItem().toString(),description.getText().toString(),reqPlayers.getText().toString(),reqRep.getText().toString());
     }
 
     public void changeTime(Date date) {

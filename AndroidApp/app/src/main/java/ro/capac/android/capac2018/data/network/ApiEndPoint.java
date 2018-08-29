@@ -35,6 +35,9 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_LOGOUT = BuildConfig.BASE_URL
             + "/serverLogout";
 
+    public static final String ENDPOINT_CREATE_EVENT = BuildConfig.BASE_URL
+            + "/createEvent";
+
     public static final String ENDPOINT_BLOG = BuildConfig.BASE_URL
             + "/5926ce9d11000096006ccb30";
 

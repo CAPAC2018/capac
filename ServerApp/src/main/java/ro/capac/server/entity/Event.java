@@ -17,9 +17,6 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EVENT_ID_SEQ")
     private Long id;
 
-    @Column(name = "event_name")
-    private String name;
-
     @Column(name = "date")
     private String date;
 
@@ -37,10 +34,10 @@ public class Event {
     private String description;
 
     @Column(name = "max_players")
-    private int maxPlayers;
+    private String maxPlayers;
 
     @Column(name = "req_rep")
-    private int reqRep;
+    private String reqRep;
 
     @Column(name = "organizer_id")
     private Long organizerID;
@@ -51,14 +48,6 @@ public class Event {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDate() {
@@ -101,19 +90,19 @@ public class Event {
         this.description = description;
     }
 
-    public int getMaxPlayers() {
+    public String getMaxPlayers() {
         return maxPlayers;
     }
 
-    public void setMaxPlayers(int maxPlayers) {
+    public void setMaxPlayers(String maxPlayers) {
         this.maxPlayers = maxPlayers;
     }
 
-    public int getReqRep() {
+    public String getReqRep() {
         return reqRep;
     }
 
-    public void setReqRep(int reqRep) {
+    public void setReqRep(String reqRep) {
         this.reqRep = reqRep;
     }
 
@@ -129,7 +118,6 @@ public class Event {
     public String toString() {
         return "Event{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
                 ", location='" + location + '\'' +
@@ -149,7 +137,6 @@ public class Event {
         return maxPlayers == event.maxPlayers &&
                 reqRep == event.reqRep &&
                 Objects.equals(id, event.id) &&
-                Objects.equals(name, event.name) &&
                 Objects.equals(date, event.date) &&
                 Objects.equals(time, event.time) &&
                 Objects.equals(location, event.location) &&
@@ -161,6 +148,6 @@ public class Event {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, date, time, location, sportCategory, description, maxPlayers, reqRep, organizerID);
+        return Objects.hash(id, date, time, location, sportCategory, description, maxPlayers, reqRep, organizerID);
     }
 }

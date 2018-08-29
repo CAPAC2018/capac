@@ -17,21 +17,15 @@ package ro.capac.android.capac2018.data.network;
 
 import android.util.Log;
 
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
-import ro.capac.android.capac2018.data.network.model.BlogResponse;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Single;
+import ro.capac.android.capac2018.data.network.model.BlogResponse;
+import ro.capac.android.capac2018.data.network.model.EventRequest;
+import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.data.network.model.LogoutResponse;
@@ -85,6 +79,16 @@ public class AppApiHelper implements ApiHelper {
                 .addBodyParameter(request)
                 .build()
                 .getObjectSingle(LoginResponse.class);
+    }
+
+    @Override
+    public Single<EventResponse.CreateEventResponse> doCreateEventApiCall(EventRequest.CreateEventRequest request){
+        Log.d(getClass().getSimpleName(), "doCreateEventApiCall: " + request);
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_CREATE_EVENT)
+                .addHeaders(mApiHeader.getPublicApiHeader())
+                .addBodyParameter(request)
+                .build()
+                .getObjectSingle(EventResponse.CreateEventResponse.class);
     }
 
     @Override

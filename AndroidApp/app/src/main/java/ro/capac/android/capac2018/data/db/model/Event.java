@@ -10,7 +10,7 @@ public class Event {
     private String sportType;
     private String skillLevel;
     private String organizer;
-    private String noOfAtendees;
+    private String noOfAttendees;
     private String description;
     private String noReqPlayers;
     private String reqStars;
@@ -63,12 +63,12 @@ public class Event {
         this.organizer = organizer;
     }
 
-    public String getNoOfAtendees() {
-        return noOfAtendees;
+    public String getNoOfAttendees() {
+        return noOfAttendees;
     }
 
-    public void setNoOfAtendees(String noOfAtendees) {
-        this.noOfAtendees = noOfAtendees;
+    public void setNoOfAttendees(String noOfAttendees) {
+        this.noOfAttendees = noOfAttendees;
     }
 
     public String getDescription() {
@@ -102,11 +102,22 @@ public class Event {
         this.sportType = sportType;
         this.skillLevel = skillLevel;
         this.organizer = organizer;
-        this.noOfAtendees = noOfAtendees;
+        this.noOfAttendees = noOfAtendees;
         this.description = description;
         this.noReqPlayers = noReqPlayers;
         this.reqStars = reqStars;
     }
+
+    public Event(String time, String date, String location, String sportType, String description, String noReqPlayers, String reqStars) {
+        this.time = time;
+        this.date = date;
+        this.location = location;
+        this.sportType = sportType;
+        this.description = description;
+        this.noReqPlayers = noReqPlayers;
+        this.reqStars = reqStars;
+    }
+
     public Event(){
 
     }

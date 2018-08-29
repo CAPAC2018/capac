@@ -19,19 +19,17 @@ public class CreateEventController {
 
     @RequestMapping("/createEvent")
     public CreateEventResponse createEvent(
-            @RequestParam(value = "event_name") String name,
             @RequestParam(value = "date") String date,
             @RequestParam(value = "time") String time,
             @RequestParam(value = "location") String location,
             @RequestParam(value = "sport_category")String sportCategory,
             @RequestParam(value = "description") String description,
-            @RequestParam(value = "max_players")int maxPlayers,
-            @RequestParam(value = "req_rep") int reqRep,
+            @RequestParam(value = "max_players")String maxPlayers,
+            @RequestParam(value = "req_rep") String reqRep,
             @RequestParam(value = "organizer_id") Long organizerID
     ){
         log.info("createEvent - called");
         Event event = new Event();
-        event.setName(name);
         event.setDate(date);
         event.setTime(time);
         event.setLocation(location);
