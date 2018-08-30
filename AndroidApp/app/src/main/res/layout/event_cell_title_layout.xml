@@ -100,11 +100,12 @@
             android:layout_marginTop="10dp"
             android:layout_width="150dp"
             android:layout_height="35dp"
+            android:textColor="#ffffff"
             android:text="@string/going_button_text"
             android:textAppearance="@style/TextAppearance.Text.Bold"
             android:textAllCaps="true"
-            android:background="@drawable/bg_register_button"
             android:layout_below="@id/sport_type_in_title_cell"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/my_round_button"/>
     </RelativeLayout>
 </RelativeLayout>
