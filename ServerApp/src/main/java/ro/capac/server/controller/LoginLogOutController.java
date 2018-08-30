@@ -9,18 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
-import javax.swing.text.html.Option;
-
 import ro.capac.server.entity.User;
 import ro.capac.server.model.LoginResponse;
 import ro.capac.server.model.LogoutResponse;
-import ro.capac.server.model.RegisterUserResponse;
 import ro.capac.server.repository.UserRepository;
 
 @RestController
-public class LoginController {
+public class LoginLogOutController {
 
-    private final Logger log = LoggerFactory.getLogger(LoginController.class);
+    private final Logger log = LoggerFactory.getLogger(LoginLogOutController.class);
 
     @Autowired
     private UserRepository userRepo;

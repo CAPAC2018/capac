@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/category"
-    android:layout_width="170dp"
-    android:layout_height="200dp"
-    android:background="@drawable/bg_category_title">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/category_image"
 
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        app:srcCompat="@drawable/ic_basketball_1"/>
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/basketball" />
 
     <TextView
         android:id="@+id/category_title"
-        style="@style/TextAppearance.Text.Bold"
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.Text.Light"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/category_image"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerVertical="true"
+
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-thin"
+        android:textAllCaps="true"
+        android:textSize="52sp" />
 </RelativeLayout>

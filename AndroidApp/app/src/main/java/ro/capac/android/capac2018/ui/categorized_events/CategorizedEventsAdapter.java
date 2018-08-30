@@ -1,4 +1,4 @@
-package ro.capac.android.capac2018.ui.events;
+package ro.capac.android.capac2018.ui.categorized_events;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,12 +19,12 @@ import ro.capac.android.capac2018.data.db.model.Event;
  * Simple example of ListAdapter for using with Folding Cell
  * Adapter holds indexes of unfolded elements for correct work with default reusable views behavior
  */
-public class FoldingCellListAdapter extends ArrayAdapter<Event> {
+public class CategorizedEventsAdapter extends ArrayAdapter<Event> {
 
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     private View.OnClickListener defaultRequestBtnClickListener;
 
-    public FoldingCellListAdapter(Context context, List<Event> objects) {
+    public CategorizedEventsAdapter(Context context, List<Event> objects) {
         super(context, 0, objects);
     }
 
@@ -111,6 +111,8 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
         this.defaultRequestBtnClickListener = defaultRequestBtnClickListener;
     }
     // View lookup cache
+
+
     private static class ViewHolder {
         TextView time;
         TextView date;

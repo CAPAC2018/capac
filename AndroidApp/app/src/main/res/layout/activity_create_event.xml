@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <Button
+        <TextView
             android:textAlignment="textStart"
             android:background="@null"
             android:text="Aug 17, 2018"
@@ -58,7 +58,7 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_marginEnd="10dp"/>
-        <Button
+        <TextView
             android:textAlignment="textStart"
             android:background="@null"
             android:text="22:00"
@@ -76,7 +76,7 @@
         android:layout_below="@id/clock_image"
         android:layout_margin="10dp"
         app:srcCompat="@drawable/ic_location_on_black_24dp"/>
-    <Button
+    <TextView
         android:layout_marginTop="10dp"
         android:layout_alignBottom="@id/location_image"
         android:textAlignment="textStart"
@@ -96,6 +96,7 @@
         android:layout_below="@id/location_image"
         app:srcCompat="@drawable/ic_settings_black_24dp"/>
     <Spinner
+        android:id="@+id/sport_selector"
         android:drawSelectorOnTop="true"
         android:entries="@array/items"
         android:layout_alignBottom="@id/sport_image"
@@ -113,6 +114,7 @@
         android:layout_below="@id/sport_image"
         app:srcCompat="@drawable/ic_edit_black_24dp"/>
     <EditText
+        android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/sport_image"

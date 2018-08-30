@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.ramotion.foldingcell.FoldingCell;
@@ -17,10 +19,11 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
-import ro.capac.android.capac2018.ui.events.FoldingCellListAdapter;
+import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 
 public class CategorizedEventsActivity extends BaseActivity implements CategorizedEventsMvpView {
 
@@ -48,7 +51,7 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
         final ArrayList<Event> events = Event.getTestingList();
 
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
-        final ro.capac.android.capac2018.ui.events.FoldingCellListAdapter adapter = new FoldingCellListAdapter(this, events);
+        final CategorizedEventsAdapter adapter = new CategorizedEventsAdapter(this, events);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -80,7 +83,12 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
             }
         });
     }
-
+    @Override
+    @OnClick(R.id.create_event_btn)
+    public void openCreateEventActivity()
+    {
+        startActivity(CreateEventActivity.getStartIntent(CategorizedEventsActivity.this));
+    }
     @Override
     protected void setUp() {
 

@@ -8,7 +8,8 @@
     folding-cell:animationDuration="2000"
     folding-cell:cameraHeight="10"
     android:focusable="false"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+    >
 
     <!-- CONTENT (UNFOLDED) LAYOUT (MUST BE AT LEAST 2x times BIGGER than content layout bellow)-->
     <include layout="@layout/event_cell_content_layout" />
