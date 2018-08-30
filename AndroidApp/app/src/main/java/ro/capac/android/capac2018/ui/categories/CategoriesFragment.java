@@ -2,6 +2,7 @@ package ro.capac.android.capac2018.ui.categories;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,7 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         }
         GridView gridView = view.findViewById(R.id.categories_container);
         ArrayList<Category> categories = Category.getAllCategories();
+        Log.d(TAG, "onCreateView: category 1:" + categories.get(0));
         CategoryAdapter adapter = new CategoryAdapter(this.getContext(),categories);
         gridView.setAdapter(adapter);
 

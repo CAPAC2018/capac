@@ -3,7 +3,6 @@ package ro.capac.server.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 import javax.swing.text.html.Option;
-import javax.transaction.Transactional;
 
 import ro.capac.server.entity.User;
 import ro.capac.server.model.LoginResponse;
@@ -74,7 +72,7 @@ public class LoginController {
         user.setPassword(password);
         User savedUser = userRepo.save(user);
         log.info("saved user: {}", savedUser);
-        //TODO save user
+        // save user
         RegisterUserResponse response= new RegisterUserResponse();
         response.setMessage("Bunaa, " + name + " cu ID=" + savedUser.getId());
         response.setStatusCode("success");

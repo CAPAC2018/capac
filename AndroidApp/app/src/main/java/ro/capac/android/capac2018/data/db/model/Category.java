@@ -29,6 +29,15 @@ public class Category {
         this.image = image;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Category{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", image=").append(image);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public static ArrayList<Category> getAllCategories(){
         ArrayList<Category> categories = new ArrayList<>();
         categories.add(new Category("Basketball", R.drawable.ic_basketball_1));

@@ -8,6 +8,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "org.flywaydb.flyway" version "5.1.4"
+}
+
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse'
@@ -32,7 +36,7 @@ dependencies {
         exclude module: 'spring-boot-starter-logging'
     }
     //compile ('org.springframework.boot:spring-boot-starter-log4j2')
-
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile('org.postgresql:postgresql:42.2.4')
 
@@ -60,5 +64,19 @@ bootWar.mustRunAfter clean
 
 
 
+task migrateDBLocal(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    url = 'jdbc:h2:file:~/capac/capac-h2-db'
+    user = 'sa'
+    password = ''
+    sqlMigrationPrefix = 'update_'
+    validateOnMigrate = false
+    locations = ['filesystem:src/main/db/migration']
+    baselineOnMigrate = true
+}
 
+task migrateDBHeroku(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+    url = 'jdbc:h2:mem:mydb2'
+    user = 'myUsr2'
+    password = 'mySecretPwd2'
+}
 
