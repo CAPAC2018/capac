@@ -22,6 +22,8 @@ import ro.capac.android.capac2018.data.db.model.User;
 import ro.capac.android.capac2018.data.network.ApiHeader;
 import ro.capac.android.capac2018.data.network.ApiHelper;
 import ro.capac.android.capac2018.data.network.model.BlogResponse;
+import ro.capac.android.capac2018.data.network.model.EventRequest;
+import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.data.network.model.LogoutResponse;
@@ -102,7 +104,11 @@ public class AppDataManager implements DataManager {
         return mApiHelper.doServerLoginApiCall(request);
     }
 
-
+    @Override
+    public Single<EventResponse.CreateEventResponse> doCreateEventApiCall(EventRequest.CreateEventRequest
+                                                                                      request) {
+        return mApiHelper.doCreateEventApiCall(request);
+    }
 
     @Override
     public Single<LogoutResponse> doLogoutApiCall() {
