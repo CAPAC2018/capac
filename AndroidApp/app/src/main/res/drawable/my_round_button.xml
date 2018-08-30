@@ -4,7 +4,7 @@
     <item android:state_pressed="true" >
         <shape android:shape="rectangle"  >
             <corners android:radius="40dp" />
-            <gradient android:angle="360" android:startColor="#30adff" android:endColor="#2bccff">
+            <gradient android:angle="180" android:startColor="#3F7BFF" android:endColor="#7CD0FF">
                 <!-- gradientul mov <gradient android:angle="360" android:startColor="#3d26b1" android:endColor="#6b17a3"> -->
             </gradient>
         </shape>
@@ -12,7 +12,7 @@
     <item android:state_focused="true">
         <shape android:shape="rectangle"  >
             <corners android:radius="40dp" />
-            <gradient android:angle="360" android:startColor="#30adff" android:endColor="#2bccff">
+            <gradient android:angle="180" android:startColor="#3F7BFF" android:endColor="#7CD0FF">
                 <!-- gradientul mov <gradient android:angle="360" android:startColor="#3d26b1" android:endColor="#6b17a3"> -->
             </gradient>
         </shape>
@@ -20,7 +20,7 @@
     <item >
         <shape android:shape="rectangle"  >
             <corners android:radius="40dp" />
-            <gradient android:angle="360" android:startColor="#30adff" android:endColor="#2bccff">
+            <gradient android:angle="180" android:startColor="#3F7BFF" android:endColor="#7CD0FF">
                 <!-- gradientul mov <gradient android:angle="360" android:startColor="#3d26b1" android:endColor="#6b17a3"> -->
             </gradient>
         </shape>
