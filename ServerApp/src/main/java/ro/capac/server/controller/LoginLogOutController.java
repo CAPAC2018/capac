@@ -12,6 +12,7 @@ import java.util.Optional;
 import ro.capac.server.entity.User;
 import ro.capac.server.model.LoginResponse;
 import ro.capac.server.model.LogoutResponse;
+import ro.capac.server.model.RegisterUserResponse;
 import ro.capac.server.repository.UserRepository;
 
 @RestController
@@ -54,7 +55,7 @@ public class LoginLogOutController {
         return resp;
     }
 
-    @RequestMapping("/registerUser")
+    /*@RequestMapping("/registerUser")
     public RegisterUserResponse serverRegisterUser(
             @RequestParam(value="name", defaultValue = "name") String name,
             @RequestParam(value="email", defaultValue = "email") String email,
@@ -74,5 +75,5 @@ public class LoginLogOutController {
         response.setMessage("Bunaa, " + name + " cu ID=" + savedUser.getId());
         response.setStatusCode("success");
         return response;
-    }
+    }*/
 }

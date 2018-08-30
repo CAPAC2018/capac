@@ -33,7 +33,7 @@ public class RegisterController {
         user.setPassword(password);
         User savedUser = userRepo.save(user);
         log.info("saved user: {}", savedUser);
-        //TODO save user
+        // save user
         RegisterUserResponse response= new RegisterUserResponse();
         response.setMessage("Bunaa, " + name + " cu ID=" + savedUser.getId());
         response.setStatusCode("success");
