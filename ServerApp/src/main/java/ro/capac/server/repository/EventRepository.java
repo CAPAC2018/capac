@@ -14,6 +14,4 @@ public interface EventRepository extends PagingAndSortingRepository<Event, Long>
     List<Event> findEventsByOwnerId(Long ownerId, Pageable pageable);
 
     List<Event> findEventsByCategoryId(Long categoryId, Pageable pageable);
-
-
 }

@@ -191,13 +191,14 @@
         android:textSize="15sp"
         android:textStyle="bold" />
     <Button
+        android:layout_below="@id/required_player_number"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:textColor="#ffffff"
         android:text="@string/going_button_text"
         android:textAppearance="@style/TextAppearance.Text.Bold"
         android:textAllCaps="true"
-        android:background="@drawable/bg_register_button"
-        android:layout_below="@id/required_player_number"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/my_round_button"/>
 </RelativeLayout>

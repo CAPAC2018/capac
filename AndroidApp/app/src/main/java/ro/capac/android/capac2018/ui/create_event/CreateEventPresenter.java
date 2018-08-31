@@ -2,10 +2,13 @@ package ro.capac.android.capac2018.ui.create_event;
 
 import javax.inject.Inject;
 
+import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.data.network.model.EventRequest;
+import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.ui.base.BasePresenter;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
@@ -30,7 +33,14 @@ public class CreateEventPresenter <V extends CreateEventMvpView> extends BasePre
             String reqStars
     ){
         Event event = new Event(time,date,location,sportType,description,noReqPlayers,reqStars);
-        getDataManager().doCreateEventApiCall(new EventRequest.CreateEventRequest(event));
+        getDataManager().doCreateEventApiCall(new EventRequest.CreateEventRequest(event)).subscribeOn(getSchedulerProvider().io())
+        .observeOn(getSchedulerProvider().ui())
+        .subscribe(new Consumer<EventResponse.CreateEventResponse>() {
+            @Override
+            public void accept(EventResponse.CreateEventResponse createEventResponse) throws Exception {
+
+            }
+        });
     }
 
 }

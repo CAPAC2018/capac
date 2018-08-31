@@ -1,5 +1,7 @@
 package ro.capac.server.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -19,6 +21,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAPAC_EVENT_ID_SEQ")
     private Long id;
 
+    @JsonProperty
     @Column(name = "name")
     private String name;
 
