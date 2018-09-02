@@ -17,14 +17,14 @@
 
     <TextView
         android:id="@+id/category_title"
-        style="@style/TextAppearance.Text.Light"
+        style="@style/TextAppearance.Text.Regular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
 
         android:gravity="center"
-        android:textColor="#ffffff"
-        android:fontFamily="sans-serif-thin"
+        android:textColor="#fffff5"
+        android:fontFamily="proxima-nova"
         android:textAllCaps="true"
-        android:textSize="52sp" />
+        android:textSize="43sp" />
 </RelativeLayout>

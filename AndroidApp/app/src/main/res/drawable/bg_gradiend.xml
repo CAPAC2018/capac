@@ -2,8 +2,13 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 <item>
     <shape>
-        <gradient android:angle="360" android:startColor="#30adff" android:endColor="#2bccff">
-            <!-- gradientul mov <gradient android:angle="360" android:startColor="#3d26b1" android:endColor="#6b17a3"> -->
+        <gradient android:angle="180" android:startColor="#3F7BFF" android:endColor="#7CD0FF">
+
+            <!-- gradientul mov <gradient android:angle="360" android:startColor="#3d26b1" android:endColor="#6b17a3">
+            <gradient android:angle="360" android:startColor="#30adff" android:endColor="#2bccff">
+                <gradient android:angle="360" android:startColor="#3d26b1" android:endColor="#6b17a3">
+                culoare logo <gradient android:angle="360" android:startColor="#3F7BFF" android:endColor="#7CD0FF">
+            -->
         </gradient>
     </shape>
 </item>

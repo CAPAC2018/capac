@@ -44,25 +44,25 @@ public class Category {
     public static ArrayList<Category> getAllCategories(){
         ArrayList<Category> categories = new ArrayList<>();
 
-        categories.add(new Category("Basketball", R.drawable.basketball));
-        categories.add(new Category("Bowling", R.drawable.bowling));
-        categories.add(new Category("Canoeing", R.drawable.canoeing));
-        categories.add(new Category("Chess & board games", R.drawable.chess));
-        categories.add(new Category("Cycling", R.drawable.cycling));
-        categories.add(new Category("Football", R.drawable.football));
-        categories.add(new Category("Golf", R.drawable.golf));
-        categories.add(new Category("Gym", R.drawable.gym));
-        categories.add(new Category("Handball", R.drawable.handball));
-        categories.add(new Category("Hiking", R.drawable.hiking));
-        categories.add(new Category("Ice skating", R.drawable.iceskating));
-        categories.add(new Category("Pool", R.drawable.pool));
-        categories.add(new Category("Running", R.drawable.running));
-        categories.add(new Category("Skiing", R.drawable.skiing));
-        categories.add(new Category("Snowboarding", R.drawable.snowboarding));
-        categories.add(new Category("Swimming", R.drawable.swimming));
-        categories.add(new Category("Table tennis", R.drawable.tabletennis));
-        categories.add(new Category("Tennis", R.drawable.tennis));
-        categories.add(new Category("Volleyball", R.drawable.volleyball));
+        categories.add(new Category("basketball", R.drawable.basketball));
+        categories.add(new Category("bowling", R.drawable.bowling));
+        categories.add(new Category("canoeing", R.drawable.canoeing));
+        categories.add(new Category("chess & board games", R.drawable.chess));
+        categories.add(new Category("cycling", R.drawable.cycling));
+        categories.add(new Category("football", R.drawable.football));
+        categories.add(new Category("golf", R.drawable.golf));
+        categories.add(new Category("gym", R.drawable.gym));
+        categories.add(new Category("handball", R.drawable.handball));
+        categories.add(new Category("hiking", R.drawable.hiking));
+        categories.add(new Category("ice skating", R.drawable.iceskating));
+        categories.add(new Category("pool", R.drawable.pool));
+        categories.add(new Category("running", R.drawable.running));
+        categories.add(new Category("skiing", R.drawable.skiing));
+        categories.add(new Category("snowboarding", R.drawable.snowboarding));
+        categories.add(new Category("swimming", R.drawable.swimming));
+        categories.add(new Category("table tennis", R.drawable.tabletennis));
+        categories.add(new Category("tennis", R.drawable.tennis));
+        categories.add(new Category("volleyball", R.drawable.volleyball));
 
 
 
