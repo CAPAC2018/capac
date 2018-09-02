@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Event;
+import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 
@@ -33,7 +34,7 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
     public static Intent getStartIntent(Context context) {
         return new Intent(context, CategorizedEventsActivity.class);
     }
-
+    String mCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -46,9 +47,9 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
-
+        mCategory = getIntent().getExtras().getString("category");
         final ListView listView = findViewById(R.id.categorizedevents_listview);
-        final ArrayList<Event> events = Event.getTestingList();
+        final ArrayList<EventResponse.Event> events =(ArrayList<EventResponse.Event>) mPresenter.getEventsList(mCategory);
 
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
         final CategorizedEventsAdapter adapter = new CategorizedEventsAdapter(this, events);
@@ -93,4 +94,5 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
     protected void setUp() {
 
     }
+
 }

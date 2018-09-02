@@ -26,6 +26,7 @@ import android.provider.Settings;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,7 +39,7 @@ import ro.capac.android.capac2018.R;
 /**
  * Created by janisharali on 27/01/17.
  */
-
+@SuppressLint("SimpleDateFormat")
 public final class CommonUtils {
 
     private static final String TAG = "CommonUtils";
@@ -107,6 +108,15 @@ public final class CommonUtils {
 
         Date today = Calendar.getInstance().getTime();
         return dateFormat.format(today);
+    }
+
+
+    public static Date formatStringToDate(String date, String time){
+        Date date1 = new Date();
+        try {
+           date1 = new SimpleDateFormat("d MMM yyyy HH:mm").parse(date + " " + time);
+        } catch (ParseException ignored){}
+        return date1;
     }
 
     public static String formatTime(Date date){

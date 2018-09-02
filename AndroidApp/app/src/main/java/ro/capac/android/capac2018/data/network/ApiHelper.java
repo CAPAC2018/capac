@@ -40,6 +40,8 @@ public interface ApiHelper {
 
     Single<EventResponse.CreateEventResponse> doCreateEventApiCall(EventRequest.CreateEventRequest request);
 
+    Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request);
+
     Single<LogoutResponse> doLogoutApiCall();
 
     Single<BlogResponse> getBlogApiCall();

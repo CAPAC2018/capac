@@ -92,6 +92,15 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
+    public Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_CATEGORY_REQUEST)
+                .addHeaders(mApiHeader.getPublicApiHeader())
+                .addBodyParameter(request)
+                .build()
+                .getObjectSingle(EventResponse.CategorizedEvents.class);
+    }
+
+    @Override
     public Single<LogoutResponse> doLogoutApiCall() {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_LOGOUT)
                 .addHeaders(mApiHeader.getProtectedApiHeader())

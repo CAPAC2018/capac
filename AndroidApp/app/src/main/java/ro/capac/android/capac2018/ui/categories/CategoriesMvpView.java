@@ -4,5 +4,5 @@ import ro.capac.android.capac2018.ui.base.MvpView;
 
 public interface CategoriesMvpView extends MvpView {
 
-    void openCategorizedEventsActivity();
+    void openCategorizedEventsActivity(String category);
 }

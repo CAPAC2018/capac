@@ -2,7 +2,7 @@ package ro.capac.server.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -26,7 +26,7 @@ public class Event {
     private String name;
 
     @Column(name = "date_time")
-    private LocalDateTime dateTime;
+    private Date dateTime;
 
     @Column(name = "latitude")
     private Double latitude;
@@ -34,8 +34,14 @@ public class Event {
     @Column(name = "longitude")
     private Double longitude;
 
-    @ManyToOne
-    private  Category category;
+    @Column(name = "category")
+    private String category;
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    //    @ManyToOne
+//    private  Category category;
 
     @Column(name = "description")
     private String description;
@@ -48,6 +54,14 @@ public class Event {
 
     @ManyToOne
     private User owner;
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public Date getDateTime() {
+        return dateTime;
+    }
 
     public Long getId() {
         return id;
@@ -65,21 +79,13 @@ public class Event {
         this.name = name;
     }
 
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
 
     public Double getLatitude() {
         return latitude;

@@ -1,8 +1,9 @@
 package ro.capac.android.capac2018.ui.create_event;
 
+import android.annotation.SuppressLint;
+
 import javax.inject.Inject;
 
-import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import ro.capac.android.capac2018.data.DataManager;
@@ -23,6 +24,7 @@ public class CreateEventPresenter <V extends CreateEventMvpView> extends BasePre
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 
+    @SuppressLint("CheckResult")
     public void onCreateEventClick(
             String time,
             String date,
@@ -37,8 +39,8 @@ public class CreateEventPresenter <V extends CreateEventMvpView> extends BasePre
         .observeOn(getSchedulerProvider().ui())
         .subscribe(new Consumer<EventResponse.CreateEventResponse>() {
             @Override
-            public void accept(EventResponse.CreateEventResponse createEventResponse) throws Exception {
-
+            public void accept(EventResponse.CreateEventResponse createEventResponse) {
+                getMvpView().showMessage(createEventResponse.getMessage());
             }
         });
     }
