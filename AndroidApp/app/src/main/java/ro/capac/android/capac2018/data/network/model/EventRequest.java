@@ -53,8 +53,10 @@ public class EventRequest {
             this.location = event.getLocation();
             this.sportCategory = event.getSportType();
             this.description = event.getDescription();
-            this.maxPlayers = Integer.parseInt(event.getNoOfAttendees());
-            this.reqRep = Float.parseFloat(event.getReqStars());
+            //this.maxPlayers = Integer.parseInt(event.getNoOfAttendees());
+            //this.reqRep = Float.parseFloat(event.getReqStars());
+            this.maxPlayers = 9;
+            this.reqRep = 3.8f;
             this.organizerID = this.mPref.getCurrentUserId();
         }
 

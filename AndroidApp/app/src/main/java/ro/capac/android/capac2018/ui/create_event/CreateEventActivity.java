@@ -53,8 +53,7 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
         datePicker = findViewById(R.id.date_picker);
         locationPicker = findViewById(R.id.location_picker);
 
-        //TODO: Possible crash point null pointer exception
-        sportSelector.findViewById(R.id.sport_selector);
+        sportSelector = findViewById(R.id.sport_selector);
         //
 
         reqPlayers = findViewById(R.id.req_players);
