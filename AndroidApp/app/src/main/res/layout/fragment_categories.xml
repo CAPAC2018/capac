@@ -13,6 +13,7 @@
        android:divider="@color/white"
        android:dividerHeight="1dp"
        android:scrollbars="none"
+
        />
 
 </RelativeLayout>

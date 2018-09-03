@@ -21,8 +21,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@color/black_effective</item>
-        <item name="android:textColor">@color/black_effective</item>
+        <item name="android:textColorPrimary">#67b3ff</item>
+        <item name="android:textColor">#67b3ff</item>
         <item name="android:windowBackground">@color/bg_color</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>
@@ -43,11 +43,11 @@
     </style>
 
     <style name="TextAppearance.Text.Regular" parent="android:TextAppearance">
-        <item name="fontPath">fonts/source-sans-pro/SourceSansPro-Regular.ttf</item>
+        <item name="fontPath">fonts/proxima-nova/ProximaNovaRegular.otf</item>
     </style>
 
     <style name="TextAppearance.Text.Bold" parent="android:TextAppearance">
-        <item name="fontPath">fonts/source-sans-pro/SourceSansPro-Bold.ttf</item>
+        <item name="fontPath">fonts/proxima-nova/ProximaNovaCondensedBold.otf</item>
     </style>
 
     <style name="TextAppearance.Text.Light" parent="android:TextAppearance">
@@ -55,7 +55,7 @@
     </style>
 
     <style name="TextAppearance.Text.Condensed.Bold" parent="android:TextAppearance">
-        <item name="fontPath">fonts/source-sans-pro/OpenSansCondensed-Bold.ttf</item>
+        <item name="fontPath">fonts/proxima-nova/ProximaNovaCondensedSemibold.otf</item>
     </style>
 
     <style name="TextAppearance.Text.Condensed.Light" parent="android:TextAppearance">

@@ -11,12 +11,13 @@
 
     <TextView
         android:id="@+id/category_title"
-        style="@style/TextAppearance.Text.Light"
+        style="@style/TextAppearance.Text.Regular"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="#fffff5"
+        android:fontFamily="proxima-nova"
         android:textAllCaps="true"
-        android:textSize="52sp" />
+        android:textSize="43sp" />
 </RelativeLayout>
