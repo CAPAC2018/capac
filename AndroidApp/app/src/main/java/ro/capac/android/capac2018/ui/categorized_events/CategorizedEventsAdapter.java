@@ -14,17 +14,19 @@ import java.util.List;
 
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Event;
+import ro.capac.android.capac2018.data.network.model.EventResponse;
+import ro.capac.android.capac2018.utils.CommonUtils;
 
 /**
  * Simple example of ListAdapter for using with Folding Cell
  * Adapter holds indexes of unfolded elements for correct work with default reusable views behavior
  */
-public class CategorizedEventsAdapter extends ArrayAdapter<Event> {
+public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> {
 
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     private View.OnClickListener defaultRequestBtnClickListener;
 
-    public CategorizedEventsAdapter(Context context, List<Event> objects) {
+    public CategorizedEventsAdapter(Context context, List<EventResponse.Event> objects) {
         super(context, 0, objects);
     }
 
@@ -32,7 +34,7 @@ public class CategorizedEventsAdapter extends ArrayAdapter<Event> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // get item for selected view
-        Event event = getItem(position);
+        EventResponse.Event event = getItem(position);
         // if cell is exists - reuse it, if not - create the new one from resource
         FoldingCell cell = (FoldingCell) convertView;
         ViewHolder viewHolder;
@@ -68,24 +70,38 @@ public class CategorizedEventsAdapter extends ArrayAdapter<Event> {
         }
 
         // bind data from selected element to view through view holder
-        viewHolder.time.setText(event.getTime());
-        viewHolder.date.setText(event.getDate());
-        viewHolder.location.setText(event.getLocation());
-        viewHolder.sportType.setText(event.getSportType());
-        viewHolder.time1.setText(event.getTime());
-        viewHolder.date1.setText(event.getDate());
-        viewHolder.location1.setText(event.getLocation());
-        viewHolder.sportType1.setText(event.getSportType());
-        viewHolder.organizer.setText(event.getOrganizer());
-        viewHolder.noOfAtendees.setText(event.getNoOfAttendees());
+//        viewHolder.time.setText(event.getTime());
+//        viewHolder.date.setText(event.getDate());
+//        viewHolder.location.setText(event.getLocation());
+//        viewHolder.sportType.setText(event.getSportType());
+//        viewHolder.time1.setText(event.getTime());
+//        viewHolder.date1.setText(event.getDate());
+//        viewHolder.location1.setText(event.getLocation());
+//        viewHolder.sportType1.setText(event.getSportType());
+//        viewHolder.organizer.setText(event.getOrganizer());
+//        viewHolder.noOfAtendees.setText(event.getNoOfAttendees());
+        viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
+        viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
+        viewHolder.location.setText("Cluj Napoca");
+        viewHolder.sportType.setText("Football");
+        viewHolder.time1.setText(CommonUtils.formatTime(event.getDateTime()));
+        viewHolder.date1.setText(CommonUtils.formatDate(event.getDateTime()));
+        viewHolder.location1.setText("Cluj Napoca");
+        viewHolder.sportType1.setText("Football");
+        viewHolder.organizer.setText("Popescu");
+        viewHolder.noOfAtendees.setText(event.getMaxAttendees());
         if(event.getDescription().equals("null"))
             viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");
         else
             viewHolder.description.setText(event.getDescription());
-        viewHolder.noReqPlayers.setText(event.getNoReqPlayers());
-        viewHolder.reqStars.setText(event.getReqStars());
-        viewHolder.skillLevel.setText(event.getSkillLevel());
-        viewHolder.skillLevel1.setText(event.getSkillLevel());
+        viewHolder.noReqPlayers.setText(event.getMaxAttendees());
+        viewHolder.reqStars.setText(String.valueOf(event.getMinReputation()));
+        viewHolder.skillLevel.setText("Amator");
+        viewHolder.skillLevel1.setText("Amator");
+//        viewHolder.noReqPlayers.setText(event.getNoReqPlayers());
+//        viewHolder.reqStars.setText(event.getReqStars());
+//        viewHolder.skillLevel.setText(event.getSkillLevel());
+//        viewHolder.skillLevel1.setText(event.getSkillLevel());
         return cell;
     }
 

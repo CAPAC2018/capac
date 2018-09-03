@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -28,6 +29,9 @@ import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 
 public class CategorizedEventsActivity extends BaseActivity implements CategorizedEventsMvpView {
 
+    CategorizedEventsAdapter adapter;
+    List<EventResponse.Event> events = new ArrayList<>();
+    ListView listView;
     @Inject
     CategorizedEventsMvpPresenter<CategorizedEventsMvpView> mPresenter;
 
@@ -48,11 +52,11 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
 
         mPresenter.onAttach(this);
         mCategory = getIntent().getExtras().getString("category");
-        final ListView listView = findViewById(R.id.categorizedevents_listview);
-        final ArrayList<EventResponse.Event> events =(ArrayList<EventResponse.Event>) mPresenter.getEventsList(mCategory);
+        listView = findViewById(R.id.categorizedevents_listview);
 
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
-        final CategorizedEventsAdapter adapter = new CategorizedEventsAdapter(this, events);
+        adapter = new CategorizedEventsAdapter(this, events);
+        mPresenter.showEventsList(mCategory);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -90,6 +94,16 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
     {
         startActivity(CreateEventActivity.getStartIntent(CategorizedEventsActivity.this));
     }
+
+    @Override
+    public void refreshList(List<EventResponse.Event> events) {
+        this.events.clear();
+        this.events.addAll(events);
+        this.adapter.notifyDataSetChanged();
+        //adapter = new CategorizedEventsAdapter(this,events);
+        this.listView.invalidate();
+    }
+
     @Override
     protected void setUp() {
 

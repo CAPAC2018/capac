@@ -111,6 +111,11 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request) {
+        return mApiHelper.doRequestEventsByCategory(request);
+    }
+
+    @Override
     public Single<LogoutResponse> doLogoutApiCall() {
         return mApiHelper.doLogoutApiCall();
     }
