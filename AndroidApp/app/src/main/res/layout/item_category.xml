@@ -19,5 +19,5 @@
         android:textColor="#fffff5"
         android:fontFamily="proxima-nova"
         android:textAllCaps="true"
-        android:textSize="43sp" />
+        android:textSize="40sp" />
 </RelativeLayout>
