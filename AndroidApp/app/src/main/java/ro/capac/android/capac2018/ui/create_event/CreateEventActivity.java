@@ -85,6 +85,7 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
     @OnClick(R.id.location_picker)
     public void startMap() {
         startActivity(MapsActivity.getStartIntent(this));
+        locationPicker.setText(MapsActivity.desiredLocationName);
     }
 
     @Override
