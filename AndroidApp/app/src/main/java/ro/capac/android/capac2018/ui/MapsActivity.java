@@ -98,16 +98,25 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
         if (mMap != null) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
-                mMap.setMyLocationEnabled(true);
+                //
             } else {
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_LOCATION_REQUEST_CODE);
+                return;
             }
         }
+        mMap.setMyLocationEnabled(true);
+        mMap.setOnMyLocationButtonClickListener(this);
+        mMap.setOnMyLocationClickListener(this);
+        UiSettings mapSettings;
+        mapSettings = mMap.getUiSettings();
+        mapSettings.setZoomControlsEnabled(true);
+        mapSettings.setScrollGesturesEnabled(true);
+        mapSettings.setTiltGesturesEnabled(true);
+        mapSettings.setRotateGesturesEnabled(true);
         // Set the type of map
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         // Enable MyLocation Layer of Google Map
-        googleMap.setMyLocationEnabled(true);
         // Get LocationManager object from System Service LOCATION_SERVICE
         LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         // Create a criteria object to retrieve provider
@@ -117,24 +126,20 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
         // Get Current Location
         Location myLocation = locationManager.getLastKnownLocation(provider);
         // Get latitude of the current location
-        double latitude = myLocation.getLatitude();
-        // Get longitude of the current location
-        double longitude = myLocation.getLongitude();
+        double latitude = 46.769640;
+        double longitude = 23.577815;
+        if(myLocation!=null) {
+            latitude = myLocation.getLatitude();
+            // Get longitude of the current location
+            longitude = myLocation.getLongitude();
+        }
+
         // Create a LatLng object for the current location
         LatLng latLng = new LatLng(latitude, longitude);
         // Show the current location in Google Map
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         // Zoom in the Google Map
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(20));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!"));
-        mMap.setOnMyLocationButtonClickListener(this);
-        mMap.setOnMyLocationClickListener(this);
-        UiSettings mapSettings;
-        mapSettings = mMap.getUiSettings();
-        mapSettings.setZoomControlsEnabled(true);
-        mapSettings.setScrollGesturesEnabled(true);
-        mapSettings.setTiltGesturesEnabled(true);
-        mapSettings.setRotateGesturesEnabled(true);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(200));
         mUnirea = mMap.addMarker(new MarkerOptions().position(BAZA_SPORTIVA_UNIREA).title("Baza Sportivă Unirea"));
         mBazinGrigorescu = mMap.addMarker(new MarkerOptions().position(BAZINUL_OLIMPIC_GRIGORESCU).title("Bazin Olimpic Grigorescu"));
         mBabes = mMap.addMarker(new MarkerOptions().position(PARCUL_BABES).title("Parcul Sportiv I.Haţieganu"));
@@ -149,6 +154,11 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
                 desiredLocation = marker.getPosition();
                 desiredLocationName = marker.getTitle();
                 if(!animated) {
+                    mBtn.animate()
+                            .translationY(-mBtn.getHeight())
+                            .setDuration(0)
+                            .setListener(null);
+                    mBtn.setVisibility(View.VISIBLE);
                     mBtn.animate()
                             .translationY(mBtn.getHeight())
                             .setDuration(750)
