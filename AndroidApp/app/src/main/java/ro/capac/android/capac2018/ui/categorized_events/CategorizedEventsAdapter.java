@@ -79,22 +79,39 @@ public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> 
 //        viewHolder.sportType1.setText(event.getSportType());
 //        viewHolder.organizer.setText(event.getOrganizer());
 //        viewHolder.noOfAtendees.setText(event.getNoOfAttendees());
-        viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
-        viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
+//        viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
+//        viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
+        if(event.getDateTime()==null) {
+            viewHolder.time.setText("21:02");
+            viewHolder.date.setText("3rd Jul");
+            viewHolder.time1.setText("21:02");
+            viewHolder.date1.setText("3rd Jul");
+        }else{
+            viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
+            viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
+            viewHolder.time1.setText(CommonUtils.formatTime(event.getDateTime()));
+            viewHolder.date1.setText(CommonUtils.formatDate(event.getDateTime()));
+        }
         viewHolder.location.setText(event.getLocation());
         viewHolder.sportType.setText(event.getCategory());
-        viewHolder.time1.setText(CommonUtils.formatTime(event.getDateTime()));
-        viewHolder.date1.setText(CommonUtils.formatDate(event.getDateTime()));
         viewHolder.location1.setText(event.getLocation());
         viewHolder.sportType1.setText(event.getCategory());
-        viewHolder.organizer.setText(event.getOwner().getUserName());
-        viewHolder.noOfAtendees.setText(0);
+        viewHolder.organizer.setText("Popescu Andrei");
+        viewHolder.noOfAtendees.setText("0");
         if(event.getDescription().equals("null"))
             viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");
         else
             viewHolder.description.setText(event.getDescription());
-        viewHolder.noReqPlayers.setText(event.getMaxAttendees());
-        viewHolder.reqStars.setText(String.valueOf(event.getMinReputation()));
+        if(event.getMaxAttendees()!=null) {
+            viewHolder.noReqPlayers.setText(String.valueOf(event.getMaxAttendees()));
+        } else{
+            viewHolder.noReqPlayers.setText("0");
+        }
+        if(event.getMinReputation()!=null) {
+            viewHolder.reqStars.setText(String.valueOf(event.getMinReputation()));
+        } else{
+            viewHolder.reqStars.setText(String.valueOf("0"));
+        }
         viewHolder.skillLevel.setText("Amator");
         viewHolder.skillLevel1.setText("Amator");
 //        viewHolder.noReqPlayers.setText(event.getNoReqPlayers());
