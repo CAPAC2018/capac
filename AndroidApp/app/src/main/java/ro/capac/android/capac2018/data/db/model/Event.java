@@ -12,7 +12,7 @@ public class Event {
     private String organizer;
     private String noOfAttendees;
     private String description;
-    private String noReqPlayers;
+    private String maxAttendees;
     private String reqStars;
 
     public String getTime() {
@@ -79,12 +79,12 @@ public class Event {
         this.description = description;
     }
 
-    public String getNoReqPlayers() {
-        return noReqPlayers;
+    public String getMaxAttendees() {
+        return maxAttendees;
     }
 
-    public void setNoReqPlayers(String noReqPlayers) {
-        this.noReqPlayers = noReqPlayers;
+    public void setMaxAttendees(String maxAttendees) {
+        this.maxAttendees = maxAttendees;
     }
 
     public String getReqStars() {
@@ -95,7 +95,7 @@ public class Event {
         this.reqStars = reqStars;
     }
 
-    public Event(String time, String date, String location, String sportType, String skillLevel, String organizer, String noOfAtendees, String description, String noReqPlayers, String reqStars) {
+    public Event(String time, String date, String location, String sportType, String skillLevel, String organizer, String noOfAtendees, String description, String maxAttendees, String reqStars) {
         this.time = time;
         this.date = date;
         this.location = location;
@@ -104,17 +104,17 @@ public class Event {
         this.organizer = organizer;
         this.noOfAttendees = noOfAtendees;
         this.description = description;
-        this.noReqPlayers = noReqPlayers;
+        this.maxAttendees = maxAttendees;
         this.reqStars = reqStars;
     }
 
-    public Event(String time, String date, String location, String sportType, String description, String noReqPlayers, String reqStars) {
+    public Event(String time, String date, String location, String sportType, String description, String maxAttendees, String reqStars) {
         this.time = time;
         this.date = date;
         this.location = location;
         this.sportType = sportType;
         this.description = description;
-        this.noReqPlayers = noReqPlayers;
+        this.maxAttendees = maxAttendees;
         this.reqStars = reqStars;
     }
 

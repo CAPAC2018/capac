@@ -15,7 +15,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#ffffff"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -26,7 +26,7 @@
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_gradiend">
+        android:background="#3F7BFF">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -83,8 +83,10 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        android:layout_height="50dp"
+        app:itemIconTint="@color/bottom_nav_foreground"
+        app:itemTextColor="@color/bottom_nav_foreground"
+        android:background="#fff"
         android:layout_alignParentBottom="true"
         app:menu="@menu/navigation" />
 </RelativeLayout>

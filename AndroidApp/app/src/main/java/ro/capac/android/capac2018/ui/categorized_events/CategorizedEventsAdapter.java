@@ -114,7 +114,7 @@ public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> 
         }
         viewHolder.skillLevel.setText("Amator");
         viewHolder.skillLevel1.setText("Amator");
-//        viewHolder.noReqPlayers.setText(event.getNoReqPlayers());
+//        viewHolder.noReqPlayers.setText(event.getMaxAttendees());
 //        viewHolder.reqStars.setText(event.getReqStars());
 //        viewHolder.skillLevel.setText(event.getSkillLevel());
 //        viewHolder.skillLevel1.setText(event.getSkillLevel());

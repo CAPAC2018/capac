@@ -108,6 +108,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 return false;
             }
         });
+
         showInitialFragment();
     }
 
