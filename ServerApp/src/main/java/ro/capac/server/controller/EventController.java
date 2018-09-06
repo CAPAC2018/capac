@@ -55,7 +55,7 @@ public class EventController {
             @RequestParam("category") String category
     ){
         CategorizedEventsResponse response = new CategorizedEventsResponse();
-        response.setEvents(eventRepo.findEventsByCategory(category,null));
+        response.setEvents(eventRepo.findEventsByCategoryIgnoreCase(category,null));
         return response;
     }
 }
