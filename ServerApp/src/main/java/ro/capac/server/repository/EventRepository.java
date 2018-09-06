@@ -13,6 +13,6 @@ public interface EventRepository extends PagingAndSortingRepository<Event, Long>
 
     List<Event> findEventsByOwnerId(Long ownerId, Pageable pageable);
 
-    List<Event> findEventsByCategory(String category, Pageable pageable);
+    List<Event> findEventsByCategoryIgnoreCase(String category, Pageable pageable);
 
 }
