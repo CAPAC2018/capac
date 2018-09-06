@@ -15,6 +15,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAPAC_USER_ID_SEQ")
+    @Column(name = "ID")
     private Long id;
 
     @Column(name = "user_name")

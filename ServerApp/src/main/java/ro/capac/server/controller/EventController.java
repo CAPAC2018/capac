@@ -13,6 +13,7 @@ import ro.capac.server.entity.Event;
 import ro.capac.server.model.CategorizedEventsResponse;
 import ro.capac.server.model.CreateEventResponse;
 import ro.capac.server.repository.EventRepository;
+import ro.capac.server.repository.UserRepository;
 
 @RestController
 public class EventController {
@@ -21,6 +22,8 @@ public class EventController {
 
     @Autowired
     private EventRepository eventRepo;
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping("/createEvent")
     public CreateEventResponse createEvent(
@@ -33,16 +36,13 @@ public class EventController {
             @RequestParam("organizer_id")  Long organizerID
     ){
         Event event = new Event();
-        event.setName(null);
         event.setDateTime(dateTime);
-        event.setLongitude(null);
-        event.setLatitude(null);
+        event.setLocation(location);
         event.setCategory(sportCategory);
-        event.setCategory(null);
         event.setDescription(description);
         event.setMaxAttendees(maxPlayers);
         event.setMinReputation(reqRep);
-        event.setOwner(null);
+        event.setOwner(userRepository.findUserById(organizerID));
         eventRepo.save(event);
         CreateEventResponse response = new CreateEventResponse();
         response.setStatusCode("200");

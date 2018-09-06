@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.List;
 
 import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.utils.CommonUtils;
 
@@ -82,14 +81,14 @@ public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> 
 //        viewHolder.noOfAtendees.setText(event.getNoOfAttendees());
         viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
         viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
-        viewHolder.location.setText("Cluj Napoca");
-        viewHolder.sportType.setText("Football");
+        viewHolder.location.setText(event.getLocation());
+        viewHolder.sportType.setText(event.getCategory());
         viewHolder.time1.setText(CommonUtils.formatTime(event.getDateTime()));
         viewHolder.date1.setText(CommonUtils.formatDate(event.getDateTime()));
-        viewHolder.location1.setText("Cluj Napoca");
-        viewHolder.sportType1.setText("Football");
-        viewHolder.organizer.setText("Popescu");
-        viewHolder.noOfAtendees.setText(event.getMaxAttendees());
+        viewHolder.location1.setText(event.getLocation());
+        viewHolder.sportType1.setText(event.getCategory());
+        viewHolder.organizer.setText(event.getOwner().getUserName());
+        viewHolder.noOfAtendees.setText(0);
         if(event.getDescription().equals("null"))
             viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");
         else

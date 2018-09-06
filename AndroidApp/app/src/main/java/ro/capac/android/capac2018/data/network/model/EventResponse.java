@@ -57,20 +57,14 @@ public class EventResponse {
     }
 
     public static class Event{
-//        @Expose
-//        @SerializedName("id") private Long id;
-
         @Expose
-        @SerializedName("name") private String name;
+        @SerializedName("ID") private Long id;
 
         @Expose
         @SerializedName("date_time") private Date dateTime;
 
         @Expose
-        @SerializedName("latitude") private Double latitude;
-
-        @Expose
-        @SerializedName("longitude") private Double longitude;
+        @SerializedName("location") private String location;
 
         @Expose
         @SerializedName("description") private String description;
@@ -81,12 +75,30 @@ public class EventResponse {
         @Expose
         @SerializedName("min_reputation") private Float minReputation;
 
-        public String getName() {
-            return name;
+        @Expose
+        @SerializedName("category") private String category;
+
+        @Expose
+        @SerializedName("owner") private UserResponse owner;
+
+        public Long getId() {
+            return id;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public String getCategory() {
+            return category;
+        }
+
+        public void setCategory(String category) {
+            this.category = category;
+        }
+
+        public UserResponse getOwner() {
+            return owner;
+        }
+
+        public void setOwner(UserResponse owner) {
+            this.owner = owner;
         }
 
         public Date getDateTime() {
@@ -97,20 +109,12 @@ public class EventResponse {
             this.dateTime = dateTime;
         }
 
-        public Double getLatitude() {
-            return latitude;
+        public String getLocation() {
+            return location;
         }
 
-        public void setLatitude(Double latitude) {
-            this.latitude = latitude;
-        }
-
-        public Double getLongitude() {
-            return longitude;
-        }
-
-        public void setLongitude(Double longitude) {
-            this.longitude = longitude;
+        public void setLocation(String location) {
+            this.location = location;
         }
 
         public String getDescription() {
