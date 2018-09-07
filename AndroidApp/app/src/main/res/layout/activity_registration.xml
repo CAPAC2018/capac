@@ -8,6 +8,7 @@
     android:background="@drawable/bg_gradiend"
     android:clipChildren="false"
     android:clipToPadding="false">
+
     <TextView
         android:id="@+id/logo_registration_view"
         style="@style/TextStyle.Title"
@@ -17,9 +18,10 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center|top"
         android:layout_marginTop="37dp"
-        android:text="Smatch - Registration"
+        android:text="Registration"
         android:textAppearance="@style/TextAppearence.App.TextInputLayout"
-        android:textSize="24sp" />
+        android:textColor="#ffffff"
+        android:textSize="36sp" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

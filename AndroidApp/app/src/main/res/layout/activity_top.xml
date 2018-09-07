@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Welcome to capac2018!"
+        android:text="Welcome to SportSpace!"
         android:textColor="@color/bg_color"
         android:textSize="30sp" />
 
@@ -23,6 +23,7 @@
         android:layout_height="81dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:textSize="24sp"
         android:layout_marginTop="148dp"
         android:text="Login" />
 
@@ -30,6 +31,7 @@
         android:id="@+id/btn_register"
         android:layout_width="128dp"
         android:layout_height="81dp"
+        android:textSize="24sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="207dp"
