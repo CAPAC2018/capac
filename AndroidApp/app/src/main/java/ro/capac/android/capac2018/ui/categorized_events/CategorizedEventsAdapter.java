@@ -96,7 +96,7 @@ public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> 
         viewHolder.sportType.setText(event.getCategory());
         viewHolder.location1.setText(event.getLocation());
         viewHolder.sportType1.setText(event.getCategory());
-        viewHolder.organizer.setText("Popescu Andrei");
+        viewHolder.organizer.setText(event.getOwner().getUserName());
         viewHolder.noOfAtendees.setText("0");
         if(event.getDescription().equals("null"))
             viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");

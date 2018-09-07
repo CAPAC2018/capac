@@ -1,5 +1,7 @@
 package ro.capac.server.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -16,29 +18,37 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name="CAPAC_EVENT_ID_SEQ", sequenceName = "capac_event_id_seq", allocationSize = 1)
 public class Event {
 
+    @JsonProperty
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAPAC_EVENT_ID_SEQ")
     @Column(name = "ID")
     private Long id;
 
+    @JsonProperty
     @Column(name = "date_time")
     private Date dateTime;
 
+    @JsonProperty
     @Column(name = "location")
     private String location;
 
+    @JsonProperty
     @Column(name = "category")
     private String category;
 
+    @JsonProperty
     @Column(name = "description")
     private String description;
 
+    @JsonProperty
     @Column(name = "max_attendees")
     private Integer maxAttendees;
 
+    @JsonProperty
     @Column(name = "min_reputation")
     private Float minReputation;
 
+    @JsonProperty
     @ManyToOne
     @JoinColumn(name = "owner")
     private User owner;

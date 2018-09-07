@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import ro.capac.android.capac2018.data.AppDataManager;
+import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.data.prefs.AppPreferencesHelper;
 import ro.capac.android.capac2018.utils.CommonUtils;
@@ -55,11 +57,7 @@ public class EventRequest {
             this.description = event.getDescription();
             this.maxPlayers = Integer.parseInt(event.getMaxAttendees());
             this.reqRep = Float.parseFloat(event.getReqStars());
-            if(this.mPref.getCurrentUserId()!=null){
-                this.organizerID = this.mPref.getCurrentUserId();
-            }else{
-                this.organizerID = 1L;
-            }
+            this.organizerID = event.getOwnerId();
         }
 
         public Date getDate() {

@@ -38,6 +38,7 @@ public class CreateEventPresenter <V extends CreateEventMvpView> extends BasePre
             String reqStars
     ){
         Event event = new Event(time,date,location,sportType,description,noReqPlayers,reqStars);
+        event.setOwnerId(getDataManager().getCurrentUserId());
         getDataManager().doCreateEventApiCall(new EventRequest.CreateEventRequest(event)).subscribeOn(getSchedulerProvider().io())
         .observeOn(getSchedulerProvider().ui())
         .subscribe(new Consumer<EventResponse.CreateEventResponse>() {

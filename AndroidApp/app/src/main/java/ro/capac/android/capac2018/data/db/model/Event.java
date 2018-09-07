@@ -13,7 +13,17 @@ public class Event {
     private String noOfAttendees;
     private String description;
     private String maxAttendees;
+
+    public Long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
+    }
+
     private String reqStars;
+    private Long ownerId;
 
     public String getTime() {
         return time;
