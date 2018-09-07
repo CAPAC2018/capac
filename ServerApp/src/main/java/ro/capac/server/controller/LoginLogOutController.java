@@ -29,7 +29,7 @@ public class LoginLogOutController {
     ) {
         log.info("serverLogin: email={}", email);
         LoginResponse resp = new LoginResponse();
-        Optional<User> userOpt = userRepo.findByEmailAndPassword(email, password);
+        Optional<User> userOpt = userRepo.findByUserEmailAndPassword(email, password);
         if (userOpt.isPresent()) {
             User user = userOpt.get();
             resp.setUserId(user.getId());

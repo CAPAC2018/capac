@@ -27,7 +27,7 @@ public class RegisterController {
     ) {
         RegisterUserResponse response= new RegisterUserResponse();
         log.info("registerUser - called");
-        if(userRepo.findByEmail(email).isPresent()){
+        if(userRepo.findByUserEmail(email).isPresent()){
             response.setMessage("This email password is already in use.");
             response.setStatusCode("fail");
             return response;
