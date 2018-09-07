@@ -82,6 +82,8 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
                                     null);
                         } else{
                             getMvpView().onError(response.getMessage());
+                            getMvpView().hideLoading();
+                            return;
                         }
                         if (!isViewAttached()) {
                             return;

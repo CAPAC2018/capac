@@ -53,6 +53,7 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
         }
         if(!confirmPass.equals(password)){
             getMvpView().onError("Passwords don't match");
+            return;
         }
         getMvpView().showLoading();
 
@@ -75,6 +76,8 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
                                     null);
                         } else {
                             getMvpView().onError(response.getMessage());
+                            getMvpView().hideLoading();
+                            return;
                         }
 
                         if (!isViewAttached()) {
