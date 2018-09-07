@@ -16,13 +16,13 @@
 package ro.capac.android.capac2018.data.network;
 
 import io.reactivex.Single;
-import ro.capac.android.capac2018.data.network.model.BlogResponse;
 import ro.capac.android.capac2018.data.network.model.EventRequest;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
+import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
+import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -40,9 +40,9 @@ public interface ApiHelper {
 
     Single<EventResponse.CreateEventResponse> doCreateEventApiCall(EventRequest.CreateEventRequest request);
 
+    Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request);
+
     Single<LogoutResponse> doLogoutApiCall();
 
-    Single<BlogResponse> getBlogApiCall();
-
-    Single<OpenSourceResponse> getOpenSourceApiCall();
+    Single<RegistrationResponse> doServerUserRegistration(RegistrationRequest.ServerRegistrationRequest request);
 }

@@ -2,11 +2,23 @@
 <resources>
     <string-array name="items">
         <item>Basketball</item>
-        <item>Football</item>
-        <item>Tennis</item>
-        <item>Jogging</item>
         <item>Swimming</item>
-        <item>Mini-Football</item>
-        <item>Hide'n Seek</item>
+        <item>Football</item>
+        <item>Ping-Pong</item>
+        <item>Jogging</item>
+        <item>Golf</item>
+        <item>Skiing</item>
+        <item>Snowboarding</item>
+        <item>Surf</item>
+        <item>Gym Session</item>
+        <item>American Football</item>
+        <item>Bowling</item>
+        <item>Boxing</item>
+        <item>Chess</item>
+        <item>Hiking</item>
+        <item>Criket</item>
+        <item>Fencing</item>
+        <item>Hockey</item>
+        <item>Sailing</item>
     </string-array>
 </resources>

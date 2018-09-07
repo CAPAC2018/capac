@@ -18,7 +18,6 @@ package ro.capac.android.capac2018.di.component;
 import dagger.Component;
 import ro.capac.android.capac2018.di.PerActivity;
 import ro.capac.android.capac2018.di.module.ActivityModule;
-import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.categories.CategoriesFragment;
 import ro.capac.android.capac2018.ui.categorized_events.CategorizedEventsActivity;
 import ro.capac.android.capac2018.ui.chat.ChatFragment;
@@ -48,8 +47,6 @@ public interface ActivityComponent {
 
     void inject(SplashActivity activity);
 
-    void inject(AboutFragment fragment);
-
     void inject(RateUsDialog dialog);
 
     void inject(TopActivity activity);
@@ -71,6 +68,5 @@ public interface ActivityComponent {
     void inject(SettingsFragment fragment);
 
     void inject(ChatFragment fragment);
-
 
 }

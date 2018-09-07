@@ -38,14 +38,11 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_CREATE_EVENT = BuildConfig.BASE_URL
             + "/createEvent";
 
-    public static final String ENDPOINT_BLOG = BuildConfig.BASE_URL
-            + "/5926ce9d11000096006ccb30";
-
     public static final String ENDPOINT_CATEGORY_REQUEST = BuildConfig.BASE_URL
-            +"/search/findEventsByCategoryId";
+            +"/findEventsByCategory";
 
-    public static final String ENDPOINT_OPEN_SOURCE = BuildConfig.BASE_URL
-            + "/5926c34212000035026871cd";
+    public static final String ENDPOINT_REGISTRATION_REQUEST = BuildConfig.BASE_URL
+            +"/registerUser";
 
     private ApiEndPoint() {
         // This class is not publicly instantiable

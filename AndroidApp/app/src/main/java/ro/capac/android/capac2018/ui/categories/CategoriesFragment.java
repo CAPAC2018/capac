@@ -34,8 +34,8 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         return fragment;
     }
     @Override
-    public void openCategorizedEventsActivity() {
-        startActivity(CategorizedEventsActivity.getStartIntent(this.getContext()));
+    public void openCategorizedEventsActivity(String category) {
+        startActivity(CategorizedEventsActivity.getStartIntent(this.getContext()).putExtra("category",category));
     }
 
     @Nullable
@@ -53,14 +53,14 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
         ListView listView = view.findViewById(R.id.categories_container);
         ArrayList<Category> categories = Category.getAllCategories();
         Log.d(TAG, "onCreateView: category 1:" + categories.get(0));
-        CategoryAdapter adapter = new CategoryAdapter(this.getContext(),categories);
+        final CategoryAdapter adapter = new CategoryAdapter(this.getContext(),categories);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new GridView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                openCategorizedEventsActivity();
+                openCategorizedEventsActivity(adapter.getItem(position).name);
             }
         });
         return view;

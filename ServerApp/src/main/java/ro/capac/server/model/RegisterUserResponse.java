@@ -17,9 +17,6 @@ package ro.capac.server.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * Send the response of a logout request to the client
- */
 public class RegisterUserResponse {
 
     @JsonProperty("status_code")
@@ -27,6 +24,15 @@ public class RegisterUserResponse {
 
     @JsonProperty("message")
     private String message;
+
+    @JsonProperty("user_name")
+    private String userName;
+
+    @JsonProperty("user_email")
+    private String userEmail;
+
+    @JsonProperty("ID")
+    private Long userId;
 
     public String getStatusCode() {
         return statusCode;

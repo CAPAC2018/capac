@@ -2,19 +2,17 @@ package ro.capac.android.capac2018.ui.registration;
 
 import com.androidnetworking.error.ANError;
 
-import io.reactivex.functions.Consumer;
-import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.db.model.User;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.ui.base.BasePresenter;
-import ro.capac.android.capac2018.utils.CommonUtils;
-import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
-
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import ro.capac.android.capac2018.R;
+import ro.capac.android.capac2018.data.DataManager;
+import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
+import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
+import ro.capac.android.capac2018.ui.base.BasePresenter;
+import ro.capac.android.capac2018.utils.CommonUtils;
+import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
 public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePresenter<V>
         implements RegistrationMvpPresenter<V> {
@@ -29,7 +27,7 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
     }
 
     @Override
-    public void onServerRegistrationClick(String userName, String email, String phoneNumber, String password) {
+    public void onServerRegistrationClick(String userName, String email, String phoneNumber, String password, String confirmPass) {
 
         //validations
         if (email == null || email.isEmpty()) {
@@ -53,25 +51,34 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
             getMvpView().onError("Please provide a non empty phone number");
             return;
         }
+        if(!confirmPass.equals(password)){
+            getMvpView().onError("Passwords don't match");
+            return;
+        }
         getMvpView().showLoading();
 
-        User newUser = new User(userName,email,phoneNumber,password);
+        RegistrationRequest.ServerRegistrationRequest request = new RegistrationRequest.ServerRegistrationRequest(userName,email,phoneNumber,password);
 
-        //TODO: Save newUser in database replace code below with proper one ASAP
         getCompositeDisposable().add(getDataManager()
-                .doServerLoginApiCall(new LoginRequest.ServerLoginRequest(email, password))
+                .doServerUserRegistration(request)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<LoginResponse>() {
+                .subscribe(new Consumer<RegistrationResponse>() {
                     @Override
-                    public void accept(LoginResponse response) throws Exception {
-                        getDataManager().updateUserInfo(
-                                response.getAccessToken(),
-                                response.getUserId(),
-                                DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
-                                response.getUserName(),
-                                response.getUserEmail(),
-                                response.getGoogleProfilePicUrl());
+                    public void accept(RegistrationResponse response) {
+                        if(response.getStatusCode().equals("success")) {
+                            getDataManager().updateUserInfo(
+                                    null,
+                                    response.getUserId(),
+                                    DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
+                                    response.getUserName(),
+                                    response.getUserEmail(),
+                                    null);
+                        } else {
+                            getMvpView().onError(response.getMessage());
+                            getMvpView().hideLoading();
+                            return;
+                        }
 
                         if (!isViewAttached()) {
                             return;
@@ -83,7 +90,7 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
                     }
                 }, new Consumer<Throwable>() {
                     @Override
-                    public void accept(Throwable throwable) throws Exception {
+                    public void accept(Throwable throwable) {
 
                         if (!isViewAttached()) {
                             return;

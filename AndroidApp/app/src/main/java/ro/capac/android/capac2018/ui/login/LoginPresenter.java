@@ -18,26 +18,16 @@ package ro.capac.android.capac2018.ui.login;
 import android.util.Log;
 
 import com.androidnetworking.error.ANError;
-import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.utils.CommonUtils;
-import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
-import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.ui.base.BasePresenter;
-import ro.capac.android.capac2018.utils.CommonUtils;
-import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
+import ro.capac.android.capac2018.ui.base.BasePresenter;
 import ro.capac.android.capac2018.utils.CommonUtils;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
@@ -82,14 +72,19 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
                 .subscribe(new Consumer<LoginResponse>() {
                     @Override
                     public void accept(LoginResponse response) throws Exception {
-                        getDataManager().updateUserInfo(
-                                response.getAccessToken(),
-                                response.getUserId(),
-                                DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
-                                response.getUserName(),
-                                response.getUserEmail(),
-                                response.getGoogleProfilePicUrl());
-
+                        if(response.getStatusCode().equals("success")) {
+                            getDataManager().updateUserInfo(
+                                    null,
+                                    response.getUserId(),
+                                    DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
+                                    response.getUserName(),
+                                    response.getUserEmail(),
+                                    null);
+                        } else{
+                            getMvpView().onError(response.getMessage());
+                            getMvpView().hideLoading();
+                            return;
+                        }
                         if (!isViewAttached()) {
                             return;
                         }

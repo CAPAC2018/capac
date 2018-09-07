@@ -15,6 +15,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CATEGORY_ID_SEQ")
+    @Column(name = "ID")
     private Long id;
 
     @Column(name = "name")

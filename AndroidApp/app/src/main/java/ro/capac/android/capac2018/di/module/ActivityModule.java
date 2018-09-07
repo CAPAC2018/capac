@@ -24,9 +24,6 @@ import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
 import ro.capac.android.capac2018.di.ActivityContext;
 import ro.capac.android.capac2018.di.PerActivity;
-import ro.capac.android.capac2018.ui.about.AboutMvpPresenter;
-import ro.capac.android.capac2018.ui.about.AboutMvpView;
-import ro.capac.android.capac2018.ui.about.AboutPresenter;
 import ro.capac.android.capac2018.ui.categories.CategoriesMvpPresenter;
 import ro.capac.android.capac2018.ui.categories.CategoriesMvpView;
 import ro.capac.android.capac2018.ui.categories.CategoriesPresenter;
@@ -119,12 +116,6 @@ public class ActivityModule {
     @Provides
     @PerActivity
     RegistrationMvpPresenter<RegistrationMvpView> provideRegistrationPresenter(RegistrationPresenter<RegistrationMvpView> presenter) {
-        return presenter;
-    }
-
-    @Provides
-    AboutMvpPresenter<AboutMvpView> provideAboutPresenter(
-            AboutPresenter<AboutMvpView> presenter) {
         return presenter;
     }
 

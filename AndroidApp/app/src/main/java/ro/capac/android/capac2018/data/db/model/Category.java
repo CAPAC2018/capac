@@ -1,13 +1,6 @@
 package ro.capac.android.capac2018.data.db.model;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
-
 import java.util.ArrayList;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import ro.capac.android.capac2018.R;
 

@@ -18,35 +18,21 @@ package ro.capac.android.capac2018.data;
 
 import android.content.Context;
 
-import ro.capac.android.capac2018.data.db.model.User;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import io.reactivex.Single;
 import ro.capac.android.capac2018.data.network.ApiHeader;
 import ro.capac.android.capac2018.data.network.ApiHelper;
-import ro.capac.android.capac2018.data.network.model.BlogResponse;
 import ro.capac.android.capac2018.data.network.model.EventRequest;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.OpenSourceResponse;
+import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
+import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
 import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
 import ro.capac.android.capac2018.di.ApplicationContext;
-import ro.capac.android.capac2018.utils.AppConstants;
-import ro.capac.android.capac2018.utils.CommonUtils;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.internal.$Gson$Types;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.List;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.Single;
-import io.reactivex.functions.Function;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -111,8 +97,20 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request) {
+        return mApiHelper.doRequestEventsByCategory(request);
+    }
+
+
+
+    @Override
     public Single<LogoutResponse> doLogoutApiCall() {
         return mApiHelper.doLogoutApiCall();
+    }
+
+    @Override
+    public Single<RegistrationResponse> doServerUserRegistration(RegistrationRequest.ServerRegistrationRequest request) {
+        return mApiHelper.doServerUserRegistration(request);
     }
 
     @Override
@@ -201,13 +199,4 @@ public class AppDataManager implements DataManager {
                 null);
     }
 
-    @Override
-    public Single<BlogResponse> getBlogApiCall() {
-        return mApiHelper.getBlogApiCall();
-    }
-
-    @Override
-    public Single<OpenSourceResponse> getOpenSourceApiCall() {
-        return mApiHelper.getOpenSourceApiCall();
-    }
 }

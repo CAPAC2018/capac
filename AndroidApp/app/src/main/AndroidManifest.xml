@@ -28,7 +28,7 @@
         android:name=".MvpApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Capac2018"
+        android:label="SportSpace"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service android:name=".service.SyncService" />
@@ -37,14 +37,15 @@
             android:name=".ui.splash.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeFullScreen">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MapsActivity" />
+        <activity android:name=".ui.MapsActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:launchMode="singleTop"

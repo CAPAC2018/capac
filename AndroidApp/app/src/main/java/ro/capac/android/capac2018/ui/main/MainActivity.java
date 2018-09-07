@@ -35,9 +35,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Optional;
 import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.ui.about.AboutFragment;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.categories.CategoriesFragment;
 import ro.capac.android.capac2018.ui.chat.ChatFragment;
@@ -45,7 +43,6 @@ import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
 import ro.capac.android.capac2018.ui.profile.MyProfileFragment;
-import ro.capac.android.capac2018.ui.settings.SettingsFragment;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
 
@@ -111,6 +108,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 return false;
             }
         });
+
         showInitialFragment();
     }
 
@@ -172,16 +170,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
                 .replace(R.id.frame, MyProfileFragment.newInstance(), MyProfileFragment.TAG)
                 .commit();
-    }
-    @Override
-    public void onBackPressed() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = fragmentManager.findFragmentByTag(AboutFragment.TAG);
-        if (fragment == null) {
-            super.onBackPressed();
-        } else {
-            onFragmentDetached(AboutFragment.TAG);
-        }
     }
 
     @Override

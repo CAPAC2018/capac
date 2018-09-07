@@ -25,7 +25,6 @@ public class LoginResponse {
     @JsonProperty("status_code")
     private String statusCode;
 
-    
     @JsonProperty("user_id")
     private Long userId;
 

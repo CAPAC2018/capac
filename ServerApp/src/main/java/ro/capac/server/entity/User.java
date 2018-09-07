@@ -1,5 +1,7 @@
 package ro.capac.server.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -13,19 +15,25 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name="CAPAC_USER_ID_SEQ", sequenceName = "capac_user_id_seq", allocationSize = 1)
 public class User {
 
+    @JsonProperty
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAPAC_USER_ID_SEQ")
+    @Column(name = "ID")
     private Long id;
 
+    @JsonProperty
     @Column(name = "user_name")
     private String userName;
 
+    @JsonProperty
     @Column(name = "email", unique = true)
     private String userEmail;
 
+    @JsonProperty
     @Column(name = "password")
     private String password;
 
+    @JsonProperty
     @Column(name = "phone")
     private String phone;
 

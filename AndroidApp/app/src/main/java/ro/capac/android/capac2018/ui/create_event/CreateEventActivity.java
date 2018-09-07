@@ -52,7 +52,10 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
         timePicker = findViewById(R.id.time_picker);
         datePicker = findViewById(R.id.date_picker);
         locationPicker = findViewById(R.id.location_picker);
-        sportSelector.findViewById(R.id.sport_selector);
+
+        sportSelector = findViewById(R.id.sport_selector);
+        //
+
         reqPlayers = findViewById(R.id.req_players);
         description = findViewById(R.id.description);
         reqRep = findViewById(R.id.req_rep);
@@ -89,6 +92,12 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
 
     }
 
+    @Override
+    protected void onResume() {
+        locationPicker.setText(MapsActivity.desiredLocationName);
+        super.onResume();
+    }
+
     @OnClick(R.id.create_btn)
     public void createEvent(){
         mPresenter.onCreateEventClick(timePicker.getText().toString(),datePicker.getText().toString(),locationPicker.getText().toString(),sportSelector.getSelectedItem().toString(),description.getText().toString(),reqPlayers.getText().toString(),reqRep.getText().toString());
@@ -99,5 +108,10 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
     }
     public void changeDate(Date date){
         datePicker.setText("DATE: " + CommonUtils.formatDate(date));
+    }
+
+    @Override
+    public void closeActivity() {
+        this.finish();
     }
 }

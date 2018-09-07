@@ -3,10 +3,15 @@ package ro.capac.android.capac2018.data.network.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 
+import ro.capac.android.capac2018.data.AppDataManager;
+import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.data.prefs.AppPreferencesHelper;
+import ro.capac.android.capac2018.utils.CommonUtils;
 
 public class EventRequest {
 
@@ -16,12 +21,8 @@ public class EventRequest {
         @Inject AppPreferencesHelper mPref;
 
         @Expose
-        @SerializedName("date")
-        private String date;
-
-        @Expose
-        @SerializedName("time")
-        private String time;
+        @SerializedName("date_time")
+        private Date dateTime;
 
         @Expose
         @SerializedName("location")
@@ -37,11 +38,11 @@ public class EventRequest {
 
         @Expose
         @SerializedName("max_players")
-        private String maxPlayers;
+        private int maxPlayers;
 
         @Expose
         @SerializedName("req_rep")
-        private String reqRep;
+        private Float reqRep;
 
         @Expose
         @SerializedName("organizer_id")
@@ -50,30 +51,21 @@ public class EventRequest {
 
 
         public CreateEventRequest(Event event) {
-            this.date = event.getDate();
-            this.time = event.getTime();
+            this.dateTime = CommonUtils.formatStringToDate(event.getDate(), event.getTime());
             this.location = event.getLocation();
             this.sportCategory = event.getSportType();
             this.description = event.getDescription();
-            this.maxPlayers = event.getNoOfAttendees();
-            this.reqRep = event.getReqStars();
-            this.organizerID = this.mPref.getCurrentUserId();
+            this.maxPlayers = Integer.parseInt(event.getMaxAttendees());
+            this.reqRep = Float.parseFloat(event.getReqStars());
+            this.organizerID = event.getOwnerId();
         }
 
-        public String getDate() {
-            return date;
+        public Date getDate() {
+            return dateTime;
         }
 
-        public void setDate(String date) {
-            this.date = date;
-        }
-
-        public String getTime() {
-            return time;
-        }
-
-        public void setTime(String time) {
-            this.time = time;
+        public void setDateTime(Date dateTime) {
+            this.dateTime = dateTime;
         }
 
         public String getLocation() {
@@ -100,19 +92,19 @@ public class EventRequest {
             this.description = description;
         }
 
-        public String getMaxPlayers() {
+        public int getMaxPlayers() {
             return maxPlayers;
         }
 
-        public void setMaxPlayers(String maxPlayers) {
+        public void setMaxPlayers(int maxPlayers) {
             this.maxPlayers = maxPlayers;
         }
 
-        public String getReqRep() {
+        public Float getReqRep() {
             return reqRep;
         }
 
-        public void setReqRep(String reqRep) {
+        public void setReqRep(Float reqRep) {
             this.reqRep = reqRep;
         }
 
@@ -122,6 +114,16 @@ public class EventRequest {
 
         public void setOrganizerID(Long organizerID) {
             this.organizerID = organizerID;
+        }
+    }
+
+    public static class GetEventsByCategoryRequest{
+        @Expose
+        @SerializedName("category")
+        private String category;
+
+        public GetEventsByCategoryRequest(String category){
+            this.category = category;
         }
     }
 }
