@@ -28,6 +28,8 @@ import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.data.network.model.LogoutResponse;
+import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
+import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
 
 /**
  * Created by janisharali on 28/01/17.
@@ -104,6 +106,15 @@ public class AppApiHelper implements ApiHelper {
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
                 .getObjectSingle(LogoutResponse.class);
+    }
+
+    @Override
+    public Single<RegistrationResponse> doServerUserRegistration(RegistrationRequest.ServerRegistrationRequest request){
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_REGISTRATION_REQUEST)
+                .addHeaders(mApiHeader.getPublicApiHeader())
+                .addBodyParameter(request)
+                .build()
+                .getObjectSingle(RegistrationResponse.class);
     }
 }
 

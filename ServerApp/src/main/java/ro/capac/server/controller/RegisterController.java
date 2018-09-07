@@ -20,12 +20,23 @@ public class RegisterController {
 
     @RequestMapping("/registerUser")
     public RegisterUserResponse serverRegisterUser(
-            @RequestParam(value="name", defaultValue = "name") String name,
-            @RequestParam(value="email", defaultValue = "email") String email,
-            @RequestParam(value="phone", defaultValue = "phone") String phone,
-            @RequestParam(value="password", defaultValue = "passwd") String password
+            @RequestParam(value="user_name") String name,
+            @RequestParam(value="user_email") String email,
+            @RequestParam(value="user_phone_number") String phone,
+            @RequestParam(value="user_password") String password
     ) {
+        RegisterUserResponse response= new RegisterUserResponse();
         log.info("registerUser - called");
+        if(userRepo.findByEmail(email).isPresent()){
+            response.setMessage("This email password is already in use.");
+            response.setStatusCode("fail");
+            return response;
+        }
+        if(userRepo.findByUserName(name).isPresent()){
+            response.setMessage("This name is already in use.");
+            response.setStatusCode("fail");
+            return response;
+        }
         User user = new User();
         user.setUserEmail(email);
         user.setUserName(name);
@@ -33,8 +44,6 @@ public class RegisterController {
         user.setPassword(password);
         User savedUser = userRepo.save(user);
         log.info("saved user: {}", savedUser);
-        // save user
-        RegisterUserResponse response= new RegisterUserResponse();
         response.setMessage("Bunaa, " + name + " cu ID=" + savedUser.getId());
         response.setStatusCode("success");
         return response;

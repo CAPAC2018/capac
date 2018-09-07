@@ -42,7 +42,9 @@ public class EventController {
         event.setDescription(description);
         event.setMaxAttendees(maxPlayers);
         event.setMinReputation(reqRep);
-        event.setOwner(userRepository.findUserById(organizerID));
+        if(userRepository.findById(organizerID).isPresent()) {
+            event.setOwner(userRepository.findById(organizerID).get());
+        }
         eventRepo.save(event);
         CreateEventResponse response = new CreateEventResponse();
         response.setStatusCode("200");

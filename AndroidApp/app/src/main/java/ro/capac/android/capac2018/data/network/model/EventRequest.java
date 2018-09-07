@@ -53,12 +53,13 @@ public class EventRequest {
             this.location = event.getLocation();
             this.sportCategory = event.getSportType();
             this.description = event.getDescription();
-            //this.maxPlayers = Integer.parseInt(event.getNoOfAttendees());
-            //this.reqRep = Float.parseFloat(event.getReqStars());
             this.maxPlayers = Integer.parseInt(event.getMaxAttendees());
             this.reqRep = Float.parseFloat(event.getReqStars());
-            //this.organizerID = this.mPref.getCurrentUserId();
-            this.organizerID = 1L;
+            if(this.mPref.getCurrentUserId()!=null){
+                this.organizerID = this.mPref.getCurrentUserId();
+            }else{
+                this.organizerID = 1L;
+            }
         }
 
         public Date getDate() {

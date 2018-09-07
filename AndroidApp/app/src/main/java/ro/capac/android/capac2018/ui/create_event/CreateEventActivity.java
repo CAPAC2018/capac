@@ -109,4 +109,9 @@ public class CreateEventActivity extends BaseActivity implements CreateEventMvpV
     public void changeDate(Date date){
         datePicker.setText("DATE: " + CommonUtils.formatDate(date));
     }
+
+    @Override
+    public void closeActivity() {
+        this.finish();
+    }
 }

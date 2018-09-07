@@ -21,6 +21,8 @@ import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.data.network.model.LogoutResponse;
+import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
+import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -42,5 +44,5 @@ public interface ApiHelper {
 
     Single<LogoutResponse> doLogoutApiCall();
 
-
+    Single<RegistrationResponse> doServerUserRegistration(RegistrationRequest.ServerRegistrationRequest request);
 }

@@ -37,20 +37,20 @@ public class CreateEventPresenter <V extends CreateEventMvpView> extends BasePre
             String noReqPlayers,
             String reqStars
     ){
-        Log.i(TAG, "onCreateEventClick: Click");
         Event event = new Event(time,date,location,sportType,description,noReqPlayers,reqStars);
         getDataManager().doCreateEventApiCall(new EventRequest.CreateEventRequest(event)).subscribeOn(getSchedulerProvider().io())
         .observeOn(getSchedulerProvider().ui())
         .subscribe(new Consumer<EventResponse.CreateEventResponse>() {
             @Override
             public void accept(EventResponse.CreateEventResponse createEventResponse) {
-                Log.i(TAG, "12123214124 accept: create EVENT " + createEventResponse);
                 getMvpView().showMessage(createEventResponse.getMessage());
+                getMvpView().closeActivity();
             }
         }, new Consumer<Throwable>() {
             @Override
-            public void accept(Throwable throwable) throws Exception {
+            public void accept(Throwable throwable) {
                 Log.e(TAG, "Error occured while creating a new event" + throwable);
+                getMvpView().showMessage("Error occured while creating a new event, please try again in a few minutes");
                 if (!isViewAttached()) {
                     return;
                 }

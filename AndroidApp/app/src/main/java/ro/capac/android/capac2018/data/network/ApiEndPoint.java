@@ -41,6 +41,9 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_CATEGORY_REQUEST = BuildConfig.BASE_URL
             +"/findEventsByCategory";
 
+    public static final String ENDPOINT_REGISTRATION_REQUEST = BuildConfig.BASE_URL
+            +"/registerUser";
+
     private ApiEndPoint() {
         // This class is not publicly instantiable
     }

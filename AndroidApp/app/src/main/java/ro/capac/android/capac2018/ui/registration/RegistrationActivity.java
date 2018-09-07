@@ -2,26 +2,17 @@ package ro.capac.android.capac2018.ui.registration;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.sip.SipSession;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.Toast;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.data.AppDataManager;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
-import ro.capac.android.capac2018.ui.login.LoginActivity;
-import ro.capac.android.capac2018.ui.login.LoginMvpPresenter;
-import ro.capac.android.capac2018.ui.login.LoginMvpView;
 import ro.capac.android.capac2018.ui.main.MainActivity;
-import ro.capac.android.capac2018.utils.CommonUtils;
 
 public class RegistrationActivity extends BaseActivity implements RegistrationMvpView {
     @Inject
@@ -58,7 +49,7 @@ public class RegistrationActivity extends BaseActivity implements RegistrationMv
 
     @OnClick(R.id.registration_button)
     void onServerRegistrationClick(){
-        mPresenter.onServerRegistrationClick(userName.getText().toString(), userEmail.getText().toString(), phoneNumber.getText().toString(), userPassword.getText().toString());
+        mPresenter.onServerRegistrationClick(userName.getText().toString(), userEmail.getText().toString(), phoneNumber.getText().toString(), userPassword.getText().toString(),userPasswordConfirmation.getText().toString());
     }
 
     @Override

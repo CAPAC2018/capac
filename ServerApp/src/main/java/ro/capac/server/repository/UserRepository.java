@@ -14,6 +14,7 @@ import ro.capac.server.entity.User;
 @RepositoryRestResource(collectionResourceRel = "users", path = "users")
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
 
-    Optional<User> findByUserEmailAndPassword(String email, String password);
-    User findUserById(Long id);
+    Optional<User> findByEmailAndPassword(String email, String password);
+    Optional<User> findByEmail(String email);
+    Optional<User> findByUserName(String userName);
 }

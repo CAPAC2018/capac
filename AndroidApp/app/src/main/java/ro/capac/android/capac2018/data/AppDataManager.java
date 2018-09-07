@@ -29,6 +29,8 @@ import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.data.network.model.LoginRequest;
 import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.data.network.model.LogoutResponse;
+import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
+import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
 import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
 import ro.capac.android.capac2018.di.ApplicationContext;
 
@@ -99,9 +101,16 @@ public class AppDataManager implements DataManager {
         return mApiHelper.doRequestEventsByCategory(request);
     }
 
+
+
     @Override
     public Single<LogoutResponse> doLogoutApiCall() {
         return mApiHelper.doLogoutApiCall();
+    }
+
+    @Override
+    public Single<RegistrationResponse> doServerUserRegistration(RegistrationRequest.ServerRegistrationRequest request) {
+        return mApiHelper.doServerUserRegistration(request);
     }
 
     @Override
