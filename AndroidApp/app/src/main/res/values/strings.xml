@@ -14,7 +14,7 @@
   -->
 
 <resources>
-    <string name="app_name" translatable="false">Capac2018</string>
+    <string name="app_name" translatable="false">SportSpace</string>
 
     <!--Toolbar menus-->
     <string name="clear">Clear</string>
