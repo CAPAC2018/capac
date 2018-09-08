@@ -15,25 +15,25 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name="CAPAC_USER_ID_SEQ", sequenceName = "capac_user_id_seq", allocationSize = 1)
 public class User {
 
-    @JsonProperty
+    @JsonProperty("ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAPAC_USER_ID_SEQ")
     @Column(name = "ID")
     private Long id;
 
-    @JsonProperty
-    @Column(name = "user_name")
+    @JsonProperty("user_name")
+    @Column(name = "user_name", unique = true)
     private String userName;
 
-    @JsonProperty
+    @JsonProperty("email")
     @Column(name = "email", unique = true)
     private String userEmail;
 
-    @JsonProperty
+    @JsonProperty("password")
     @Column(name = "password")
     private String password;
 
-    @JsonProperty
+    @JsonProperty("phone")
     @Column(name = "phone")
     private String phone;
 

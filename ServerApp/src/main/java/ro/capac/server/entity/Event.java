@@ -18,37 +18,37 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name="CAPAC_EVENT_ID_SEQ", sequenceName = "capac_event_id_seq", allocationSize = 1)
 public class Event {
 
-    @JsonProperty
+    @JsonProperty("ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAPAC_EVENT_ID_SEQ")
     @Column(name = "ID")
     private Long id;
 
-    @JsonProperty
+    @JsonProperty("date_time")
     @Column(name = "date_time")
     private Date dateTime;
 
-    @JsonProperty
+    @JsonProperty("location")
     @Column(name = "location")
     private String location;
 
-    @JsonProperty
+    @JsonProperty("category")
     @Column(name = "category")
     private String category;
 
-    @JsonProperty
+    @JsonProperty("description")
     @Column(name = "description")
     private String description;
 
-    @JsonProperty
+    @JsonProperty("max_attendees")
     @Column(name = "max_attendees")
     private Integer maxAttendees;
 
-    @JsonProperty
+    @JsonProperty("min_reputation")
     @Column(name = "min_reputation")
     private Float minReputation;
 
-    @JsonProperty
+    @JsonProperty("owner")
     @ManyToOne
     @JoinColumn(name = "owner")
     private User owner;
