@@ -81,6 +81,9 @@ public class EventResponse {
         @Expose
         @SerializedName("owner") private UserResponse owner;
 
+        @Expose
+        @SerializedName("attendees") private List<UserResponse> attendees;
+
         public Long getId() {
             return id;
         }
@@ -140,6 +143,14 @@ public class EventResponse {
         public void setMinReputation(Float minReputation) {
             this.minReputation = minReputation;
         }
+
+        public List<UserResponse> getAttendees() {
+            return attendees;
+        }
+
+        public void setAttendees(List<UserResponse> attendees) {
+            this.attendees = attendees;
+        }
     }
 
     public static class CategorizedEvents{
@@ -152,6 +163,32 @@ public class EventResponse {
 
         public void setEvents(List<Event> events) {
             this.events = events;
+        }
+    }
+
+    public static class AttendEventResponse{
+        @Expose
+        @SerializedName("status_code")
+        private String statusCode;
+
+        @Expose
+        @SerializedName("message")
+        private String message;
+
+        public String getStatusCode() {
+            return statusCode;
+        }
+
+        public void setStatusCode(String statusCode) {
+            this.statusCode = statusCode;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
         }
     }
 }

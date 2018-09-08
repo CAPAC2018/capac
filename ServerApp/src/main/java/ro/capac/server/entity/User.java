@@ -22,7 +22,7 @@ public class User {
     private Long id;
 
     @JsonProperty("user_name")
-    @Column(name = "user_name", unique = true)
+    @Column(name = "user_name")
     private String userName;
 
     @JsonProperty("email")

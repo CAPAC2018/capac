@@ -44,6 +44,9 @@ public final class ApiEndPoint {
     public static final String ENDPOINT_REGISTRATION_REQUEST = BuildConfig.BASE_URL
             +"/registerUser";
 
+    public static final String ENDPOINT_ATTEND_EVENT = BuildConfig.BASE_URL
+            +"/attendEvent";
+
     private ApiEndPoint() {
         // This class is not publicly instantiable
     }

@@ -5,11 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.ramotion.foldingcell.FoldingCell;
@@ -22,14 +20,13 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
-import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 
 public class CategorizedEventsActivity extends BaseActivity implements CategorizedEventsMvpView {
 
-    CategorizedEventsAdapter adapter;
+    EventsAdapter adapter;
     List<EventResponse.Event> events = new ArrayList<>();
     ListView listView;
     @Inject
@@ -55,9 +52,15 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
         listView = findViewById(R.id.categorizedevents_listview);
 
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
-        adapter = new CategorizedEventsAdapter(this, events);
+        adapter = new EventsAdapter(this, events);
         mPresenter.showEventsList(mCategory);
-
+        adapter.setDefaultRequestBtnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EventResponse.Event event = adapter.getItem((Integer) view.getTag());
+                mPresenter.onAttendEventClick(event.getId());
+            }
+        });
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @SuppressLint("ClickableViewAccessibility")
@@ -90,8 +93,7 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
     }
     @Override
     @OnClick(R.id.create_event_btn)
-    public void openCreateEventActivity()
-    {
+    public void openCreateEventActivity() {
         startActivity(CreateEventActivity.getStartIntent(CategorizedEventsActivity.this));
     }
 
@@ -100,7 +102,7 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
         this.events.clear();
         this.events.addAll(events);
         this.adapter.notifyDataSetChanged();
-        //adapter = new CategorizedEventsAdapter(this,events);
+        //adapter = new EventsAdapter(this,events);
         this.listView.invalidate();
     }
 

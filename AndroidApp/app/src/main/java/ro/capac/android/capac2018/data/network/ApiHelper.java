@@ -16,13 +16,10 @@
 package ro.capac.android.capac2018.data.network;
 
 import io.reactivex.Single;
+import ro.capac.android.capac2018.data.network.model.AuthenticationRequest;
+import ro.capac.android.capac2018.data.network.model.AuthenticationResponse;
 import ro.capac.android.capac2018.data.network.model.EventRequest;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
-import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -32,17 +29,19 @@ public interface ApiHelper {
 
     ApiHeader getApiHeader();
 
-    Single<LoginResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest request);
+    Single<AuthenticationResponse.LoginResponse> doGoogleLoginApiCall(AuthenticationRequest.LoginRequest.GoogleLoginRequest request);
 
-    Single<LoginResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest request);
+    Single<AuthenticationResponse.LoginResponse> doFacebookLoginApiCall(AuthenticationRequest.LoginRequest.FacebookLoginRequest request);
 
-    Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest request);
+    Single<AuthenticationResponse.LoginResponse> doServerLoginApiCall(AuthenticationRequest.LoginRequest.ServerLoginRequest request);
 
     Single<EventResponse.CreateEventResponse> doCreateEventApiCall(EventRequest.CreateEventRequest request);
 
     Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request);
 
-    Single<LogoutResponse> doLogoutApiCall();
+    Single<AuthenticationResponse.LogoutResponse> doLogoutApiCall();
 
-    Single<RegistrationResponse> doServerUserRegistration(RegistrationRequest.ServerRegistrationRequest request);
+    Single<AuthenticationResponse.RegistrationResponse> doServerUserRegistration(AuthenticationRequest.RegistrationRequest.ServerRegistrationRequest request);
+
+    Single<EventResponse.AttendEventResponse> doAttendEventRequest(EventRequest.AttendEventRequest request);
 }

@@ -8,8 +8,8 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
-import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
+import ro.capac.android.capac2018.data.network.model.AuthenticationRequest;
+import ro.capac.android.capac2018.data.network.model.AuthenticationResponse;
 import ro.capac.android.capac2018.ui.base.BasePresenter;
 import ro.capac.android.capac2018.utils.CommonUtils;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
@@ -57,15 +57,15 @@ public class RegistrationPresenter<V extends RegistrationMvpView> extends BasePr
         }
         getMvpView().showLoading();
 
-        RegistrationRequest.ServerRegistrationRequest request = new RegistrationRequest.ServerRegistrationRequest(userName,email,phoneNumber,password);
+        AuthenticationRequest.RegistrationRequest.ServerRegistrationRequest request = new AuthenticationRequest.RegistrationRequest.ServerRegistrationRequest(userName,email,phoneNumber,password);
 
         getCompositeDisposable().add(getDataManager()
                 .doServerUserRegistration(request)
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<RegistrationResponse>() {
+                .subscribe(new Consumer<AuthenticationResponse.RegistrationResponse>() {
                     @Override
-                    public void accept(RegistrationResponse response) {
+                    public void accept(AuthenticationResponse.RegistrationResponse response) {
                         if(response.getStatusCode().equals("success")) {
                             getDataManager().updateUserInfo(
                                     null,

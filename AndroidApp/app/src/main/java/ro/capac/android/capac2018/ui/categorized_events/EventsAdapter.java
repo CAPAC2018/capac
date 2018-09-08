@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.ramotion.foldingcell.FoldingCell;
@@ -20,12 +21,12 @@ import ro.capac.android.capac2018.utils.CommonUtils;
  * Simple example of ListAdapter for using with Folding Cell
  * Adapter holds indexes of unfolded elements for correct work with default reusable views behavior
  */
-public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> {
+public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
 
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     private View.OnClickListener defaultRequestBtnClickListener;
 
-    public CategorizedEventsAdapter(Context context, List<EventResponse.Event> objects) {
+    public EventsAdapter(Context context, List<EventResponse.Event> objects) {
         super(context, 0, objects);
     }
 
@@ -57,6 +58,7 @@ public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> 
             viewHolder.location1= cell.findViewById(R.id.location_in_content_cell);
             viewHolder.sportType1 = cell.findViewById(R.id.sport_type_in_content_cell);
             viewHolder.skillLevel1 = cell.findViewById(R.id.level_type_in_content_cell);
+            viewHolder.attendButton = cell.findViewById(R.id.attend_event);
             cell.setTag(viewHolder);
         } else {
             // for existing cell set valid valid state(without animation)
@@ -67,37 +69,17 @@ public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> 
             }
             viewHolder = (ViewHolder) cell.getTag();
         }
-
         // bind data from selected element to view through view holder
-//        viewHolder.time.setText(event.getTime());
-//        viewHolder.date.setText(event.getDate());
-//        viewHolder.location.setText(event.getLocation());
-//        viewHolder.sportType.setText(event.getSportType());
-//        viewHolder.time1.setText(event.getTime());
-//        viewHolder.date1.setText(event.getDate());
-//        viewHolder.location1.setText(event.getLocation());
-//        viewHolder.sportType1.setText(event.getSportType());
-//        viewHolder.organizer.setText(event.getOrganizer());
-//        viewHolder.noOfAtendees.setText(event.getNoOfAttendees());
-//        viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
-//        viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
-        if(event.getDateTime()==null) {
-            viewHolder.time.setText("21:02");
-            viewHolder.date.setText("3rd Jul");
-            viewHolder.time1.setText("21:02");
-            viewHolder.date1.setText("3rd Jul");
-        }else{
-            viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
-            viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
-            viewHolder.time1.setText(CommonUtils.formatTime(event.getDateTime()));
-            viewHolder.date1.setText(CommonUtils.formatDate(event.getDateTime()));
-        }
+        viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
+        viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
+        viewHolder.time1.setText(CommonUtils.formatTime(event.getDateTime()));
+        viewHolder.date1.setText(CommonUtils.formatDate(event.getDateTime()));
         viewHolder.location.setText(event.getLocation());
         viewHolder.sportType.setText(event.getCategory());
         viewHolder.location1.setText(event.getLocation());
         viewHolder.sportType1.setText(event.getCategory());
         viewHolder.organizer.setText(event.getOwner().getUserName());
-        viewHolder.noOfAtendees.setText("0");
+        viewHolder.noOfAtendees.setText(event.getAttendees().size());
         if(event.getDescription().equals("null"))
             viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");
         else
@@ -114,10 +96,8 @@ public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> 
         }
         viewHolder.skillLevel.setText("Amator");
         viewHolder.skillLevel1.setText("Amator");
-//        viewHolder.noReqPlayers.setText(event.getMaxAttendees());
-//        viewHolder.reqStars.setText(event.getReqStars());
-//        viewHolder.skillLevel.setText(event.getSkillLevel());
-//        viewHolder.skillLevel1.setText(event.getSkillLevel());
+        viewHolder.attendButton.setOnClickListener(defaultRequestBtnClickListener);
+        viewHolder.attendButton.setTag(position);
         return cell;
     }
 
@@ -161,5 +141,6 @@ public class CategorizedEventsAdapter extends ArrayAdapter<EventResponse.Event> 
         TextView location1;
         TextView sportType1;
         TextView skillLevel1;
+        Button attendButton;
     }
 }

@@ -1,6 +1,7 @@
 package ro.capac.android.capac2018.ui.categorized_events;
 
-import java.util.ArrayList;
+import android.annotation.SuppressLint;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,10 +11,10 @@ import io.reactivex.functions.Consumer;
 import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.data.network.model.EventRequest;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
 import ro.capac.android.capac2018.ui.base.BasePresenter;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
+@SuppressLint("CheckResult")
 public class CategorizedEventsPresenter<V extends CategorizedEventsMvpView> extends BasePresenter<V>
         implements CategorizedEventsMvpPresenter<V> {
 
@@ -38,4 +39,20 @@ public class CategorizedEventsPresenter<V extends CategorizedEventsMvpView> exte
                     }
                 });
     }
+
+    @Override
+    public void onAttendEventClick(Long eventId) {
+        getMvpView().showLoading();
+        EventRequest.AttendEventRequest request = new EventRequest.AttendEventRequest(eventId, getDataManager().getCurrentUserId());
+        getDataManager().doAttendEventRequest(request).subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(new Consumer<EventResponse.AttendEventResponse>() {
+                    @Override
+                    public void accept(EventResponse.AttendEventResponse response) {
+                        getMvpView().showMessage(response.getMessage());
+                        getMvpView().hideLoading();
+                    }
+                });
+    }
+
 }

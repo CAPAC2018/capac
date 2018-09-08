@@ -7,18 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import ro.capac.server.entity.Event;
-import ro.capac.server.model.CategorizedEventsResponse;
-import ro.capac.server.model.CreateEventResponse;
+import ro.capac.server.entity.User;
+import ro.capac.server.model.EventResponse;
 import ro.capac.server.repository.EventRepository;
 import ro.capac.server.repository.UserRepository;
 
 @RestController
 public class EventController {
 
-    private final Logger log = LoggerFactory.getLogger(LoginLogOutController.class);
+    private final Logger log = LoggerFactory.getLogger(AuthenticationController.LoginLogOutController.class);
 
     @Autowired
     private EventRepository eventRepo;
@@ -26,7 +28,7 @@ public class EventController {
     private UserRepository userRepository;
 
     @RequestMapping("/createEvent")
-    public CreateEventResponse createEvent(
+    public EventResponse.CreateEventResponse createEvent(
             @RequestParam("date_time") Date dateTime,
             @RequestParam("location")  String location,
             @RequestParam("sport_category")  String sportCategory,
@@ -36,6 +38,9 @@ public class EventController {
             @RequestParam("organizer_id")  Long organizerID
     ){
         Event event = new Event();
+        List<User> attendingUsers = new ArrayList<>();
+        attendingUsers.add(userRepository.findById(organizerID).get());
+        event.setAttendees(attendingUsers);
         event.setDateTime(dateTime);
         event.setLocation(location);
         event.setCategory(sportCategory);
@@ -46,18 +51,43 @@ public class EventController {
             event.setOwner(userRepository.findById(organizerID).get());
         }
         eventRepo.save(event);
-        CreateEventResponse response = new CreateEventResponse();
+        EventResponse.CreateEventResponse response = new EventResponse.CreateEventResponse();
         response.setStatusCode("200");
         response.setMessage("Saved");
         return response;
     }
 
     @RequestMapping("/findEventsByCategory")
-    public CategorizedEventsResponse findEventsByCategory(
+    public EventResponse.CategorizedEventsResponse findEventsByCategory(
             @RequestParam("category") String category
     ){
-        CategorizedEventsResponse response = new CategorizedEventsResponse();
+        EventResponse.CategorizedEventsResponse response = new EventResponse.CategorizedEventsResponse();
         response.setEvents(eventRepo.findEventsByCategoryIgnoreCase(category,null));
+        return response;
+    }
+
+    @RequestMapping("/attendEvent")
+    public EventResponse.AttendEventResponse attendEvent(
+            @RequestParam("event_id") Long eventId,
+            @RequestParam("user_id") Long userId
+    ){
+        EventResponse.AttendEventResponse response = new EventResponse.AttendEventResponse();
+        if(eventRepo.findById(eventId).isPresent()) {
+            Event event = eventRepo.findById(eventId).get();
+            if(event.getAttendees().size() <= event.getMaxAttendees()){
+                response.setStatusCode("error");
+                response.setMessage("Sorry, this event is full, but don't worry you can look for another one or just create your own!");
+            }else{
+                List<User> attendingUsers = event.getAttendees();
+                attendingUsers.add(userRepository.findById(userId).get());
+                event.setAttendees(attendingUsers);
+                response.setStatusCode("success");
+                response.setMessage("Get ready.. Set.. GO!");
+            }
+        }else{
+            response.setMessage("Sorry, this event is no longer available, the owner probably erased it :(");
+            response.setStatusCode("error");
+        }
         return response;
     }
 }

@@ -23,13 +23,10 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Single;
+import ro.capac.android.capac2018.data.network.model.AuthenticationRequest;
+import ro.capac.android.capac2018.data.network.model.AuthenticationResponse;
 import ro.capac.android.capac2018.data.network.model.EventRequest;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
-import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
 
 /**
  * Created by janisharali on 28/01/17.
@@ -51,34 +48,34 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<LoginResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest
+    public Single<AuthenticationResponse.LoginResponse> doGoogleLoginApiCall(AuthenticationRequest.LoginRequest.GoogleLoginRequest
                                                               request) {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_GOOGLE_LOGIN)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(AuthenticationResponse.LoginResponse.class);
     }
 
     @Override
-    public Single<LoginResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest
+    public Single<AuthenticationResponse.LoginResponse> doFacebookLoginApiCall(AuthenticationRequest.LoginRequest.FacebookLoginRequest
                                                                 request) {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_FACEBOOK_LOGIN)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(AuthenticationResponse.LoginResponse.class);
     }
 
     @Override
-    public Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest
+    public Single<AuthenticationResponse.LoginResponse> doServerLoginApiCall(AuthenticationRequest.LoginRequest.ServerLoginRequest
                                                               request) {
         Log.d(getClass().getSimpleName(), "doServerLoginApiCall: " + request);
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_SERVER_LOGIN)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)
                 .build()
-                .getObjectSingle(LoginResponse.class);
+                .getObjectSingle(AuthenticationResponse.LoginResponse.class);
     }
 
     @Override
@@ -101,20 +98,29 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<LogoutResponse> doLogoutApiCall() {
+    public Single<AuthenticationResponse.LogoutResponse> doLogoutApiCall() {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_LOGOUT)
                 .addHeaders(mApiHeader.getProtectedApiHeader())
                 .build()
-                .getObjectSingle(LogoutResponse.class);
+                .getObjectSingle(AuthenticationResponse.LogoutResponse.class);
     }
 
     @Override
-    public Single<RegistrationResponse> doServerUserRegistration(RegistrationRequest.ServerRegistrationRequest request){
+    public Single<AuthenticationResponse.RegistrationResponse> doServerUserRegistration(AuthenticationRequest.RegistrationRequest.ServerRegistrationRequest request){
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_REGISTRATION_REQUEST)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)
                 .build()
-                .getObjectSingle(RegistrationResponse.class);
+                .getObjectSingle(AuthenticationResponse.RegistrationResponse.class);
+    }
+
+    @Override
+    public Single<EventResponse.AttendEventResponse> doAttendEventRequest(EventRequest.AttendEventRequest request) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_ATTEND_EVENT)
+                .addHeaders(mApiHeader.getPublicApiHeader())
+                .addBodyParameter(request)
+                .build()
+                .getObjectSingle(EventResponse.AttendEventResponse.class);
     }
 }
 

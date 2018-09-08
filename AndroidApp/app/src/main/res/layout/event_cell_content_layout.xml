@@ -42,8 +42,8 @@
         android:layout_height="1dp"
         android:layout_below="@id/time_in_content_cell" />
     <TextView
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/separator"
-        android:layout_alignParentStart="true"
         android:id="@+id/sport_keyword1"
         style="@style/Base.TextAppearance.AppCompat.Caption"
         android:layout_width="wrap_content"
@@ -52,34 +52,15 @@
         android:textSize="15sp"
         android:textStyle="bold" />
     <TextView
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:id="@+id/sport_type_in_content_cell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/sport_keyword1"
         android:text="@string/mock_sport_time"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textAppearance="@style/TextAppearance.Text.Bold"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_below="@id/separator"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/level_keyword1"
-        style="@style/Base.TextAppearance.AppCompat.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/skill_level_keyword"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_alignParentEnd="true"
-        android:id="@+id/level_type_in_content_cell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/level_keyword1"
-        android:text="@string/mock_skill_level"
-        android:textAppearance="@style/TextAppearance.Text.Bold"
-        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -191,6 +172,7 @@
         android:textSize="15sp"
         android:textStyle="bold" />
     <Button
+        android:id="@+id/attend_event"
         android:layout_below="@id/required_player_number"
         android:layout_marginTop="10dp"
         android:layout_width="150dp"

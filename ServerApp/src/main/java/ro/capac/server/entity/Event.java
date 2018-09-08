@@ -3,6 +3,7 @@ package ro.capac.server.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -48,10 +49,22 @@ public class Event {
     @Column(name = "min_reputation")
     private Float minReputation;
 
+    @JsonProperty("attendees")
+    @Column(name = "attendees")
+    private List<User> attendees;
+
     @JsonProperty("owner")
     @ManyToOne
     @JoinColumn(name = "owner")
     private User owner;
+
+    public List<User> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(List<User> attendees) {
+        this.attendees = attendees;
+    }
 
     public String getLocation() {
         return location;

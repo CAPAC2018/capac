@@ -7,8 +7,6 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
-import ro.capac.android.capac2018.data.AppDataManager;
-import ro.capac.android.capac2018.data.DataManager;
 import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.data.prefs.AppPreferencesHelper;
 import ro.capac.android.capac2018.utils.CommonUtils;
@@ -124,6 +122,34 @@ public class EventRequest {
 
         public GetEventsByCategoryRequest(String category){
             this.category = category;
+        }
+    }
+
+    public static class AttendEventRequest{
+        @Expose
+        @SerializedName("event_id") Long eventId;
+        @Expose
+        @SerializedName("user_id") Long userId;
+
+        public AttendEventRequest(Long eventId, Long userId) {
+            this.eventId = eventId;
+            this.userId = userId;
+        }
+
+        public Long getEventId() {
+            return eventId;
+        }
+
+        public void setEventId(Long eventId) {
+            this.eventId = eventId;
+        }
+
+        public Long getUserId() {
+            return userId;
+        }
+
+        public void setUserId(Long userId) {
+            this.userId = userId;
         }
     }
 }

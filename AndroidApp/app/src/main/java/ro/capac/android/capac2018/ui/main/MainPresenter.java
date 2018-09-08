@@ -3,11 +3,9 @@ package ro.capac.android.capac2018.ui.main;
 
 import com.androidnetworking.error.ANError;
 import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.network.model.LogoutResponse;
+import ro.capac.android.capac2018.data.network.model.AuthenticationResponse;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 import ro.capac.android.capac2018.ui.base.BasePresenter;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -37,9 +35,9 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
         getCompositeDisposable().add(getDataManager().doLogoutApiCall()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<LogoutResponse>() {
+                .subscribe(new Consumer<AuthenticationResponse.LogoutResponse>() {
                     @Override
-                    public void accept(LogoutResponse response) throws Exception {
+                    public void accept(AuthenticationResponse.LogoutResponse response) throws Exception {
                         if (!isViewAttached()) {
                             return;
                         }

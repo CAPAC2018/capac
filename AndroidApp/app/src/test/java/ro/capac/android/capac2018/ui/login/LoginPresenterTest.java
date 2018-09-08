@@ -16,8 +16,8 @@
 package ro.capac.android.capac2018.ui.login;
 
 import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
+import ro.capac.android.capac2018.data.network.model.AuthenticationRequest;
+import ro.capac.android.capac2018.data.network.model.AuthenticationResponse;
 import ro.capac.android.capac2018.utils.rx.TestSchedulerProvider;
 
 import org.junit.After;
@@ -71,11 +71,11 @@ public class LoginPresenterTest {
         String email = "dummy@gmail.com";
         String password = "password";
 
-        LoginResponse loginResponse = new LoginResponse();
+        AuthenticationResponse.LoginResponse loginResponse = new AuthenticationResponse.LoginResponse();
 
         doReturn(Observable.just(loginResponse))
                 .when(mMockDataManager)
-                .doServerLoginApiCall(new LoginRequest
+                .doServerLoginApiCall(new AuthenticationRequest.LoginRequest
                         .ServerLoginRequest(email, password));
 
         mLoginPresenter.onServerLoginClick(email, password);

@@ -25,8 +25,8 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.DataManager;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
+import ro.capac.android.capac2018.data.network.model.AuthenticationRequest;
+import ro.capac.android.capac2018.data.network.model.AuthenticationResponse;
 import ro.capac.android.capac2018.ui.base.BasePresenter;
 import ro.capac.android.capac2018.utils.CommonUtils;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
@@ -66,12 +66,12 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
         getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager()
-                .doServerLoginApiCall(new LoginRequest.ServerLoginRequest(email, password))
+                .doServerLoginApiCall(new AuthenticationRequest.LoginRequest.ServerLoginRequest(email, password))
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<LoginResponse>() {
+                .subscribe(new Consumer<AuthenticationResponse.LoginResponse>() {
                     @Override
-                    public void accept(LoginResponse response) throws Exception {
+                    public void accept(AuthenticationResponse.LoginResponse response) throws Exception {
                         if(response.getStatusCode().equals("success")) {
                             getDataManager().updateUserInfo(
                                     null,
@@ -118,12 +118,12 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
         getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager()
-                .doGoogleLoginApiCall(new LoginRequest.GoogleLoginRequest("test1", "test1"))
+                .doGoogleLoginApiCall(new AuthenticationRequest.LoginRequest.GoogleLoginRequest("test1", "test1"))
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<LoginResponse>() {
+                .subscribe(new Consumer<AuthenticationResponse.LoginResponse>() {
                     @Override
-                    public void accept(LoginResponse response) throws Exception {
+                    public void accept(AuthenticationResponse.LoginResponse response) throws Exception {
                         getDataManager().updateUserInfo(
                                 response.getAccessToken(),
                                 response.getUserId(),
@@ -164,12 +164,12 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V>
         getMvpView().showLoading();
 
         getCompositeDisposable().add(getDataManager()
-                .doFacebookLoginApiCall(new LoginRequest.FacebookLoginRequest("test3", "test4"))
+                .doFacebookLoginApiCall(new AuthenticationRequest.LoginRequest.FacebookLoginRequest("test3", "test4"))
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<LoginResponse>() {
+                .subscribe(new Consumer<AuthenticationResponse.LoginResponse>() {
                     @Override
-                    public void accept(LoginResponse response) throws Exception {
+                    public void accept(AuthenticationResponse.LoginResponse response) throws Exception {
                         getDataManager().updateUserInfo(
                                 response.getAccessToken(),
                                 response.getUserId(),

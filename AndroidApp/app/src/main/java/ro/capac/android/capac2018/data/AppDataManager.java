@@ -24,13 +24,10 @@ import javax.inject.Singleton;
 import io.reactivex.Single;
 import ro.capac.android.capac2018.data.network.ApiHeader;
 import ro.capac.android.capac2018.data.network.ApiHelper;
+import ro.capac.android.capac2018.data.network.model.AuthenticationRequest;
+import ro.capac.android.capac2018.data.network.model.AuthenticationResponse;
 import ro.capac.android.capac2018.data.network.model.EventRequest;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
-import ro.capac.android.capac2018.data.network.model.LoginRequest;
-import ro.capac.android.capac2018.data.network.model.LoginResponse;
-import ro.capac.android.capac2018.data.network.model.LogoutResponse;
-import ro.capac.android.capac2018.data.network.model.RegistrationRequest;
-import ro.capac.android.capac2018.data.network.model.RegistrationResponse;
 import ro.capac.android.capac2018.data.prefs.PreferencesHelper;
 import ro.capac.android.capac2018.di.ApplicationContext;
 
@@ -73,19 +70,19 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<LoginResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest
+    public Single<AuthenticationResponse.LoginResponse> doGoogleLoginApiCall(AuthenticationRequest.LoginRequest.GoogleLoginRequest
                                                               request) {
         return mApiHelper.doGoogleLoginApiCall(request);
     }
 
     @Override
-    public Single<LoginResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest
+    public Single<AuthenticationResponse.LoginResponse> doFacebookLoginApiCall(AuthenticationRequest.LoginRequest.FacebookLoginRequest
                                                                 request) {
         return mApiHelper.doFacebookLoginApiCall(request);
     }
 
     @Override
-    public Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest
+    public Single<AuthenticationResponse.LoginResponse> doServerLoginApiCall(AuthenticationRequest.LoginRequest.ServerLoginRequest
                                                               request) {
         return mApiHelper.doServerLoginApiCall(request);
     }
@@ -104,12 +101,12 @@ public class AppDataManager implements DataManager {
 
 
     @Override
-    public Single<LogoutResponse> doLogoutApiCall() {
+    public Single<AuthenticationResponse.LogoutResponse> doLogoutApiCall() {
         return mApiHelper.doLogoutApiCall();
     }
 
     @Override
-    public Single<RegistrationResponse> doServerUserRegistration(RegistrationRequest.ServerRegistrationRequest request) {
+    public Single<AuthenticationResponse.RegistrationResponse> doServerUserRegistration(AuthenticationRequest.RegistrationRequest.ServerRegistrationRequest request) {
         return mApiHelper.doServerUserRegistration(request);
     }
 
