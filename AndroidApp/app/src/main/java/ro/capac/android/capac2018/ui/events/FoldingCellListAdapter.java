@@ -82,8 +82,6 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
             viewHolder.description.setText(event.getDescription());
         viewHolder.noReqPlayers.setText(event.getMaxAttendees());
         viewHolder.reqStars.setText(event.getReqStars());
-        viewHolder.skillLevel.setText(event.getSkillLevel());
-        viewHolder.skillLevel1.setText(event.getSkillLevel());
         return cell;
     }
 
@@ -114,7 +112,6 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
         TextView date;
         TextView location;
         TextView sportType;
-        TextView skillLevel;
         TextView organizer;
         TextView noOfAtendees;
         TextView description;
@@ -124,6 +121,5 @@ public class FoldingCellListAdapter extends ArrayAdapter<Event> {
         TextView date1;
         TextView location1;
         TextView sportType1;
-        TextView skillLevel1;
     }
 }

@@ -92,8 +92,6 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
         } else{
             viewHolder.reqStars.setText(String.valueOf("0"));
         }
-        viewHolder.skillLevel.setText("Amator");
-        viewHolder.skillLevel1.setText("Amator");
         viewHolder.attendButton.setOnClickListener(defaultRequestBtnClickListener);
         viewHolder.attendButton.setTag(position);
         return cell;
@@ -128,7 +126,6 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
         TextView date;
         TextView location;
         TextView sportType;
-        TextView skillLevel;
         TextView organizer;
         TextView noOfAtendees;
         TextView description;
@@ -138,7 +135,6 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
         TextView date1;
         TextView location1;
         TextView sportType1;
-        TextView skillLevel1;
         Button attendButton;
     }
 }
