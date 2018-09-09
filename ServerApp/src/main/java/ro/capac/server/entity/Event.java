@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -49,6 +50,7 @@ public class Event {
     @Column(name = "min_reputation")
     private Float minReputation;
 
+    @ManyToMany
     @JsonProperty("attendees")
     @Column(name = "attendees")
     private List<User> attendees;

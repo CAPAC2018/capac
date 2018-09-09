@@ -111,6 +111,11 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Single<EventResponse.AttendEventResponse> doAttendEventRequest(EventRequest.AttendEventRequest request) {
+        return mApiHelper.doAttendEventRequest(request);
+    }
+
+    @Override
     public int getCurrentUserLoggedInMode() {
         return mPreferencesHelper.getCurrentUserLoggedInMode();
     }

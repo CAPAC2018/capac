@@ -52,12 +52,10 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
             viewHolder.description= cell.findViewById(R.id.event_description);
             viewHolder.noReqPlayers = cell.findViewById(R.id.required_player_number);
             viewHolder.reqStars = cell.findViewById(R.id.event_req_stars);
-            viewHolder.skillLevel = cell.findViewById(R.id.skill_level_in_title_cell);
             viewHolder.time1 = cell.findViewById(R.id.time_in_content_cell);
             viewHolder.date1 = cell.findViewById(R.id.date_in_content_cell);
             viewHolder.location1= cell.findViewById(R.id.location_in_content_cell);
             viewHolder.sportType1 = cell.findViewById(R.id.sport_type_in_content_cell);
-            viewHolder.skillLevel1 = cell.findViewById(R.id.level_type_in_content_cell);
             viewHolder.attendButton = cell.findViewById(R.id.attend_event);
             cell.setTag(viewHolder);
         } else {
