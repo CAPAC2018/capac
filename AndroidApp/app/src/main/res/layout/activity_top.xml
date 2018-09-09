@@ -5,7 +5,7 @@
     android:id="@+id/activity_top"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_design">
+    android:background="@drawable/bg1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,18 +20,23 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="128dp"
-        android:layout_height="81dp"
+        android:layout_height="70dp"
+        android:background="@drawable/my_round_button"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="24sp"
         android:layout_marginTop="148dp"
-        android:text="Login" />
+        android:textColor="#ffffff"
+        android:text="Login"
+        android:textSize="24sp"
+        />
 
     <Button
         android:id="@+id/btn_register"
         android:layout_width="128dp"
-        android:layout_height="81dp"
+        android:layout_height="70dp"
         android:textSize="24sp"
+        android:background="@drawable/my_round_button"
+        android:textColor="#ffffff"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="207dp"
