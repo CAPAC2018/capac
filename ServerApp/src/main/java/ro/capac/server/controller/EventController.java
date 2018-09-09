@@ -74,7 +74,7 @@ public class EventController {
         EventResponse.AttendEventResponse response = new EventResponse.AttendEventResponse();
         if(eventRepo.findById(eventId).isPresent()) {
             Event event = eventRepo.findById(eventId).get();
-            if(event.getAttendees().size() <= event.getMaxAttendees()){
+            if(event.getAttendees().size() >= event.getMaxAttendees()){
                 response.setStatusCode("error");
                 response.setMessage("Sorry, this event is full, but don't worry you can look for another one or just create your own!");
             }else{

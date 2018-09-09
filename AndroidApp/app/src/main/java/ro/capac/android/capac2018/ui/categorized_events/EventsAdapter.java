@@ -68,16 +68,24 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
             viewHolder = (ViewHolder) cell.getTag();
         }
         // bind data from selected element to view through view holder
-        viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
-        viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
-        viewHolder.time1.setText(CommonUtils.formatTime(event.getDateTime()));
-        viewHolder.date1.setText(CommonUtils.formatDate(event.getDateTime()));
-        viewHolder.location.setText(event.getLocation());
-        viewHolder.sportType.setText(event.getCategory());
-        viewHolder.location1.setText(event.getLocation());
-        viewHolder.sportType1.setText(event.getCategory());
+        if(event.getDateTime()!=null) {
+            viewHolder.time.setText(CommonUtils.formatTime(event.getDateTime()));
+            viewHolder.date.setText(CommonUtils.formatDate(event.getDateTime()));
+            viewHolder.time1.setText(CommonUtils.formatTime(event.getDateTime()));
+            viewHolder.date1.setText(CommonUtils.formatDate(event.getDateTime()));
+        }
+        if(event.getLocation()!=null) {
+            viewHolder.location.setText(event.getLocation());
+            viewHolder.location1.setText(event.getLocation());
+        }
+        if(event.getCategory()!=null) {
+            viewHolder.sportType.setText(event.getCategory());
+            viewHolder.sportType1.setText(event.getCategory());
+        }
+        if(event.getOwner()!=null)
         viewHolder.organizer.setText(event.getOwner().getUserName());
-        viewHolder.noOfAtendees.setText(event.getAttendees().size());
+        if(event.getAttendees()!=null)
+        viewHolder.noOfAtendees.setText(String.valueOf(event.getAttendees().size()));
         if(event.getDescription().equals("null"))
             viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");
         else
