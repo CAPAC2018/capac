@@ -71,20 +71,23 @@ public class EventController {
             @RequestParam("event_id") Long eventId,
             @RequestParam("user_id") Long userId
     ){
+        log.info("attendEvent called with eventId={}, userId={}", eventId, userId);
         EventResponse.AttendEventResponse response = new EventResponse.AttendEventResponse();
         if(eventRepo.findById(eventId).isPresent()) {
             Event event = eventRepo.findById(eventId).get();
             if(event.getAttendees().size() >= event.getMaxAttendees()){
+                log.warn("Nr of attendees for event with ID={} exceeded", eventId);
                 response.setStatusCode("error");
                 response.setMessage("Sorry, this event is full, but don't worry you can look for another one or just create your own!");
             }else{
-                List<User> attendingUsers = event.getAttendees();
-                attendingUsers.add(userRepository.findById(userId).get());
-                event.setAttendees(attendingUsers);
+                event.getAttendees().add(userRepository.findById(userId).get());
+                eventRepo.save(event);
+                log.debug("User with ID={} was added as attendee to event with ID={}", userId, eventId);
                 response.setStatusCode("success");
                 response.setMessage("Get ready.. Set.. GO!");
             }
         }else{
+            log.info("event with ID={} does not exist", eventId);
             response.setMessage("Sorry, this event is no longer available, the owner probably erased it :(");
             response.setStatusCode("error");
         }
