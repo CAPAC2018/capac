@@ -43,6 +43,8 @@ dependencies {
     //for local development
     compile("com.h2database:h2")
 
+    //for color codes in windows console logger
+    compile('org.fusesource.jansi:jansi:1.17.1')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('com.jayway.jsonpath:json-path')
     
@@ -75,8 +77,12 @@ task migrateDBLocal(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
 }
 
 task migrateDBHeroku(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
-    url = 'jdbc:h2:mem:mydb2'
-    user = 'myUsr2'
-    password = 'mySecretPwd2'
+    url = 'jdbc:postgresql://ec2-54-225-76-201.compute-1.amazonaws.com/dfk1sq6l7h9n4b?sslmode=require'
+    user = 'eocxttmpfyzyin'
+    password = 'b00198070168ecf5886a7ac0d49462b0ae6b3a2bfafb4dc79f48829e79f3b2d6'
+    sqlMigrationPrefix = 'update_'
+    validateOnMigrate = false
+    locations = ['filesystem:src/main/db/migration']
+    baselineOnMigrate = true
 }
 
