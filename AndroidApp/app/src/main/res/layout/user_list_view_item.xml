@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_marginStart="20dp"
+        android:id="@+id/user_name_in_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        style="@style/TextAppearance.Text.Bold"
+        android:text="Salut Eu sUNst Pa"
+        />
+    <RatingBar
+        android:id="@+id/rating_bar_user"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:rating="3.5"/>
+</RelativeLayout>

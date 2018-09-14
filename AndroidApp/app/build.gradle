@@ -118,6 +118,8 @@ dependencies {
     androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
 
+    //Dialogs
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
     android.defaultConfig.vectorDrawables.useSupportLibrary = true
 }
 

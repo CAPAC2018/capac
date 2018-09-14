@@ -53,6 +53,8 @@ public class CategorizedEventsPresenter<V extends CategorizedEventsMvpView> exte
                         getMvpView().showMessage(response.getMessage());
                         if(response.getStatusCode().equals("success"))
                             getMvpView().addAttendee(cellPosition,response.getAttendees(),view);
+                        else if(response.getStatusCode().equals("good_error"))
+                            getMvpView().alreadyGoing(view);
                         getMvpView().hideLoading();
                     }
                 });

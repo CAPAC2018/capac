@@ -13,4 +13,5 @@ public interface CategorizedEventsMvpView extends MvpView {
     void openCreateEventActivity();
     void refreshList(List<EventResponse.Event> events);
     void addAttendee(int cellPosition, List<UserResponse> attendees, View view);
+    void alreadyGoing(View view);
 }

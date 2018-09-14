@@ -24,7 +24,8 @@ import ro.capac.android.capac2018.utils.CommonUtils;
 public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
 
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
-    private View.OnClickListener defaultRequestBtnClickListener;
+    private View.OnClickListener goingBtnClickListener;
+    private View.OnClickListener attendeesClickListener;
 
     public EventsAdapter(Context context, List<EventResponse.Event> objects) {
         super(context, 0, objects);
@@ -56,6 +57,7 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
             viewHolder.date1 = cell.findViewById(R.id.date_in_content_cell);
             viewHolder.location1= cell.findViewById(R.id.location_in_content_cell);
             viewHolder.sportType1 = cell.findViewById(R.id.sport_type_in_content_cell);
+            viewHolder.openSpots = cell.findViewById(R.id.open_spots);
             viewHolder.attendButton = cell.findViewById(R.id.attend_event);
             cell.setTag(viewHolder);
         } else {
@@ -84,8 +86,10 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
         }
         if(event.getOwner()!=null)
         viewHolder.organizer.setText(event.getOwner().getUserName());
-        if(event.getAttendees()!=null)
-        viewHolder.noOfAtendees.setText(String.valueOf(event.getAttendees().size()));
+        if(event.getAttendees()!=null) {
+            viewHolder.noOfAtendees.setText(String.valueOf(event.getAttendees().size()));
+            viewHolder.openSpots.setText(String.valueOf(event.getMaxAttendees() - event.getAttendees().size()));
+        }
         if(event.getDescription().equals("null"))
             viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");
         else
@@ -100,9 +104,19 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
         } else{
             viewHolder.reqStars.setText(String.valueOf("0"));
         }
-        viewHolder.attendButton.setOnClickListener(defaultRequestBtnClickListener);
+        viewHolder.attendButton.setOnClickListener(goingBtnClickListener);
         viewHolder.attendButton.setTag(position);
+        viewHolder.noOfAtendees.setOnClickListener(attendeesClickListener);
+        viewHolder.noOfAtendees.setTag(position);
         return cell;
+    }
+
+    public View.OnClickListener getAttendeesClickListener() {
+        return attendeesClickListener;
+    }
+
+    public void setAttendeesClickListener(View.OnClickListener attendeesClickListener) {
+        this.attendeesClickListener = attendeesClickListener;
     }
 
     // simple methods for register cell state changes
@@ -120,11 +134,11 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
     private void registerUnfold(int position) {
         unfoldedIndexes.add(position);
     }
-    public View.OnClickListener getDefaultRequestBtnClickListener() {
-        return defaultRequestBtnClickListener;
+    public View.OnClickListener getGoingBtnClickListener() {
+        return goingBtnClickListener;
     }
-    public void setDefaultRequestBtnClickListener(View.OnClickListener defaultRequestBtnClickListener) {
-        this.defaultRequestBtnClickListener = defaultRequestBtnClickListener;
+    public void setGoingBtnClickListener(View.OnClickListener defaultRequestBtnClickListener) {
+        this.goingBtnClickListener = defaultRequestBtnClickListener;
     }
     // View lookup cache
 
@@ -143,5 +157,6 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
         TextView location1;
         TextView sportType1;
         Button attendButton;
+        TextView openSpots;
     }
 }

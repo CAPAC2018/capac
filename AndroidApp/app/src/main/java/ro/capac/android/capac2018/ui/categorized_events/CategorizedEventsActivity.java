@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnItemClickListener;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
@@ -56,11 +58,31 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
         adapter = new EventsAdapter(this, events);
         mPresenter.showEventsList(mCategory);
-        adapter.setDefaultRequestBtnClickListener(new View.OnClickListener() {
+        adapter.setGoingBtnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EventResponse.Event event = adapter.getItem((Integer) view.getTag());
                 mPresenter.onAttendEventClick(event.getId(),(Integer) view.getTag(),view);
+            }
+        });
+        adapter.setAttendeesClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<UserResponse> users = adapter.getItem((Integer) view.getTag()).getAttendees();
+                UserListAdapter userListAdapter = new UserListAdapter(CategorizedEventsActivity.this,users);
+                DialogPlus dialog = DialogPlus.newDialog(CategorizedEventsActivity.this)
+                        .setAdapter(userListAdapter)
+                        .setOnItemClickListener(new OnItemClickListener() {
+                            @Override
+                            public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
+                            }
+                        })
+                        .setExpanded(true)  // This will enable the expand feature, (similar to android L share dialog)
+                        .setCancelable(true)
+                        .setHeader(R.layout.user_dialog_header)
+                        .setContentBackgroundResource(R.drawable.bg_header)
+                        .create();
+                dialog.show();
             }
         });
         listView.setAdapter(adapter);
@@ -112,9 +134,18 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
     public void addAttendee(int cellPostion, List<UserResponse> attendees, View view){
         adapter.getItem(cellPostion).setAttendees(attendees);
         Button mButton = (Button) view;
-        mButton.setBackgroundColor(getResources().getColor(R.color.light_green));
+        mButton.setBackground(getResources().getDrawable(R.drawable.bg_going_btn));
         mButton.setText("GOING");
+        mButton.setClickable(false);
+        mButton.setFocusable(false);
         this.adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void alreadyGoing(View view){
+        Button mButton = (Button) view;
+        mButton.setBackground(getResources().getDrawable(R.drawable.bg_going_btn));
+        mButton.setText("GOING");
     }
 
     @Override
