@@ -1,5 +1,9 @@
 package ro.capac.android.capac2018.ui.categories;
 
+import android.app.Activity;
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -15,11 +19,13 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Category;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.ui.base.BaseFragment;
 import ro.capac.android.capac2018.ui.categorized_events.CategorizedEventsActivity;
+import ro.capac.android.capac2018.ui.dialog.CategoryProposeFragment;
 
 public class CategoriesFragment extends BaseFragment implements CategoriesMvpView {
     public static final String TAG = "CategoriesFragment";
@@ -69,6 +75,15 @@ public class CategoriesFragment extends BaseFragment implements CategoriesMvpVie
     protected void setUp(View view) {
 
     }
+    @OnClick(R.id.btn_new_category)
+    public void showProposeCategoryDialog()
+    {
+        CategoryProposeFragment newFragment = new CategoryProposeFragment();
+        newFragment.setShowsDialog(true);
+        newFragment.show(getFragmentManager(), CategoryProposeFragment.TAG);
+
+    }
+
     @Override
     public void onDestroyView() {
         mPresenter.onDetach();

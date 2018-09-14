@@ -29,7 +29,7 @@
         android:background="#3F7BFF">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="48dp">
             <TextView
                 style="@style/Toolbar.TitleText"
                 android:layout_width="wrap_content"
@@ -37,40 +37,8 @@
                 android:text="Capac"
                 android:layout_centerInParent="true"
                 android:id="@+id/toolbar_title" />
-            <Button
-                android:id="@+id/expand_toolbar"
-                android:background="@drawable/expand_btn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                />
         </RelativeLayout>
-        <!--TODO: Idea: create custom toolbar for each fragment and each one will have it's own custom buttons-->
-        <LinearLayout
-            android:id="@+id/expanded_toolbar"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/btn_event_create"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Create Event"
-                android:layout_weight="1"/>
-            <Button
-                android:id="@+id/btn_event_join"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Join Event"
-                android:layout_weight="1"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Log Out"
-                android:layout_weight="1"
-                android:id="@+id/temporary_logout_button"/>
-        </LinearLayout>
+        <!--TODO: Idea: create custom toolbar for each fragment and each one will have its own custom buttons-->
     </android.support.design.widget.AppBarLayout>
     <FrameLayout
         android:id="@+id/frame"

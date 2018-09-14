@@ -19,10 +19,13 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.db.model.Event;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.ui.base.BaseFragment;
+import ro.capac.android.capac2018.ui.categorized_events.CategorizedEventsActivity;
+import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 
 public class EventsFragment extends BaseFragment implements EventsMvpView {
     public static final String TAG = "EventsFragment";
@@ -90,6 +93,11 @@ public class EventsFragment extends BaseFragment implements EventsMvpView {
     @Override
     protected void setUp(View view) {
 
+    }
+    @Override
+    @OnClick(R.id.create_event_btn)
+    public void openCreateEventActivity() {
+        startActivity(CreateEventActivity.getStartIntent(this.getContext()));
     }
     @Override
     public void onDestroyView() {

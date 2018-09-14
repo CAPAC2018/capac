@@ -70,7 +70,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(this);
-        expandedToolbar = findViewById(R.id.expanded_toolbar);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -122,7 +121,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .commit();
         currentFragmentTAG = EventsFragment.TAG;
     }
-
+/*
     @OnClick(R.id.expand_toolbar)
     public void expandToolbar(){
         if(expandedToolbar.getVisibility()== View.VISIBLE) {
@@ -134,7 +133,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
             findViewById(R.id.expand_toolbar).setActivated(true);
         }
     }
-
+*/
     @Override
     public void showEventsFragment() {
         getSupportFragmentManager()
@@ -245,6 +244,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         startActivity(TopActivity.getStartIntent(this));
         finish();
     }
+    /*
     @OnClick(R.id.temporary_logout_button)
     public void logOut(){
         mPresenter.onLogOutClick();
@@ -257,7 +257,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     public void openCreateEventActivity() {
         startActivity(CreateEventActivity.getStartIntent(this));
     }
-
+*/
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 

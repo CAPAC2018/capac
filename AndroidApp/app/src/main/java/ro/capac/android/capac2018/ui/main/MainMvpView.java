@@ -10,8 +10,4 @@ public interface MainMvpView extends MvpView {
 
     void openTopActivity();
 
-    void openJoinEventActivity();
-
-    void openCreateEventActivity();
-
 }

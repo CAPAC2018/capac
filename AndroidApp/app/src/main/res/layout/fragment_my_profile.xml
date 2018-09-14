@@ -73,61 +73,30 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:padding="5dp"
-                    android:id="@+id/friends_in_card_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:contentDescription="@string/description_keyword"
-                        android:layout_marginEnd="5dp"
-                        android:padding="10dp"
-                        android:layout_centerVertical="true"
-                        android:id="@+id/image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_people_black_24dp"/>
-                    <TextView
-                        android:id="@+id/text"
-                        android:layout_toEndOf="@id/image"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/friends_label"
-                        style="@style/TextAppearance.Text.Regular"
-                        android:textSize="20sp"/>
-                    <TextView
-                        android:layout_below="@id/text"
-                        android:layout_toEndOf="@id/image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/TextAppearance.AppCompat.Caption"
-                        android:text="@string/friends_label_description"/>
-                </RelativeLayout>
+
                 <View
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@id/friends_in_card_view"
+                    android:layout_below="@id/logout_in_card_view"
                     android:background="@color/light_gray"/>
 
                 <RelativeLayout
                     android:padding="5dp"
-                    android:layout_below="@id/friends_in_card_view"
                     android:id="@+id/history_in_card_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:contentDescription="@string/description_keyword"
-                        android:layout_marginEnd="5dp"
-                        android:padding="10dp"
-                        android:layout_centerVertical="true"
                         android:id="@+id/image1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_history_black_24dp"/>
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:contentDescription="@string/description_keyword"
+                        android:padding="10dp"
+                        app:srcCompat="@drawable/ic_history_black_24dp" />
                     <TextView
                         android:id="@+id/text1"
                         android:layout_toEndOf="@id/image1"
@@ -308,6 +277,47 @@
                         android:layout_height="wrap_content"
                         style="@style/TextAppearance.AppCompat.Caption"
                         android:text="@string/feedback_label_description"/>
+                </RelativeLayout>
+                <View
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/feedback_help_in_card_view"
+                    android:background="@color/light_gray"/>
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:id="@+id/logout_in_card_view"
+                    android:layout_below="@id/feedback_help_in_card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:contentDescription="@string/description_keyword"
+                        android:padding="10dp"
+                        app:srcCompat="@drawable/ic_cancel_black_24dp" />
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_toEndOf="@id/image"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Log Out"
+                        style="@style/TextAppearance.Text.Regular"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:layout_below="@id/text"
+                        android:layout_toEndOf="@id/image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:text="Exit your account, but you shall return..."/>
                 </RelativeLayout>
             </RelativeLayout>
         </android.support.v7.widget.CardView>

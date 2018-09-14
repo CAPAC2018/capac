@@ -32,6 +32,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.RelativeLayout;
 
+import butterknife.OnClick;
+import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.di.component.ActivityComponent;
 
 import butterknife.Unbinder;
@@ -138,6 +140,14 @@ public abstract class BaseDialog extends DialogFragment implements DialogMvpView
 
     public void setUnBinder(Unbinder unBinder) {
         mUnBinder = unBinder;
+    }
+
+    public void onLaterClicked() {
+
+    }
+
+    public void submitEntry() {
+
     }
 
     protected abstract void setUp(View view);

@@ -8,5 +8,4 @@ import ro.capac.android.capac2018.ui.base.MvpPresenter;
 @PerActivity
 public interface MainMvpPresenter<V extends MainMvpView> extends MvpPresenter<V> {
 
-    void onLogOutClick();
 }

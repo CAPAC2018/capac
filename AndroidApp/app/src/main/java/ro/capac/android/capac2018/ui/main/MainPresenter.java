@@ -28,6 +28,7 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
                          CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
+    /*
     @Override
     public void onLogOutClick() {
         getMvpView().showLoading();
@@ -63,5 +64,5 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
                     }
                 }));
 
-    }
+    }*/
 }
