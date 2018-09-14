@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 import ro.capac.server.entity.Event;
+import ro.capac.server.entity.User;
 
 public class EventResponse {
     private EventResponse(){}
@@ -73,6 +74,17 @@ public class EventResponse {
 
         @JsonProperty("message")
         private String message;
+
+        @JsonProperty("user_list")
+        private List<User> users;
+
+        public List<User> getUsers() {
+            return users;
+        }
+
+        public void setUsers(List<User> users) {
+            this.users = users;
+        }
 
         public String getStatusCode() {
             return statusCode;

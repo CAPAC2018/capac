@@ -128,7 +128,6 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
     }
     // View lookup cache
 
-
     private static class ViewHolder {
         TextView time;
         TextView date;

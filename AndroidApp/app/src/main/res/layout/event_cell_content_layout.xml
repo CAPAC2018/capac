@@ -178,7 +178,7 @@
         android:layout_width="150dp"
         android:layout_height="35dp"
         android:textColor="#ffffff"
-        android:text="@string/going_button_text"
+        android:text="Go"
         android:textAppearance="@style/TextAppearance.Text.Bold"
         android:textAllCaps="true"
         android:layout_centerHorizontal="true"

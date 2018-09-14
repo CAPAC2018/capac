@@ -85,6 +85,7 @@ public class EventController {
                 log.debug("User with ID={} was added as attendee to event with ID={}", userId, eventId);
                 response.setStatusCode("success");
                 response.setMessage("Get ready.. Set.. GO!");
+                response.setUsers(eventRepo.findById(eventId).get().getAttendees());
             }
         }else{
             log.info("event with ID={} does not exist", eventId);

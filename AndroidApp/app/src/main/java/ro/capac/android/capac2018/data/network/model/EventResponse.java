@@ -175,6 +175,18 @@ public class EventResponse {
         @SerializedName("message")
         private String message;
 
+        @Expose
+        @SerializedName("user_list")
+        private List<UserResponse> attendees;
+
+        public List<UserResponse> getAttendees() {
+            return attendees;
+        }
+
+        public void setAttendees(List<UserResponse> attendees) {
+            this.attendees = attendees;
+        }
+
         public String getStatusCode() {
             return statusCode;
         }

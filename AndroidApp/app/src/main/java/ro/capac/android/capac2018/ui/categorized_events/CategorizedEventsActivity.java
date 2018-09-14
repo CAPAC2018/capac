@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.ramotion.foldingcell.FoldingCell;
@@ -21,6 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
+import ro.capac.android.capac2018.data.network.model.UserResponse;
 import ro.capac.android.capac2018.ui.base.BaseActivity;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 
@@ -58,7 +60,7 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
             @Override
             public void onClick(View view) {
                 EventResponse.Event event = adapter.getItem((Integer) view.getTag());
-                mPresenter.onAttendEventClick(event.getId());
+                mPresenter.onAttendEventClick(event.getId(),(Integer) view.getTag(),view);
             }
         });
         listView.setAdapter(adapter);
@@ -104,6 +106,15 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
         this.adapter.notifyDataSetChanged();
         //adapter = new EventsAdapter(this,events);
         this.listView.invalidate();
+    }
+
+    @Override
+    public void addAttendee(int cellPostion, List<UserResponse> attendees, View view){
+        adapter.getItem(cellPostion).setAttendees(attendees);
+        Button mButton = (Button) view;
+        mButton.setBackgroundColor(getResources().getColor(R.color.light_green));
+        mButton.setText("GOING");
+        this.adapter.notifyDataSetChanged();
     }
 
     @Override

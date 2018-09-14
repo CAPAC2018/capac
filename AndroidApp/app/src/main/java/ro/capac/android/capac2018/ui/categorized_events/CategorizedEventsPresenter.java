@@ -1,6 +1,7 @@
 package ro.capac.android.capac2018.ui.categorized_events;
 
 import android.annotation.SuppressLint;
+import android.view.View;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class CategorizedEventsPresenter<V extends CategorizedEventsMvpView> exte
     }
 
     @Override
-    public void onAttendEventClick(Long eventId) {
+    public void onAttendEventClick(Long eventId, final int cellPosition, final View view) {
         getMvpView().showLoading();
         EventRequest.AttendEventRequest request = new EventRequest.AttendEventRequest(eventId, getDataManager().getCurrentUserId());
         getDataManager().doAttendEventRequest(request).subscribeOn(getSchedulerProvider().io())
@@ -50,6 +51,8 @@ public class CategorizedEventsPresenter<V extends CategorizedEventsMvpView> exte
                     @Override
                     public void accept(EventResponse.AttendEventResponse response) {
                         getMvpView().showMessage(response.getMessage());
+                        if(response.getStatusCode().equals("success"))
+                            getMvpView().addAttendee(cellPosition,response.getAttendees(),view);
                         getMvpView().hideLoading();
                     }
                 });
