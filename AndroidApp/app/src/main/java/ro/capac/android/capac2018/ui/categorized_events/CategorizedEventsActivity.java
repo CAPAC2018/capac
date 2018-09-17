@@ -3,18 +3,27 @@ package ro.capac.android.capac2018.ui.categorized_events;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.OnItemClickListener;
+import com.orhanobut.dialogplus.ViewHolder;
 import com.ramotion.foldingcell.FoldingCell;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +74,29 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
                 mPresenter.onAttendEventClick(event.getId(),(Integer) view.getTag(),view);
             }
         });
+        adapter.setOrganizerClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserResponse owner = adapter.getItem((Integer) v.getTag()).getOwner();
+                View view = LayoutInflater.from(CategorizedEventsActivity.this).inflate(R.layout.dialog_owner,null,false);
+                TextView name = view.findViewById(R.id.owner_name_in_dialog);
+                name.setText(owner.getUserName());
+                DialogPlus dialog = DialogPlus.newDialog(CategorizedEventsActivity.this)
+                        .setContentHolder(new ViewHolder(view))
+                        .setGravity(Gravity.CENTER)
+                        .setCancelable(true)
+                        .setHeader(R.layout.dialog_owner_header)
+                        .setOnItemClickListener(new OnItemClickListener() {
+                            @Override
+                            public void onItemClick(DialogPlus dialog, Object item, View view, int position) {
+
+                            }
+                        })
+                        .setContentBackgroundResource(R.drawable.owner_dialog)
+                        .create();
+                dialog.show();
+            }
+        });
         adapter.setAttendeesClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +111,7 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
                         })
                         .setExpanded(true)  // This will enable the expand feature, (similar to android L share dialog)
                         .setCancelable(true)
-                        .setHeader(R.layout.user_dialog_header)
+                        .setHeader(R.layout.dialog_header_user_list)
                         .setContentBackgroundResource(R.drawable.bg_header)
                         .create();
                 dialog.show();

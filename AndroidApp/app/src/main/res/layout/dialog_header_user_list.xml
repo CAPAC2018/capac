@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+    <TextView
+        android:id="@+id/title11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ATTENDEES LIST"
+        android:gravity="center_horizontal"
+        android:textSize="25sp"
+        android:layout_marginBottom="10dp"
+        style="@style/TextAppearance.Text.Bold"
+        android:layout_centerHorizontal="true" />
+    <View
+        android:layout_below="@id/title11"
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        android:background="@color/light_gray"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        />
+</RelativeLayout>

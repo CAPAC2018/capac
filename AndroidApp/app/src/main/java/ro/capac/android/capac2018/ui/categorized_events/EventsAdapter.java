@@ -26,11 +26,11 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     private View.OnClickListener goingBtnClickListener;
     private View.OnClickListener attendeesClickListener;
+    private View.OnClickListener organizerClickListener;
 
     public EventsAdapter(Context context, List<EventResponse.Event> objects) {
         super(context, 0, objects);
     }
-
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -91,6 +91,7 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
             viewHolder.openSpots.setText(String.valueOf(event.getMaxAttendees() - event.getAttendees().size()));
         }
         if(event.getDescription().equals("null"))
+
             viewHolder.description.setText("The organizer hasn't provided any description for this event, just go and have some fun!");
         else
             viewHolder.description.setText(event.getDescription());
@@ -104,6 +105,8 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
         } else{
             viewHolder.reqStars.setText(String.valueOf("0"));
         }
+        viewHolder.organizer.setOnClickListener(organizerClickListener);
+        viewHolder.organizer.setTag(position);
         viewHolder.attendButton.setOnClickListener(goingBtnClickListener);
         viewHolder.attendButton.setTag(position);
         viewHolder.noOfAtendees.setOnClickListener(attendeesClickListener);
@@ -114,11 +117,17 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
     public View.OnClickListener getAttendeesClickListener() {
         return attendeesClickListener;
     }
-
     public void setAttendeesClickListener(View.OnClickListener attendeesClickListener) {
         this.attendeesClickListener = attendeesClickListener;
     }
 
+    public View.OnClickListener getOrganizerClickListener() {
+        return organizerClickListener;
+    }
+
+    public void setOrganizerClickListener(View.OnClickListener organizerClickListener) {
+        this.organizerClickListener = organizerClickListener;
+    }
     // simple methods for register cell state changes
     public void registerToggle(int position) {
         if (unfoldedIndexes.contains(position))

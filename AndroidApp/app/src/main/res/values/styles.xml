@@ -20,9 +20,9 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="colorPrimary">#3F7BFF</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorPrimary">#67b3ff</item>
-        <item name="android:textColor">#67b3ff</item>
+        <item name="colorAccent">#3F7BFF</item>
+        <item name="android:textColorPrimary">#3F7BFF</item>
+        <item name="android:textColor">#3F7BFF</item>
         <item name="android:windowBackground">@color/bg_color</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>
