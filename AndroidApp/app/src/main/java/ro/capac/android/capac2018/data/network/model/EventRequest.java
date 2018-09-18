@@ -152,4 +152,17 @@ public class EventRequest {
             this.userId = userId;
         }
     }
+
+    public static class MyEventsRequest{
+        @Expose
+        @SerializedName("user_id") Long userId;
+
+        public Long getUserId() {
+            return userId;
+        }
+
+        public void setUserId(Long userId) {
+            this.userId = userId;
+        }
+    }
 }

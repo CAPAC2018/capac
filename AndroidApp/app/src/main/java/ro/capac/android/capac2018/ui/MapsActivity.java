@@ -40,7 +40,12 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
     private static final LatLng SALA_SPORTURILOR = new LatLng(46.765971, 23.564350);
     private static final LatLng PARCUL_ROZELOR = new LatLng(46.764301, 23.553313);
     private static final LatLng PARCUL_CENTRAL = new LatLng(46.769640, 23.577815);
-    private static final LatLng BAZA_SPORTIVA_GHEORGHENI= new LatLng(46.769639, 23.634498);
+    private static final LatLng BAZA_SPORTIVA_GHEORGHENI = new LatLng(46.769639, 23.634498);
+    private static final LatLng PARK_IULIUS_MALL = new LatLng(46.773015, 23.624950);
+    private static final LatLng CENTRUL_VECHI = new LatLng(46.770882, 23.589807);
+    private static final LatLng PARCUL_PRIMAVERII = new LatLng(46.757680, 23.556856);
+    private static final LatLng WORLDCLASS = new LatLng(46.774299, 23.582210);
+    private static final LatLng CLUJ_ARENA = new LatLng(46.768745, 23.571997);
 
     public static LatLng desiredLocation;
     public static String desiredLocationName;
@@ -52,6 +57,11 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
     private Marker mRozelor;
     private Marker mCentral;
     private Marker mGheorgheni;
+    private Marker mIuliusPark;
+    private Marker mCentrulVechi;
+    private Marker mParculPrimaverii;
+    private Marker mWorldClass;
+    private Marker mClujArena;
 
     private Button mBtn;
     private boolean animated = false;
@@ -139,14 +149,19 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMyLoca
         // Show the current location in Google Map
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         // Zoom in the Google Map
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(200));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(2000));
         mUnirea = mMap.addMarker(new MarkerOptions().position(BAZA_SPORTIVA_UNIREA).title("Baza Sportivă Unirea"));
         mBazinGrigorescu = mMap.addMarker(new MarkerOptions().position(BAZINUL_OLIMPIC_GRIGORESCU).title("Bazin Olimpic Grigorescu"));
         mBabes = mMap.addMarker(new MarkerOptions().position(PARCUL_BABES).title("Parcul Sportiv I.Haţieganu"));
         mSalaSporturilor = mMap.addMarker(new MarkerOptions().position(SALA_SPORTURILOR).title("Sala Sporturilor Horia Demian"));
         mRozelor = mMap.addMarker(new MarkerOptions().position(PARCUL_ROZELOR).title("Skatepark Parcul Rozelor"));
-        mCentral = mMap.addMarker(new MarkerOptions().position(PARCUL_CENTRAL).title("Park Parcul Central Simion Bărnuţiu"));
+        mCentral = mMap.addMarker(new MarkerOptions().position(PARCUL_CENTRAL).title("Parcul Central Simion Bărnuţiu"));
         mGheorgheni = mMap.addMarker(new MarkerOptions().position(BAZA_SPORTIVA_GHEORGHENI).title("Centrul Sportiv Gheorgheni"));
+        mIuliusPark = mMap.addMarker(new MarkerOptions().position(PARK_IULIUS_MALL).title("Park Iulius Mall"));
+        mCentrulVechi = mMap.addMarker(new MarkerOptions().position(CENTRUL_VECHI).title("Centrul Vechi"));
+        mParculPrimaverii = mMap.addMarker(new MarkerOptions().position(PARCUL_PRIMAVERII).title("Parcul Primaverii"));
+        mWorldClass = mMap.addMarker(new MarkerOptions().position(WORLDCLASS).title("WorldClass"));
+        mClujArena = mMap.addMarker(new MarkerOptions().position(CLUJ_ARENA).title("Cluj Arena"));
         // Set a listener for marker click.
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override

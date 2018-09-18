@@ -89,12 +89,12 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Override
-    public Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request) {
+    public Single<EventResponse.EventsList> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request) {
         return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_CATEGORY_REQUEST)
                 .addHeaders(mApiHeader.getPublicApiHeader())
                 .addBodyParameter(request)
                 .build()
-                .getObjectSingle(EventResponse.CategorizedEvents.class);
+                .getObjectSingle(EventResponse.EventsList.class);
     }
 
     @Override
@@ -121,6 +121,15 @@ public class AppApiHelper implements ApiHelper {
                 .addBodyParameter(request)
                 .build()
                 .getObjectSingle(EventResponse.AttendEventResponse.class);
+    }
+
+    @Override
+    public Single<EventResponse.EventsList> doGetMyEvents(EventRequest.MyEventsRequest request) {
+        return Rx2AndroidNetworking.post(ApiEndPoint.ENDPOINT_MY_EVENTS_REQUEST)
+                .addHeaders(mApiHeader.getPublicApiHeader())
+                .addBodyParameter(request)
+                .build()
+                .getObjectSingle(EventResponse.EventsList.class);
     }
 }
 

@@ -1,14 +1,14 @@
-package ro.capac.android.capac2018.ui.categorized_events;
+package ro.capac.android.capac2018.ui.news;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -25,46 +25,48 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import ro.capac.android.capac2018.R;
 import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.data.network.model.UserResponse;
+import ro.capac.android.capac2018.di.component.ActivityComponent;
 import ro.capac.android.capac2018.ui.adapters.EventsAdapter;
 import ro.capac.android.capac2018.ui.adapters.UserListAdapter;
-import ro.capac.android.capac2018.ui.base.BaseActivity;
+import ro.capac.android.capac2018.ui.base.BaseFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 
-public class CategorizedEventsActivity extends BaseActivity implements CategorizedEventsMvpView {
-
+/**
+ * Created by Paul on 18-Sep-18 at 17:26.
+ */
+public class NewsFragment extends BaseFragment implements NewsMvpView {
+    public static final String TAG = "NewsFragment";
     EventsAdapter adapter;
     List<EventResponse.Event> events = new ArrayList<>();
     ListView listView;
     @Inject
-    CategorizedEventsMvpPresenter<CategorizedEventsMvpView> mPresenter;
-
-    public static Intent getStartIntent(Context context) {
-        return new Intent(context, CategorizedEventsActivity.class);
+    NewsMvpPresenter<NewsMvpView> mPresenter;
+    public static NewsFragment newInstance() {
+        Bundle args = new Bundle();
+        NewsFragment fragment = new NewsFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
-    String mCategory;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.chat_layout, container, false);
 
-        setContentView(R.layout.activity_categorizedevents);
-
-        getActivityComponent().inject(this);
-
-        setUnBinder(ButterKnife.bind(this));
-
-        mPresenter.onAttach(this);
-        mCategory = getIntent().getExtras().getString("category");
-        listView = findViewById(R.id.categorizedevents_listview);
-
-        // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
-        adapter.setButtonBg(false);
-        adapter = new EventsAdapter(this, events);
-        mPresenter.showEventsList(mCategory);
+        ActivityComponent component = getActivityComponent();
+        if (component != null) {
+            component.inject(NewsFragment.this);
+            setUnBinder(ButterKnife.bind(this, view));
+            mPresenter.onAttach(this);
+        }
+        listView = view.findViewById(R.id.categorizedevents_listview);
+// create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
+        adapter = new EventsAdapter(this.getContext(), events);
+        adapter.setButtonBg(true);
+        mPresenter.showMyEventsList();
         adapter.setGoingBtnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,10 +78,10 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
             @Override
             public void onClick(View v) {
                 UserResponse owner = adapter.getItem((Integer) v.getTag()).getOwner();
-                View view = LayoutInflater.from(CategorizedEventsActivity.this).inflate(R.layout.dialog_owner,null,false);
+                View view = LayoutInflater.from(NewsFragment.this.getContext()).inflate(R.layout.dialog_owner,null,false);
                 TextView name = view.findViewById(R.id.owner_name_in_dialog);
                 name.setText(owner.getUserName());
-                DialogPlus dialog = DialogPlus.newDialog(CategorizedEventsActivity.this)
+                DialogPlus dialog = DialogPlus.newDialog(NewsFragment.this.getContext())
                         .setContentHolder(new ViewHolder(view))
                         .setGravity(Gravity.CENTER)
                         .setCancelable(true)
@@ -99,8 +101,8 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
             @Override
             public void onClick(View view) {
                 List<UserResponse> users = adapter.getItem((Integer) view.getTag()).getAttendees();
-                UserListAdapter userListAdapter = new UserListAdapter(CategorizedEventsActivity.this,users);
-                DialogPlus dialog = DialogPlus.newDialog(CategorizedEventsActivity.this)
+                UserListAdapter userListAdapter = new UserListAdapter(NewsFragment.this.getContext(),users);
+                DialogPlus dialog = DialogPlus.newDialog(NewsFragment.this.getContext())
                         .setAdapter(userListAdapter)
                         .setOnItemClickListener(new OnItemClickListener() {
                             @Override
@@ -144,11 +146,22 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
                 h.postDelayed(r, 1900);
             }
         });
+        return view;
+    }
+
+    @Override
+    protected void setUp(View view) {
+
     }
     @Override
-    @OnClick(R.id.create_event_btn)
+    public void onDestroyView() {
+        mPresenter.onDetach();
+        super.onDestroyView();
+    }
+
+    @Override
     public void openCreateEventActivity() {
-        startActivity(CreateEventActivity.getStartIntent(CategorizedEventsActivity.this));
+        startActivity(CreateEventActivity.getStartIntent(NewsFragment.this.getContext()));
     }
 
     @Override
@@ -161,8 +174,8 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
     }
 
     @Override
-    public void addAttendee(int cellPostion, List<UserResponse> attendees, View view){
-        adapter.getItem(cellPostion).setAttendees(attendees);
+    public void addAttendee(int cellPosition, List<UserResponse> attendees, View view) {
+        adapter.getItem(cellPosition).setAttendees(attendees);
         Button mButton = (Button) view;
         mButton.setBackground(getResources().getDrawable(R.drawable.bg_going_btn));
         mButton.setText("GOING");
@@ -172,15 +185,9 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
     }
 
     @Override
-    public void alreadyGoing(View view){
+    public void alreadyGoing(View view) {
         Button mButton = (Button) view;
         mButton.setBackground(getResources().getDrawable(R.drawable.bg_going_btn));
         mButton.setText("GOING");
     }
-
-    @Override
-    protected void setUp() {
-
-    }
-
 }

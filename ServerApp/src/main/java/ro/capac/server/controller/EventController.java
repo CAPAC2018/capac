@@ -58,10 +58,10 @@ public class EventController {
     }
 
     @RequestMapping("/findEventsByCategory")
-    public EventResponse.CategorizedEventsResponse findEventsByCategory(
+    public EventResponse.EventsListResponse findEventsByCategory(
             @RequestParam("category") String category
     ){
-        EventResponse.CategorizedEventsResponse response = new EventResponse.CategorizedEventsResponse();
+        EventResponse.EventsListResponse response = new EventResponse.EventsListResponse();
         response.setEvents(eventRepo.findEventsByCategoryIgnoreCase(category,null));
         return response;
     }
@@ -95,6 +95,24 @@ public class EventController {
             response.setMessage("Sorry, this event is no longer available, the owner probably erased it :(");
             response.setStatusCode("error");
         }
+        return response;
+    }
+
+    @RequestMapping("/getMyEvents")
+    public EventResponse.EventsListResponse getMyResponse(
+            @RequestParam("user_id") Long userId;
+    ){
+        EventResponse.EventsListResponse response = new EventResponse.EventsListResponse();
+        List myEvents = new ArrayList();
+        User me = userRepository.findById(userId).get();
+        Iterable<Event> events = eventRepo.findAll();
+        for (Event e:events
+             ) {
+            if(e.getAttendees().contains(me)){
+                myEvents.add(e);
+            }
+        }
+        response.setEvents(myEvents);
         return response;
     }
 }

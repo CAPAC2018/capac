@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import javax.inject.Inject;
 
@@ -20,7 +21,7 @@ import ro.capac.android.capac2018.ui.top.TopActivity;
 
 public class MyProfileFragment extends BaseFragment implements MyProfileMvpView{
     public static final String TAG = "MyProfileFragment";
-
+    TextView myName;
     @Inject
     MyProfileMvpPresenter<MyProfileMvpView> mPresenter;
 
@@ -43,6 +44,8 @@ public class MyProfileFragment extends BaseFragment implements MyProfileMvpView{
             setUnBinder(ButterKnife.bind(this, view));
             mPresenter.onAttach(this);
         }
+        myName = view.findViewById(R.id.user_first_and_last_name);
+        myName.setText(mPresenter.getName());
         return view;
     }
 

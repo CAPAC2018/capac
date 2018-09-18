@@ -48,6 +48,9 @@ import ro.capac.android.capac2018.ui.main.MainPresenter;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogMvpPresenter;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogMvpView;
 import ro.capac.android.capac2018.ui.main.rating.RatingDialogPresenter;
+import ro.capac.android.capac2018.ui.news.NewsMvpPresenter;
+import ro.capac.android.capac2018.ui.news.NewsMvpView;
+import ro.capac.android.capac2018.ui.news.NewsPresenter;
 import ro.capac.android.capac2018.ui.profile.MyProfileMvpPresenter;
 import ro.capac.android.capac2018.ui.profile.MyProfileMvpView;
 import ro.capac.android.capac2018.ui.profile.MyProfilePresenter;
@@ -166,6 +169,12 @@ public class ActivityModule {
     @Provides
     ChatMvpPresenter<ChatMvpView> provideChatPresenter(
             ChatPresenter<ChatMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    NewsMvpPresenter<NewsMvpView> provideNewsPresenter(
+            NewsPresenter<NewsMvpView> presenter){
         return presenter;
     }
 

@@ -37,11 +37,13 @@ public interface ApiHelper {
 
     Single<EventResponse.CreateEventResponse> doCreateEventApiCall(EventRequest.CreateEventRequest request);
 
-    Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request);
+    Single<EventResponse.EventsList> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request);
 
     Single<AuthenticationResponse.LogoutResponse> doLogoutApiCall();
 
     Single<AuthenticationResponse.RegistrationResponse> doServerUserRegistration(AuthenticationRequest.RegistrationRequest.ServerRegistrationRequest request);
 
     Single<EventResponse.AttendEventResponse> doAttendEventRequest(EventRequest.AttendEventRequest request);
+
+    Single<EventResponse.EventsList> doGetMyEvents(EventRequest.MyEventsRequest request);
 }

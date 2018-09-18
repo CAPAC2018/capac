@@ -1,6 +1,5 @@
-package ro.capac.android.capac2018.ui.categorized_events;
+package ro.capac.android.capac2018.ui.news;
 
-import android.annotation.SuppressLint;
 import android.view.View;
 
 import java.util.List;
@@ -15,21 +14,20 @@ import ro.capac.android.capac2018.data.network.model.EventResponse;
 import ro.capac.android.capac2018.ui.base.BasePresenter;
 import ro.capac.android.capac2018.utils.rx.SchedulerProvider;
 
-@SuppressLint("CheckResult")
-public class CategorizedEventsPresenter<V extends CategorizedEventsMvpView> extends BasePresenter<V>
-        implements CategorizedEventsMvpPresenter<V> {
-
-    private static final String TAG = "CategorizedEventsPresenter";
-
+/**
+ * Created by Paul on 18-Sep-18 at 17:27.
+ */
+public class NewsPresenter<V extends NewsMvpView> extends BasePresenter<V>
+        implements NewsMvpPresenter<V> {
     @Inject
-    public CategorizedEventsPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
+    public NewsPresenter(DataManager dataManager, SchedulerProvider schedulerProvider, CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
-
-    public void showEventsList(String category) {
+    public void showMyEventsList() {
         getMvpView().showLoading();
-        EventRequest.GetEventsByCategoryRequest request = new EventRequest.GetEventsByCategoryRequest(category);
-        getDataManager().doRequestEventsByCategory(request).subscribeOn(getSchedulerProvider().io())
+        EventRequest.MyEventsRequest request = new EventRequest.MyEventsRequest();
+        request.setUserId(getDataManager().getCurrentUserId());
+        getDataManager().doGetMyEvents(request).subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(new Consumer<EventResponse.EventsList>() {
                     @Override
@@ -59,5 +57,4 @@ public class CategorizedEventsPresenter<V extends CategorizedEventsMvpView> exte
                     }
                 });
     }
-
 }

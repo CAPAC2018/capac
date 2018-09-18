@@ -1,4 +1,4 @@
-package ro.capac.android.capac2018.ui.categorized_events;
+package ro.capac.android.capac2018.ui.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

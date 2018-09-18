@@ -1,4 +1,4 @@
-package ro.capac.android.capac2018.ui.categorized_events;
+package ro.capac.android.capac2018.ui.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -27,6 +27,7 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
     private View.OnClickListener goingBtnClickListener;
     private View.OnClickListener attendeesClickListener;
     private View.OnClickListener organizerClickListener;
+    private boolean bg = false;
 
     public EventsAdapter(Context context, List<EventResponse.Event> objects) {
         super(context, 0, objects);
@@ -111,6 +112,8 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
         viewHolder.attendButton.setTag(position);
         viewHolder.noOfAtendees.setOnClickListener(attendeesClickListener);
         viewHolder.noOfAtendees.setTag(position);
+        if(bg)
+            viewHolder.attendButton.setBackground(getContext().getDrawable(R.drawable.bg_going_btn));
         return cell;
     }
 
@@ -134,6 +137,10 @@ public class EventsAdapter extends ArrayAdapter<EventResponse.Event> {
             registerFold(position);
         else
             registerUnfold(position);
+    }
+
+    public void setButtonBg(boolean bg){
+        this.bg = bg;
     }
 
     private void registerFold(int position) {

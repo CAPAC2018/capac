@@ -53,4 +53,8 @@ public class MyProfilePresenter<V extends MyProfileMvpView> extends BasePresente
                 }));
 
     }
+    @Override
+    public String getName(){
+        return getDataManager().getCurrentUserName();
+    }
 }

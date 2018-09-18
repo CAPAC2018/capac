@@ -42,6 +42,7 @@ import ro.capac.android.capac2018.ui.chat.ChatFragment;
 import ro.capac.android.capac2018.ui.create_event.CreateEventActivity;
 import ro.capac.android.capac2018.ui.events.EventsFragment;
 import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
+import ro.capac.android.capac2018.ui.news.NewsFragment;
 import ro.capac.android.capac2018.ui.profile.MyProfileFragment;
 import ro.capac.android.capac2018.ui.top.TopActivity;
 
@@ -55,7 +56,6 @@ public class MainActivity extends BaseActivity implements MainMvpView {
     TextView mToolbar;
 
     private String currentFragmentTAG;
-    LinearLayout expandedToolbar;
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, MainActivity.class);
@@ -90,8 +90,8 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                         }
                         return true;
                     case R.id.navigation_news:
-                        if(!currentFragmentTAG.equals(ChatFragment.TAG)) {
-                            mToolbar.setText("Chat");
+                        if(!currentFragmentTAG.equals(NewsFragment.TAG)) {
+                            mToolbar.setText("News");
                             showChatFragment();
                             currentFragmentTAG = ChatFragment.TAG;
                         }
@@ -121,19 +121,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .commit();
         currentFragmentTAG = EventsFragment.TAG;
     }
-/*
-    @OnClick(R.id.expand_toolbar)
-    public void expandToolbar(){
-        if(expandedToolbar.getVisibility()== View.VISIBLE) {
-            expandedToolbar.setVisibility(View.GONE);
-            findViewById(R.id.expand_toolbar).setActivated(false);
-        }
-        else {
-            expandedToolbar.setVisibility(View.VISIBLE);
-            findViewById(R.id.expand_toolbar).setActivated(true);
-        }
-    }
-*/
+
     @Override
     public void showEventsFragment() {
         getSupportFragmentManager()
@@ -158,7 +146,7 @@ public class MainActivity extends BaseActivity implements MainMvpView {
                 .beginTransaction()
                 .disallowAddToBackStack()
                 .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
-                .replace(R.id.frame, ChatFragment.newInstance(), ChatFragment.TAG)
+                .replace(R.id.frame, NewsFragment.newInstance(), NewsFragment.TAG)
                 .commit();
     }
     @Override
@@ -218,46 +206,15 @@ public class MainActivity extends BaseActivity implements MainMvpView {
         if (drawable instanceof Animatable) {
             ((Animatable) drawable).start();
         }
-
-      /*  switch (item.getItemId()) {
-            case R.id.action_user_profile:{
-                Intent intent = MyProfileActivity.getStartIntent(this);
-                startActivity(intent);
-                finish();
-                return true;
-            }
-            case R.id.action_copy:
-                return true;
-            case R.id.action_share:
-                return true;
-            case R.id.action_delete:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }*/
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void openTopActivity() {
         startActivity(TopActivity.getStartIntent(this));
         finish();
     }
-    /*
-    @OnClick(R.id.temporary_logout_button)
-    public void logOut(){
-        mPresenter.onLogOutClick();
-    }
-    @OnClick(R.id.btn_event_join)
-    public void openJoinEventActivity() {
-        startActivity(JoinEventActivity.getStartIntent(this));
-    }
-    @OnClick(R.id.btn_event_create)
-    public void openCreateEventActivity() {
-        startActivity(CreateEventActivity.getStartIntent(this));
-    }
-*/
+
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 

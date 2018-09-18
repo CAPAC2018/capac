@@ -27,6 +27,7 @@ import ro.capac.android.capac2018.ui.join_event.JoinEventActivity;
 import ro.capac.android.capac2018.ui.login.LoginActivity;
 import ro.capac.android.capac2018.ui.main.MainActivity;
 import ro.capac.android.capac2018.ui.main.rating.RateUsDialog;
+import ro.capac.android.capac2018.ui.news.NewsFragment;
 import ro.capac.android.capac2018.ui.profile.MyProfileFragment;
 import ro.capac.android.capac2018.ui.registration.RegistrationActivity;
 import ro.capac.android.capac2018.ui.settings.SettingsFragment;
@@ -69,4 +70,5 @@ public interface ActivityComponent {
 
     void inject(ChatFragment fragment);
 
+    void inject(NewsFragment fragment);
 }

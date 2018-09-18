@@ -94,7 +94,7 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<EventResponse.CategorizedEvents> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request) {
+    public Single<EventResponse.EventsList> doRequestEventsByCategory(EventRequest.GetEventsByCategoryRequest request) {
         return mApiHelper.doRequestEventsByCategory(request);
     }
 
@@ -114,6 +114,12 @@ public class AppDataManager implements DataManager {
     public Single<EventResponse.AttendEventResponse> doAttendEventRequest(EventRequest.AttendEventRequest request) {
         return mApiHelper.doAttendEventRequest(request);
     }
+
+    @Override
+    public Single<EventResponse.EventsList> doGetMyEvents(EventRequest.MyEventsRequest request) {
+        return mApiHelper.doGetMyEvents(request);
+    }
+
 
     @Override
     public int getCurrentUserLoggedInMode() {

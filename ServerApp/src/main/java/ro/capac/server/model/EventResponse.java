@@ -55,7 +55,7 @@ public class EventResponse {
         }
     }
 
-    public static class CategorizedEventsResponse {
+    public static class EventsListResponse {
         @JsonProperty("events")
         private List<Event> events;
 

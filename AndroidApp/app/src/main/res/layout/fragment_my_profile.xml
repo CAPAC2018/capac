@@ -20,13 +20,13 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
+                <ro.capac.android.capac2018.ui.custom.RoundedImageView
                     android:contentDescription="@string/description_keyword"
                     android:id="@+id/user_profile_picture"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_mindorks_logo"
+                    android:src="@drawable/paul"
                     android:background="@drawable/profile_picture_border"/>
                 <TextView
                     android:layout_below="@id/user_profile_picture"

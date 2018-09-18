@@ -153,7 +153,7 @@ public class EventResponse {
         }
     }
 
-    public static class CategorizedEvents{
+    public static class EventsList {
         @Expose
         @SerializedName("events") private  List<Event> events;
 
