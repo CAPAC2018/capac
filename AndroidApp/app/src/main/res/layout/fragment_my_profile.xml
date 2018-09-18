@@ -25,6 +25,7 @@
                     android:id="@+id/user_profile_picture"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_margin="10dp"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/paul"
                     android:background="@drawable/profile_picture_border"/>

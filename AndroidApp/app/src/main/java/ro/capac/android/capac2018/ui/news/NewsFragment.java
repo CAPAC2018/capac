@@ -54,7 +54,7 @@ public class NewsFragment extends BaseFragment implements NewsMvpView {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.chat_layout, container, false);
+        View view = inflater.inflate(R.layout.activity_categorizedevents, container, false);
 
         ActivityComponent component = getActivityComponent();
         if (component != null) {

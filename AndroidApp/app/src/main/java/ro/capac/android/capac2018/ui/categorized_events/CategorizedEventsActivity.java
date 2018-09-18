@@ -62,8 +62,8 @@ public class CategorizedEventsActivity extends BaseActivity implements Categoriz
         listView = findViewById(R.id.categorizedevents_listview);
 
         // create custom adapter that holds elements and their state (we need hold a id's of unfolded elements for reusable elements)
-        adapter.setButtonBg(false);
         adapter = new EventsAdapter(this, events);
+        adapter.setButtonBg(false);
         mPresenter.showEventsList(mCategory);
         adapter.setGoingBtnClickListener(new View.OnClickListener() {
             @Override
