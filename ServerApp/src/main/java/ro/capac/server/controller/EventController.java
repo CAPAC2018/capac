@@ -100,7 +100,7 @@ public class EventController {
 
     @RequestMapping("/getMyEvents")
     public EventResponse.EventsListResponse getMyResponse(
-            @RequestParam("user_id") Long userId;
+            @RequestParam("user_id") Long userId
     ){
         EventResponse.EventsListResponse response = new EventResponse.EventsListResponse();
         List myEvents = new ArrayList();
