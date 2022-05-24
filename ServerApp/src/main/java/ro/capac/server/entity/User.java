@@ -102,7 +102,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phone='" + phone +
                 '}';
     }
 }
